@@ -1,0 +1,362 @@
+- generic [ref=e1]:
+  - generic [ref=e732]:
+    - banner [ref=e733]:
+      - navigation [ref=e735]:
+        - generic [ref=e736]:
+          - link "logo" [ref=e737] [cursor=pointer]:
+            - /url: /workspaces/948689/home
+            - img "Clay Logo" [ref=e739]
+          - generic [ref=e741]:
+            - button "All Files" [ref=e742] [cursor=pointer]:
+              - img [ref=e743]
+              - paragraph [ref=e746]: All Files
+              - img [ref=e747]
+            - generic [ref=e749]: /
+            - link "landing-page-prospects" [ref=e751] [cursor=pointer]:
+              - /url: /workspaces/948689/workbooks/wb_0tfnfkpYhkdj6nkTWEW/all-tables
+              - img [ref=e752]
+              - paragraph [ref=e755]: landing-page-prospects
+            - generic [ref=e756]: /
+            - button "landing-page-prospects" [ref=e758] [cursor=pointer]:
+              - img [ref=e759]
+              - paragraph [ref=e762]: landing-page-prospects
+              - img [ref=e763]
+        - generic [ref=e765]:
+          - button "Billing menu" [ref=e767] [cursor=pointer]:
+            - img [ref=e768]
+          - button [ref=e790] [cursor=pointer]:
+            - img [ref=e791]
+        - button "SB Souvik Bera Souvik's Workspace" [ref=e795] [cursor=pointer]:
+          - generic [ref=e797]: SB
+          - generic [ref=e798]:
+            - paragraph [ref=e799]: Souvik Bera
+            - paragraph [ref=e800]: Souvik's Workspace
+    - main [ref=e801]:
+      - generic [ref=e806]:
+        - generic [ref=e810]:
+          - generic [ref=e811]:
+            - generic [ref=e812]:
+              - generic [ref=e813]:
+                - button "Auto-run" [ref=e816] [cursor=pointer]:
+                  - img [ref=e817]
+                  - paragraph [ref=e819]: Auto-run
+                - button [ref=e820] [cursor=pointer]:
+                  - img [ref=e821]
+                - button "8/10" [ref=e823] [cursor=pointer]:
+                  - img [ref=e824]
+                  - generic [ref=e826]: 8/10
+                - button "5/5" [ref=e827] [cursor=pointer]:
+                  - img [ref=e828]
+                  - generic [ref=e830]: 5/5
+                - button [ref=e831] [cursor=pointer]:
+                  - img [ref=e832]
+                - button [ref=e834] [cursor=pointer]:
+                  - img [ref=e836]
+                - button [ref=e840] [cursor=pointer]:
+                  - img [ref=e841]
+              - button "Sculptor Sculptor" [ref=e844] [cursor=pointer]:
+                - img "Sculptor" [ref=e845]
+                - text: Sculptor
+            - generic [ref=e849]:
+              - generic [ref=e850]:
+                - generic [ref=e851]:
+                  - generic [ref=e852]:
+                    - generic [ref=e854]:
+                      - checkbox [ref=e855] [cursor=pointer]:
+                        - img [ref=e857]
+                      - checkbox [ref=e858]
+                    - generic [ref=e860]:
+                      - button "first_name" [ref=e861] [cursor=pointer]:
+                        - menuitem "first_name" [ref=e865]:
+                          - generic [ref=e867]:
+                            - img [ref=e868]
+                            - paragraph [ref=e872]: first_name
+                      - button "last_name" [ref=e875] [cursor=pointer]:
+                        - menuitem "last_name" [ref=e879]:
+                          - generic [ref=e881]:
+                            - img [ref=e882]
+                            - paragraph [ref=e886]: last_name
+                      - button "email" [ref=e889] [cursor=pointer]:
+                        - menuitem "email" [ref=e893]:
+                          - generic [ref=e895]:
+                            - img [ref=e896]
+                            - paragraph [ref=e900]: email
+                      - button "title" [ref=e903] [cursor=pointer]:
+                        - menuitem "title" [ref=e907]:
+                          - generic [ref=e909]:
+                            - img [ref=e910]
+                            - paragraph [ref=e914]: title
+                      - button "company" [ref=e917] [cursor=pointer]:
+                        - menuitem "company" [ref=e921]:
+                          - generic [ref=e923]:
+                            - img [ref=e924]
+                            - paragraph [ref=e928]: company
+                      - button "company_website" [ref=e931] [cursor=pointer]:
+                        - menuitem "company_website" [ref=e935]:
+                          - generic [ref=e937]:
+                            - img [ref=e938]
+                            - paragraph [ref=e942]: company_website
+                      - button "linkedin_url" [ref=e945] [cursor=pointer]:
+                        - menuitem "linkedin_url" [ref=e949]:
+                          - generic [ref=e951]:
+                            - img [ref=e952]
+                            - paragraph [ref=e956]: linkedin_url
+                      - button "landing_page_url" [ref=e959] [cursor=pointer]:
+                        - menuitem "landing_page_url" [ref=e963]:
+                          - generic [ref=e965]:
+                            - img [ref=e966]
+                            - paragraph [ref=e970]: landing_page_url
+                    - status [ref=e973]
+                    - button "Add column" [ref=e975] [cursor=pointer]:
+                      - img [ref=e976]
+                      - generic [ref=e978]: Add column
+                      - img [ref=e979]
+                  - generic [ref=e981]:
+                    - paragraph [ref=e983]: "%"
+                    - generic [ref=e984]:
+                      - img [ref=e987]
+                      - img [ref=e991]
+                      - img [ref=e995]
+                      - img [ref=e999]
+                      - img [ref=e1003]
+                      - img [ref=e1007]
+                      - img [ref=e1011]
+                      - img [ref=e1015]
+                - generic [ref=e1020]:
+                  - generic [ref=e1021]:
+                    - generic [ref=e1025]:
+                      - paragraph [ref=e1027]: "1"
+                      - checkbox [ref=e1028]
+                    - generic [ref=e1029]:
+                      - paragraph [ref=e1037]: Sarah
+                      - paragraph [ref=e1045]: Mitchell
+                      - paragraph [ref=e1053]: sarah.mitchell@retool.com
+                      - paragraph [ref=e1061]: VP of Revenue Operations
+                      - paragraph [ref=e1069]: Retool
+                      - paragraph [ref=e1077]: https://retool.com
+                  - generic [ref=e1079]:
+                    - generic [ref=e1083]:
+                      - paragraph [ref=e1085]: "2"
+                      - checkbox [ref=e1086]
+                    - generic [ref=e1087]:
+                      - paragraph [ref=e1095]: Marcus
+                      - paragraph [ref=e1103]: Chen
+                      - paragraph [ref=e1111]: marcus.chen@linear.app
+                      - paragraph [ref=e1119]: Head of Growth
+                      - paragraph [ref=e1127]: Linear
+                      - paragraph [ref=e1135]: https://linear.app
+                  - generic [ref=e1137]:
+                    - generic [ref=e1141]:
+                      - paragraph [ref=e1143]: "3"
+                      - checkbox [ref=e1144]
+                    - generic [ref=e1145]:
+                      - paragraph [ref=e1153]: Emily
+                      - paragraph [ref=e1161]: Rodriguez
+                      - paragraph [ref=e1169]: emily.rodriguez@loom.com
+                      - paragraph [ref=e1177]: Director of Sales Development
+                      - paragraph [ref=e1185]: Loom
+                      - paragraph [ref=e1193]: https://www.loom.com
+                  - generic [ref=e1195]:
+                    - generic [ref=e1199]:
+                      - paragraph [ref=e1201]: "4"
+                      - checkbox [ref=e1202]
+                    - generic [ref=e1203]:
+                      - paragraph [ref=e1211]: James
+                      - paragraph [ref=e1219]: Okonkwo
+                      - paragraph [ref=e1227]: james.okonkwo@webflow.com
+                      - paragraph [ref=e1235]: GTM Engineer
+                      - paragraph [ref=e1243]: Webflow
+                      - paragraph [ref=e1251]: https://webflow.com
+                  - generic [ref=e1253]:
+                    - generic [ref=e1257]:
+                      - paragraph [ref=e1259]: "5"
+                      - checkbox [ref=e1260]
+                    - generic [ref=e1261]:
+                      - paragraph [ref=e1269]: Rachel
+                      - paragraph [ref=e1277]: Goldstein
+                      - paragraph [ref=e1285]: rachel.goldstein@airtable.com
+                      - paragraph [ref=e1293]: VP of Sales
+                      - paragraph [ref=e1301]: Airtable
+                      - paragraph [ref=e1309]: https://www.airtable.com
+              - generic [ref=e1314]:
+                - button "Add" [ref=e1315] [cursor=pointer]:
+                  - img [ref=e1316]
+                  - text: Add
+                - spinbutton [ref=e1323]: "10"
+                - paragraph [ref=e1324]: more rows at the bottom
+          - navigation [ref=e1327]:
+            - generic [ref=e1329]:
+              - generic [ref=e1330]:
+                - heading "Tools" [level=5] [ref=e1331]
+                - button "Close" [ref=e1332] [cursor=pointer]:
+                  - img [ref=e1333]
+              - generic [ref=e1335]:
+                - generic [ref=e1336]:
+                  - generic [ref=e1344]:
+                    - img [ref=e1345]
+                    - textbox "Search" [active] [ref=e1347]
+                  - tablist [ref=e1348]:
+                    - tab "Sources" [ref=e1349] [cursor=pointer]:
+                      - img [ref=e1350]
+                      - paragraph [ref=e1352]: Sources
+                    - tab "Enrichments" [selected] [ref=e1353] [cursor=pointer]:
+                      - img [ref=e1354]
+                      - paragraph [ref=e1357]: Enrichments
+                    - tab "Signals" [ref=e1358] [cursor=pointer]:
+                      - img [ref=e1359]
+                      - paragraph [ref=e1361]: Signals
+                    - tab "Exports" [ref=e1362] [cursor=pointer]:
+                      - img [ref=e1363]
+                      - paragraph [ref=e1365]: Exports
+                - button "Suggested" [ref=e1367] [cursor=pointer]:
+                  - paragraph [ref=e1368]: Suggested
+                  - img [ref=e1369]
+                - tabpanel "Enrichments" [ref=e1373]:
+                  - generic [ref=e1375]:
+                    - generic [ref=e1377]:
+                      - button "icon Use AI Artificial Intelligence / model" [ref=e1378] [cursor=pointer]:
+                        - generic [ref=e1379]:
+                          - img "icon" [ref=e1381]
+                          - generic [ref=e1382]:
+                            - paragraph [ref=e1384]: Use AI
+                            - paragraph [ref=e1387]: Artificial Intelligence
+                        - generic [ref=e1391]:
+                          - img [ref=e1392]
+                          - text: / model
+                      - button "icon Enrich person Companies, People, Jobs 1 / row" [ref=e1395] [cursor=pointer]:
+                        - generic [ref=e1396]:
+                          - img "icon" [ref=e1398]
+                          - generic [ref=e1399]:
+                            - paragraph [ref=e1401]: Enrich person
+                            - paragraph [ref=e1404]: Companies, People, Jobs
+                        - generic [ref=e1408]:
+                          - img [ref=e1409]
+                          - text: 1 / row
+                      - button "icon Enrich Company Add to favorites Companies, People, Jobs 1 / row" [ref=e1412] [cursor=pointer]:
+                        - generic [ref=e1413]:
+                          - img "icon" [ref=e1415]
+                          - generic [ref=e1416]:
+                            - generic [ref=e1417]:
+                              - paragraph [ref=e1418]: Enrich Company
+                              - button "Add to favorites" [ref=e1420]:
+                                - img [ref=e1421]
+                            - paragraph [ref=e1424]: Companies, People, Jobs
+                        - generic [ref=e1428]:
+                          - img [ref=e1429]
+                          - text: 1 / row
+                      - button "Work Email Find a person's work email. ~3 / row" [ref=e1432] [cursor=pointer]:
+                        - generic [ref=e1433]:
+                          - img [ref=e1435]
+                          - generic [ref=e1437]:
+                            - paragraph [ref=e1439]: Work Email
+                            - paragraph [ref=e1441]: Find a person's work email.
+                        - generic [ref=e1444]:
+                          - img [ref=e1445]
+                          - text: ~3 / row
+                      - button "Company Domain Need to find a domain address from a company name? The system automatically searches through multiple sources to ensure you get the information you need without any extra effort. icon +3 ~1 / row" [ref=e1448] [cursor=pointer]:
+                        - generic [ref=e1449]:
+                          - img [ref=e1451]
+                          - generic [ref=e1453]:
+                            - paragraph [ref=e1455]: Company Domain
+                            - paragraph [ref=e1457]: Need to find a domain address from a company name? The system automatically searches through multiple sources to ensure you get the information you need without any extra effort.
+                        - generic [ref=e1459]:
+                          - button "icon +3" [ref=e1460]:
+                            - img "icon" [ref=e1461]
+                            - text: "+3"
+                          - generic [ref=e1462]:
+                            - img [ref=e1463]
+                            - text: ~1 / row
+                      - button "Website Traffic (Monthly) Get the monthly website traffic for a domain. ~2.5 / row" [ref=e1466] [cursor=pointer]:
+                        - generic [ref=e1467]:
+                          - img [ref=e1469]
+                          - generic [ref=e1471]:
+                            - paragraph [ref=e1473]: Website Traffic (Monthly)
+                            - paragraph [ref=e1475]: Get the monthly website traffic for a domain.
+                        - generic [ref=e1478]:
+                          - img [ref=e1479]
+                          - text: ~2.5 / row
+                      - button "Company Latest Funding Need to know a company's latest funding details? The system automatically searches through multiple sources to ensure you get the most up-to-date information. icon +4 ~5.8 / row" [ref=e1482] [cursor=pointer]:
+                        - generic [ref=e1483]:
+                          - img [ref=e1485]
+                          - generic [ref=e1487]:
+                            - paragraph [ref=e1489]: Company Latest Funding
+                            - paragraph [ref=e1491]: Need to know a company's latest funding details? The system automatically searches through multiple sources to ensure you get the most up-to-date information.
+                        - generic [ref=e1493]:
+                          - button "icon +4" [ref=e1494]:
+                            - img "icon" [ref=e1495]
+                            - text: "+4"
+                          - generic [ref=e1496]:
+                            - img [ref=e1497]
+                            - text: ~5.8 / row
+                      - button "Website Techstack Need to know what technologies a website uses? This system automatically searches through multiple sources to find the tech stack details for you. icon +2 ~2.3 / row" [ref=e1500] [cursor=pointer]:
+                        - generic [ref=e1501]:
+                          - img [ref=e1503]
+                          - generic [ref=e1505]:
+                            - paragraph [ref=e1507]: Website Techstack
+                            - paragraph [ref=e1509]: Need to know what technologies a website uses? This system automatically searches through multiple sources to find the tech stack details for you.
+                        - generic [ref=e1511]:
+                          - button "icon +2" [ref=e1512]:
+                            - img "icon" [ref=e1513]
+                            - text: "+2"
+                          - generic [ref=e1514]:
+                            - img [ref=e1515]
+                            - text: ~2.3 / row
+                      - button "Company Revenue Find a company's revenue. ~6.4 / row" [ref=e1518] [cursor=pointer]:
+                        - generic [ref=e1519]:
+                          - img [ref=e1521]
+                          - generic [ref=e1523]:
+                            - paragraph [ref=e1525]: Company Revenue
+                            - paragraph [ref=e1527]: Find a company's revenue.
+                        - generic [ref=e1530]:
+                          - img [ref=e1531]
+                          - text: ~6.4 / row
+                      - button "Company Job Openings Looking for a company's job openings? This system automatically searches through multiple sources to find the latest listings for you. icon +3 ~2.5 / row" [ref=e1534] [cursor=pointer]:
+                        - generic [ref=e1535]:
+                          - img [ref=e1537]
+                          - generic [ref=e1539]:
+                            - paragraph [ref=e1541]: Company Job Openings
+                            - paragraph [ref=e1543]: Looking for a company's job openings? This system automatically searches through multiple sources to find the latest listings for you.
+                        - generic [ref=e1545]:
+                          - button "icon +3" [ref=e1546]:
+                            - img "icon" [ref=e1547]
+                            - text: "+3"
+                          - generic [ref=e1548]:
+                            - img [ref=e1549]
+                            - text: ~2.5 / row
+                    - button "Load More" [ref=e1553] [cursor=pointer]:
+                      - img [ref=e1554]
+                      - paragraph [ref=e1556]: Load More
+              - button "View all enrichments" [ref=e1558] [cursor=pointer]
+        - generic [ref=e1559]:
+          - generic [ref=e1560]:
+            - generic [ref=e1561]:
+              - generic [ref=e1562]:
+                - link "Overview" [ref=e1564] [cursor=pointer]:
+                  - /url: /workspaces/948689/workbooks/wb_0tfnfkpYhkdj6nkTWEW/all-tables
+                  - img [ref=e1565]
+                  - paragraph [ref=e1567]: Overview
+                - button "landing-page-prospects" [ref=e1570] [cursor=pointer]:
+                  - button "landing-page-prospects" [ref=e1571]:
+                    - generic [ref=e1572]:
+                      - generic [ref=e1573]:
+                        - img [ref=e1574]
+                        - paragraph [ref=e1576]: landing-page-prospects
+                      - img [ref=e1577]
+              - status [ref=e1579]
+            - button "Add" [ref=e1580] [cursor=pointer]:
+              - img [ref=e1581]
+              - text: Add
+          - generic [ref=e1584]:
+            - generic [ref=e1587]:
+              - img [ref=e1588]
+              - generic [ref=e1590]: Table up to date
+            - button "Stop" [disabled] [ref=e1592]:
+              - img [ref=e1593]
+              - text: Stop
+            - button "History" [ref=e1595] [cursor=pointer]:
+              - img [ref=e1596]
+              - text: History
+            - button "Table settings" [ref=e1598] [cursor=pointer]:
+              - img [ref=e1599]
+  - iframe [ref=e531]:
+    

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clay for Retool — Sarah, let's scale your GTM engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #1c1917;
+      --bg-warm: #211f1b;
+      --surface: #282420;
+      --surface-raised: #302c27;
+      --border: #3a3530;
+      --border-light: #4a443d;
+      --text: #f5f0eb;
+      --text-secondary: #a8a29e;
+      --text-muted: #6b6560;
+      --white: #ffffff;
+      --cream: #faf5f0;
+      --nav-bg: #faf9f7;
+      --nav-text: #1c1917;
+      --teal: #5eada4;
+      --teal-dim: #3d8a82;
+      --teal-dark: #2a6e67;
+      --coral: #d4907e;
+      --coral-dim: #a06b5c;
+      --peach: #e8b4a2;
+      --blue-muted: #7b9ebb;
+      --amber: #c9a84c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 0 2.5rem; height: 64px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--nav-bg);
+      border-bottom: 1px solid #e8e4e0;
+    }
+    .nav-logo { font-size: 1.3rem; font-weight: 700; color: var(--nav-text); letter-spacing: -0.03em; }
+    .nav-right { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-link { padding: 0.5rem 0.9rem; color: #57534e; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: var(--nav-text); }
+    .nav-cta-outline { padding: 0.5rem 1.2rem; color: var(--nav-text); font-size: 0.875rem; font-weight: 500; text-decoration: none; border: 1px solid #d6d3d1; border-radius: 8px; transition: background 0.2s; }
+    .nav-cta-outline:hover { background: #f0ece8; }
+    .nav-cta-fill { padding: 0.5rem 1.2rem; background: var(--nav-text); color: var(--white); font-size: 0.875rem; font-weight: 600; text-decoration: none; border-radius: 8px; transition: opacity 0.2s; }
+    .nav-cta-fill:hover { opacity: 0.85; }
+
+    /* ── Buttons ── */
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1.6rem; background: var(--cream); color: var(--bg); border: none; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.75rem 1.6rem; background: transparent; color: var(--cream); border: 1px solid var(--border-light); border-radius: 8px; font-weight: 500; font-size: 0.95rem; cursor: pointer; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: var(--text-muted); background: var(--surface); }
+    .btn-large { padding: 0.85rem 2rem; font-size: 1rem; }
+
+    /* ── Shared ── */
+    section { padding: 6rem 2.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-label { font-size: 0.8rem; font-weight: 600; color: var(--teal); margin-bottom: 1rem; letter-spacing: 0.02em; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 300; letter-spacing: -0.025em; line-height: 1.15; color: var(--cream); margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; line-height: 1.7; }
+    .arrow-link { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--cream); font-size: 0.9rem; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--text-muted); transition: text-decoration-color 0.2s; margin-top: 1rem; }
+    .arrow-link:hover { text-decoration-color: var(--cream); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 2.5rem 4rem;
+      max-width: 1300px; margin: 0 auto; gap: 3rem;
+    }
+    .hero-content { max-width: 640px; }
+    .hero-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 500; color: var(--teal); padding: 0.35rem 0.9rem; border: 1px solid var(--teal-dim); border-radius: 4px; margin-bottom: 2.5rem; }
+    .hero h1 { font-size: clamp(2.5rem, 4.8vw, 3.6rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.03em; color: var(--cream); margin-bottom: 1.5rem; }
+    .hero-sub { font-size: 1.15rem; color: var(--text-secondary); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; }
+    .hero-cta-group { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+
+    /* Hero visual — product mockup */
+    .hero-visual {
+      position: relative; width: 100%; max-width: 520px;
+      justify-self: center; border-radius: 16px; overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+    }
+    .mockup-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px; background: var(--surface-raised); border-bottom: 1px solid var(--border);
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-dot:nth-child(1) { background: #ef6b6b; }
+    .mockup-dot:nth-child(2) { background: #f5c542; }
+    .mockup-dot:nth-child(3) { background: #5eada4; }
+    .mockup-tab-bar { display: flex; margin-left: auto; gap: 2px; }
+    .mockup-tab { padding: 4px 12px; font-size: 0.7rem; color: var(--text-muted); border-radius: 4px; }
+    .mockup-tab.active { background: var(--surface); color: var(--cream); }
+    .mockup-body { padding: 0; }
+    .mockup-table { width: 100%; border-collapse: collapse; }
+    .mockup-table th { text-align: left; padding: 10px 14px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); background: var(--surface-raised); border-bottom: 1px solid var(--border); }
+    .mockup-table td { padding: 10px 14px; font-size: 0.75rem; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .mockup-table tr:hover td { background: rgba(94,173,164,0.04); }
+    .mockup-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; }
+    .badge-green { background: rgba(94,173,164,0.15); color: var(--teal); }
+    .badge-amber { background: rgba(201,168,76,0.15); color: var(--amber); }
+    .badge-coral { background: rgba(212,144,126,0.15); color: var(--coral); }
+    .mockup-enrichment { display: flex; gap: 3px; align-items: center; }
+    .enrichment-bar { height: 6px; border-radius: 3px; }
+
+    /* ── Logos strip ── */
+    .logos-strip {
+      padding: 3rem 2.5rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .logos-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .logos-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; white-space: nowrap; }
+    .logos-list { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .logo-item { font-size: 0.95rem; font-weight: 700; color: var(--text-muted); letter-spacing: -0.01em; transition: color 0.2s; }
+    .logo-item:hover { color: var(--text-secondary); }
+
+    /* ── Big statement section ── */
+    .statement-section {
+      padding: 8rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .statement-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(94,173,164,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(212,144,126,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .statement-title {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 300; letter-spacing: -0.03em;
+      color: var(--cream); line-height: 1.15;
+      max-width: 700px; margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    .statement-sub {
+      font-size: 1.1rem; color: var(--text-secondary);
+      max-width: 580px; margin: 0 auto;
+      line-height: 1.7; position: relative;
+    }
+
+    /* ── Workflow visual ── */
+    .workflow-visual {
+      max-width: 900px; margin: 3rem auto 0;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; position: relative;
+    }
+    .workflow-steps {
+      display: flex; border-bottom: 1px solid var(--border);
+    }
+    .workflow-step {
+      flex: 1; padding: 1rem 1.5rem;
+      text-align: center; font-size: 0.8rem; font-weight: 500;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border);
+      position: relative;
+      transition: color 0.2s;
+    }
+    .workflow-step:last-child { border-right: none; }
+    .workflow-step.active { color: var(--cream); background: var(--surface-raised); }
+    .workflow-step.active::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--teal);
+    }
+    .workflow-step .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 20px; height: 20px; border-radius: 50%; font-size: 0.65rem; font-weight: 700;
+      margin-right: 0.4rem; vertical-align: middle;
+    }
+    .workflow-step.active .step-num { background: var(--teal); color: var(--bg); }
+    .workflow-step:not(.active) .step-num { background: var(--border); color: var(--text-muted); }
+    .workflow-body {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px; background: var(--border);
+    }
+    .workflow-cell {
+      padding: 1.25rem; background: var(--surface);
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .workflow-cell .wf-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+    .workflow-cell .wf-value { font-size: 0.85rem; color: var(--cream); font-weight: 500; }
+    .workflow-cell .wf-sub { font-size: 0.75rem; color: var(--text-secondary); }
+    .wf-progress { height: 4px; border-radius: 2px; background: var(--border); overflow: hidden; }
+    .wf-progress-fill { height: 100%; border-radius: 2px; }
+
+    /* ── Pain ── */
+    .pain-section { background: var(--bg-warm); border-top: 1px solid var(--border); }
+    .pain-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; margin-top: 3rem;
+      background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+    }
+    .pain-card { padding: 2rem; background: var(--surface); position: relative; }
+    .pain-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; opacity: 0; transition: opacity 0.3s; }
+    .pain-card:nth-child(1)::before { background: var(--coral); }
+    .pain-card:nth-child(2)::before { background: var(--teal); }
+    .pain-card:nth-child(3)::before { background: var(--blue-muted); }
+    .pain-card:nth-child(4)::before { background: var(--peach); }
+    .pain-card:hover::before { opacity: 1; }
+    .pain-card h3 { font-size: 1rem; font-weight: 600; color: var(--cream); margin-bottom: 0.5rem; }
+    .pain-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ── Solution cards with illustrations ── */
+    .solution-section { border-top: 1px solid var(--border); }
+    .solution-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .solution-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; transition: border-color 0.3s;
+    }
+    .solution-card:hover { border-color: var(--border-light); }
+
+    .card-illustration {
+      height: 180px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-illustration::before {
+      content: ''; position: absolute; inset: 0;
+    }
+    .solution-card:nth-child(1) .card-illustration::before {
+      background: radial-gradient(circle at 50% 80%, rgba(94,173,164,0.2) 0%, var(--surface) 70%);
+    }
+    .solution-card:nth-child(2) .card-illustration::before {
+      background: radial-gradient(circle at 50% 80%, rgba(212,144,126,0.2) 0%, var(--surface) 70%);
+    }
+    .solution-card:nth-child(3) .card-illustration::before {
+      background: radial-gradient(circle at 50% 80%, rgba(123,158,187,0.2) 0%, var(--surface) 70%);
+    }
+
+    /* Geometric circle illustrations like Retool's Build/Launch/Scale */
+    .geo-circle {
+      width: 120px; height: 120px; border-radius: 50%;
+      position: relative; z-index: 1;
+      border: 1px solid var(--border-light);
+    }
+    .geo-circle-inner {
+      position: absolute; inset: 0; border-radius: 50%; overflow: hidden;
+      display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr);
+      gap: 3px; padding: 12px;
+    }
+    .geo-block { border-radius: 2px; }
+
+    .card-text { padding: 1.75rem; }
+    .card-text .card-label { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .solution-card:nth-child(1) .card-label { color: var(--teal); }
+    .solution-card:nth-child(2) .card-label { color: var(--coral); }
+    .solution-card:nth-child(3) .card-label { color: var(--blue-muted); }
+    .card-text h3 { font-size: 1.2rem; font-weight: 600; color: var(--cream); line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .card-text p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ── Use cases (alternating layout like Retool's team sections) ── */
+    .usecase-section { border-top: 1px solid var(--border); }
+    .usecase-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; margin-top: 3rem; align-items: center;
+    }
+    .usecase-grid.reverse .usecase-visual { order: -1; }
+    .usecase-visual {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      padding: 1.5rem; position: relative;
+    }
+    .usecase-visual::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+    }
+    .usecase-visual:nth-of-type(1)::after {
+      background: radial-gradient(ellipse at 80% 20%, rgba(94,173,164,0.08) 0%, transparent 60%);
+    }
+
+    /* Mini data table inside use-case */
+    .mini-table { width: 100%; border-collapse: collapse; }
+    .mini-table th { text-align: left; padding: 8px 10px; font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .mini-table td { padding: 8px 10px; font-size: 0.7rem; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .mini-table .highlight { color: var(--teal); font-weight: 600; }
+
+    .usecase-text h3 { font-size: 1.4rem; font-weight: 600; color: var(--cream); margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .usecase-text p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem; }
+    .usecase-text .usecase-label { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.75rem; }
+
+    /* ── Deep / consolidate ── */
+    .deep-section { border-top: 1px solid var(--border); background: var(--bg-warm); }
+    .deep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: center; }
+    .deep-text h3 { font-size: 1.6rem; font-weight: 300; color: var(--cream); letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.25; }
+    .deep-text p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
+    .deep-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .deep-stat { padding: 1.75rem; background: var(--surface); }
+    .deep-stat .num { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem; }
+    .deep-stat:nth-child(1) .num { color: var(--teal); }
+    .deep-stat:nth-child(2) .num { color: var(--coral); }
+    .deep-stat:nth-child(3) .num { color: var(--peach); }
+    .deep-stat:nth-child(4) .num { color: var(--blue-muted); }
+    .deep-stat .label { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ── Proof with stat cards ── */
+    .proof-section { border-top: 1px solid var(--border); }
+    .proof-logos { display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; margin: 2rem 0 3rem; }
+    .logo-item-proof { font-size: 0.95rem; font-weight: 700; color: var(--text-muted); }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
+    .proof-card {
+      padding: 2rem; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; position: relative; overflow: hidden;
+    }
+    .proof-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .proof-card:nth-child(1)::before { background: var(--teal); }
+    .proof-card:nth-child(2)::before { background: var(--coral); }
+    .proof-card:nth-child(3)::before { background: var(--blue-muted); }
+    .proof-card .proof-stat { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.25rem; }
+    .proof-card:nth-child(1) .proof-stat { color: var(--teal); }
+    .proof-card:nth-child(2) .proof-stat { color: var(--coral); }
+    .proof-card:nth-child(3) .proof-stat { color: var(--blue-muted); }
+    .proof-card .proof-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.25rem; }
+    .proof-card blockquote { font-size: 0.9rem; color: var(--cream); line-height: 1.6; font-style: italic; border-left: 2px solid var(--border-light); padding-left: 1rem; }
+    .proof-card cite { display: block; margin-top: 0.75rem; font-size: 0.8rem; color: var(--text-muted); font-style: normal; }
+
+    /* ── Two-column CTA (like Retool footer) ── */
+    .cta-section { border-top: 1px solid var(--border); padding: 0; }
+    .cta-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .cta-col {
+      padding: 5rem 3rem;
+      position: relative; overflow: hidden;
+    }
+    .cta-col:first-child { border-right: 1px solid var(--border); }
+    .cta-col::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+    }
+    .cta-col:first-child::before {
+      background: radial-gradient(ellipse at 20% 80%, rgba(94,173,164,0.08) 0%, transparent 60%);
+    }
+    .cta-col:last-child::before {
+      background: radial-gradient(ellipse at 80% 80%, rgba(212,144,126,0.08) 0%, transparent 60%);
+    }
+    .cta-col .cta-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
+    .cta-col:first-child .cta-label { color: var(--teal); }
+    .cta-col:last-child .cta-label { color: var(--coral); }
+    .cta-col h3 { font-size: 1.6rem; font-weight: 300; color: var(--cream); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 1rem; }
+    .cta-col p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem; }
+
+    /* ── Footer ── */
+    .footer-line { width: 100%; height: 2px; background: linear-gradient(90deg, var(--teal-dim), var(--coral), var(--peach), var(--blue-muted)); opacity: 0.3; }
+    footer {
+      padding: 3rem 2.5rem;
+      border-top: 1px solid var(--border);
+      max-width: 1300px; margin: 0 auto;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+    }
+    .footer-brand { font-size: 2rem; font-weight: 700; color: var(--cream); letter-spacing: -0.03em; }
+    .footer-links { display: flex; gap: 3rem; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem; }
+    .footer-col a { display: block; font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; margin-bottom: 0.4rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── Fade ── */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .hero { grid-template-columns: 1fr; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .deep-grid { grid-template-columns: 1fr; }
+      .usecase-grid { grid-template-columns: 1fr; }
+      .usecase-grid.reverse .usecase-visual { order: 0; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .cta-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .proof-grid { grid-template-columns: 1fr; }
+      .workflow-body { grid-template-columns: 1fr; }
+      .workflow-steps { flex-wrap: wrap; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-links { flex-wrap: wrap; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      .nav { padding: 0 1.25rem; }
+      .nav-link { display: none; }
+      section { padding: 4rem 1.25rem; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .hero { padding: 7rem 1.25rem 4rem; }
+      .hero-cta-group { flex-direction: column; align-items: flex-start; }
+      .deep-stats { grid-template-columns: 1fr; }
+      .cta-col { padding: 3rem 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-logo">Clay</div>
+    <div class="nav-right">
+      <a href="#how-clay-helps" class="nav-link">How it works</a>
+      <a href="#use-cases" class="nav-link">Use cases</a>
+      <a href="#results" class="nav-link">Results</a>
+      <a href="#book-demo" class="nav-cta-outline">Book a demo</a>
+      <a href="#book-demo" class="nav-cta-fill">Start for free</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content fade-up">
+      <div class="hero-eyebrow">Prepared for Sarah Mitchell &middot; Retool</div>
+      <h1>Your RevOps stack is powerful.<br>Let's make your data match.</h1>
+      <p class="hero-sub">
+        Retool helps teams build internal tools at the speed of thought. Clay helps your revenue team find, enrich, and act on prospect data at the same speed — so your GTM engine keeps pace with your product.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#book-demo" class="btn-primary">Book a demo</a>
+        <a href="#how-clay-helps" class="btn-outline">See how Clay helps Retool</a>
+      </div>
+    </div>
+
+    <!-- Product mockup (Clay-style spreadsheet) -->
+    <div class="hero-visual fade-up">
+      <div class="mockup-bar">
+        <div class="mockup-dot"></div><div class="mockup-dot"></div><div class="mockup-dot"></div>
+        <div class="mockup-tab-bar">
+          <div class="mockup-tab active">Retool ICP Accounts</div>
+          <div class="mockup-tab">Enrichment</div>
+          <div class="mockup-tab">Outreach</div>
+        </div>
+      </div>
+      <div class="mockup-body">
+        <table class="mockup-table">
+          <thead>
+            <tr><th>Company</th><th>Contact</th><th>Enrichment</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--cream)">Stripe</td>
+              <td>Head of RevOps</td>
+              <td><div class="mockup-enrichment"><div class="enrichment-bar" style="width:85%;background:var(--teal)"></div></div></td>
+              <td><span class="mockup-badge badge-green">Enriched</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--cream)">Figma</td>
+              <td>VP Sales</td>
+              <td><div class="mockup-enrichment"><div class="enrichment-bar" style="width:92%;background:var(--teal)"></div></div></td>
+              <td><span class="mockup-badge badge-green">Enriched</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--cream)">Notion</td>
+              <td>GTM Engineer</td>
+              <td><div class="mockup-enrichment"><div class="enrichment-bar" style="width:70%;background:var(--amber)"></div></div></td>
+              <td><span class="mockup-badge badge-amber">In progress</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--cream)">Linear</td>
+              <td>Head of Growth</td>
+              <td><div class="mockup-enrichment"><div class="enrichment-bar" style="width:60%;background:var(--amber)"></div></div></td>
+              <td><span class="mockup-badge badge-amber">In progress</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--cream)">Vercel</td>
+              <td>Dir. Sales Dev</td>
+              <td><div class="mockup-enrichment"><div class="enrichment-bar" style="width:40%;background:var(--coral)"></div></div></td>
+              <td><span class="mockup-badge badge-coral">Queued</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--cream)">Webflow</td>
+              <td>RevOps Lead</td>
+              <td><div class="mockup-enrichment"><div class="enrichment-bar" style="width:30%;background:var(--coral)"></div></div></td>
+              <td><span class="mockup-badge badge-coral">Queued</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo strip -->
+  <div class="logos-strip">
+    <div class="logos-inner fade-up">
+      <span class="logos-label">Trusted by 5,000+ GTM teams including</span>
+      <div class="logos-list">
+        <span class="logo-item">OpenAI</span>
+        <span class="logo-item">Anthropic</span>
+        <span class="logo-item">Canva</span>
+        <span class="logo-item">Ramp</span>
+        <span class="logo-item">Rippling</span>
+        <span class="logo-item">Vanta</span>
+        <span class="logo-item">Intercom</span>
+        <span class="logo-item">Notion</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Big statement -->
+  <section class="statement-section">
+    <div class="fade-up">
+      <div class="section-label" style="text-align:center">Clay for Retool</div>
+      <h2 class="statement-title">Data enrichment made easy.<br>Clay makes it scale.</h2>
+      <p class="statement-sub">
+        Build, enrich, and activate your prospect data on a platform that's enterprise-ready from the start.
+      </p>
+    </div>
+
+    <!-- Workflow visual -->
+    <div class="workflow-visual fade-up">
+      <div class="workflow-steps">
+        <div class="workflow-step active">
+          <span class="step-num">1</span> Import leads
+        </div>
+        <div class="workflow-step">
+          <span class="step-num">2</span> Waterfall enrich
+        </div>
+        <div class="workflow-step">
+          <span class="step-num">3</span> AI research
+        </div>
+        <div class="workflow-step">
+          <span class="step-num">4</span> Push to CRM
+        </div>
+      </div>
+      <div class="workflow-body">
+        <div class="workflow-cell">
+          <div class="wf-label">Source</div>
+          <div class="wf-value">Retool CRM Sync</div>
+          <div class="wf-sub">2,847 accounts imported</div>
+        </div>
+        <div class="workflow-cell">
+          <div class="wf-label">Coverage</div>
+          <div class="wf-value" style="color: var(--teal)">94.2%</div>
+          <div class="wf-progress"><div class="wf-progress-fill" style="width:94%;background:var(--teal)"></div></div>
+        </div>
+        <div class="workflow-cell">
+          <div class="wf-label">Providers Used</div>
+          <div class="wf-value">12 of 150+</div>
+          <div class="wf-sub">Waterfall auto-selected</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="pain-section">
+    <div class="container fade-up">
+      <div class="section-label">The challenge</div>
+      <h2 class="section-title">Sound familiar, Sarah?</h2>
+      <p class="section-subtitle">
+        As VP of Revenue Operations at a fast-scaling platform, these are the battles you fight daily.
+      </p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h3>Too many tools, not enough coverage</h3>
+          <p>Your team juggles multiple data providers and still only hits 40–60% enrichment on target accounts. Every gap is a missed conversation.</p>
+        </div>
+        <div class="pain-card">
+          <h3>SDRs researching instead of selling</h3>
+          <p>Reps spend hours manually looking up prospects across LinkedIn, company websites, and news — time that should go toward building pipeline.</p>
+        </div>
+        <div class="pain-card">
+          <h3>CRM data decays faster than you can fix it</h3>
+          <p>Contacts change roles, companies raise rounds, tech stacks shift. By the time your team acts, the data they're working from is stale.</p>
+        </div>
+        <div class="pain-card">
+          <h3>Personalization doesn't scale</h3>
+          <p>You know personalized outreach converts. But with hundreds of accounts in your ICP, there's no way to hand-craft every message without more headcount.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution cards with illustrations -->
+  <section class="solution-section" id="how-clay-helps">
+    <div class="container fade-up">
+      <div class="section-label">The solution</div>
+      <h2 class="section-title">How Clay supercharges RevOps at Retool</h2>
+      <p class="section-subtitle">
+        The data foundation and automation layer to run outbound like a well-oiled machine.
+      </p>
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="card-illustration">
+            <div class="geo-circle" id="geo1"></div>
+          </div>
+          <div class="card-text">
+            <div class="card-label">Enrich</div>
+            <h3>150+ data providers, one waterfall query</h3>
+            <p>Clay cascades through providers until it finds the email, phone, tech stack, or firmographic detail you need. 2–3x enrichment rates overnight.</p>
+            <a href="#book-demo" class="arrow-link">Explore enrichment &rarr;</a>
+          </div>
+        </div>
+        <div class="solution-card">
+          <div class="card-illustration">
+            <div class="geo-circle" id="geo2"></div>
+          </div>
+          <div class="card-text">
+            <div class="card-label">Research</div>
+            <h3>AI agents that work while your team sleeps</h3>
+            <p>Claygent scrapes websites, analyzes LinkedIn profiles, and summarizes company news for every account in your pipeline.</p>
+            <a href="#book-demo" class="arrow-link">Explore Claygent &rarr;</a>
+          </div>
+        </div>
+        <div class="solution-card">
+          <div class="card-illustration">
+            <div class="geo-circle" id="geo3"></div>
+          </div>
+          <div class="card-text">
+            <div class="card-label">Operate</div>
+            <h3>A RevOps-friendly interface you'll enjoy</h3>
+            <p>Works like a spreadsheet — no code, no engineering tickets. Build enrichment workflows, lead scoring, and CRM syncs without waiting on anyone.</p>
+            <a href="#book-demo" class="arrow-link">Explore workflows &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use case sections (alternating like Retool's team sections) -->
+  <section class="usecase-section" id="use-cases">
+    <div class="container">
+
+      <!-- Use case 1: RevOps -->
+      <div class="usecase-grid fade-up">
+        <div class="usecase-visual">
+          <table class="mini-table">
+            <thead><tr><th>Account</th><th>Email</th><th>Phone</th><th>Tech Stack</th><th>Score</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--cream)">Acme Corp</td><td class="highlight">Found</td><td class="highlight">Found</td><td>Salesforce, Outreach</td><td class="highlight">92</td></tr>
+              <tr><td style="color:var(--cream)">TechStart</td><td class="highlight">Found</td><td style="color:var(--text-muted)">—</td><td>HubSpot, Apollo</td><td class="highlight">87</td></tr>
+              <tr><td style="color:var(--cream)">DataFlow</td><td class="highlight">Found</td><td class="highlight">Found</td><td>Salesforce, Marketo</td><td class="highlight">95</td></tr>
+              <tr><td style="color:var(--cream)">CloudBase</td><td class="highlight">Found</td><td class="highlight">Found</td><td>HubSpot, Salesloft</td><td class="highlight">88</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="usecase-text">
+          <div class="usecase-label" style="color: var(--teal)">Revenue Operations</div>
+          <h3>Built for how RevOps actually works</h3>
+          <p>Skip the manual data wrangling. Clay enriches your target accounts across every dimension — emails, phones, tech stacks, org charts — and scores them automatically. Your team stays in the spreadsheet interface they know.</p>
+          <a href="#book-demo" class="arrow-link">Explore RevOps workflows &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Use case 2: SDR teams -->
+      <div class="usecase-grid reverse fade-up" style="margin-top: 4rem;">
+        <div class="usecase-text">
+          <div class="usecase-label" style="color: var(--coral)">Sales Development</div>
+          <h3>Give every SDR a research analyst</h3>
+          <p>Claygent researches each prospect automatically — scraping their company website, reading recent news, analyzing their LinkedIn. Your SDRs open their queue and the research is already done.</p>
+          <a href="#book-demo" class="arrow-link">Explore SDR workflows &rarr;</a>
+        </div>
+        <div class="usecase-visual">
+          <div style="padding: 0.5rem 0;">
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--border)">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(94,173,164,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--teal);font-weight:700;">AI</div>
+              <div><div style="font-size:0.75rem;color:var(--cream);font-weight:500;">Company Research: Stripe</div><div style="font-size:0.65rem;color:var(--text-secondary)">Analyzed website, news, LinkedIn • 12 data points</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--border)">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(212,144,126,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--coral);font-weight:700;">AI</div>
+              <div><div style="font-size:0.75rem;color:var(--cream);font-weight:500;">Personalization: Sarah @ Figma</div><div style="font-size:0.65rem;color:var(--text-secondary)">Generated 3 personalized angles • Role-specific</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid var(--border)">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(123,158,187,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--blue-muted);font-weight:700;">AI</div>
+              <div><div style="font-size:0.75rem;color:var(--cream);font-weight:500;">Intent Signal: Notion</div><div style="font-size:0.65rem;color:var(--text-secondary)">Hiring SDR Manager • Expanding outbound team</div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0">
+              <div style="width:32px;height:32px;border-radius:8px;background:rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--amber);font-weight:700;">AI</div>
+              <div><div style="font-size:0.75rem;color:var(--cream);font-weight:500;">Tech Stack: Linear</div><div style="font-size:0.65rem;color:var(--text-secondary)">Detected Outreach + Salesforce • Good fit signal</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Consolidate -->
+  <section class="deep-section" id="results">
+    <div class="container fade-up">
+      <div class="section-label">Consolidate</div>
+      <div class="deep-grid">
+        <div class="deep-text">
+          <h3>Replace your patchwork GTM data stack with one platform</h3>
+          <p>Stop paying for separate subscriptions to ZoomInfo, Clearbit, and manual enrichment processes. For a company like Retool — one that helps others consolidate their internal tools — your own GTM stack should be just as streamlined.</p>
+          <a href="#book-demo" class="arrow-link">See the full platform &rarr;</a>
+        </div>
+        <div class="deep-stats">
+          <div class="deep-stat"><div class="num">3x</div><div class="label">enrichment rates vs. single-provider tools</div></div>
+          <div class="deep-stat"><div class="num">80%</div><div class="label">reduction in manual research time</div></div>
+          <div class="deep-stat"><div class="num">150+</div><div class="label">data providers in one platform</div></div>
+          <div class="deep-stat"><div class="num">4.9</div><div class="label">rating on G2 from thousands of teams</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social proof with stat cards -->
+  <section class="proof-section">
+    <div class="container fade-up">
+      <div class="section-label">Made for, and trusted by, teams of all sizes</div>
+      <div class="proof-logos">
+        <span class="logo-item-proof">OpenAI</span>
+        <span class="logo-item-proof">Anthropic</span>
+        <span class="logo-item-proof">Canva</span>
+        <span class="logo-item-proof">Ramp</span>
+        <span class="logo-item-proof">Rippling</span>
+        <span class="logo-item-proof">Vanta</span>
+        <span class="logo-item-proof">Intercom</span>
+        <span class="logo-item-proof">Notion</span>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-stat">3x</div>
+          <div class="proof-desc">enrichment rates in the first 30 days</div>
+          <blockquote>Clay replaced three tools in our stack and gave us better data than all of them combined.</blockquote>
+          <cite>Revenue Operations Leader, Series C SaaS</cite>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stat">5x</div>
+          <div class="proof-desc">increase in qualified pipeline per SDR</div>
+          <blockquote>Our SDRs finally spend their time selling, not searching. The AI research alone saves each rep 2 hours a day.</blockquote>
+          <cite>VP of Sales, Growth-stage SaaS</cite>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stat">$3.1B</div>
+          <div class="proof-desc">Clay valuation — the market has spoken</div>
+          <blockquote>Clay is the most important tool in our GTM stack. It's the connective tissue that makes everything else work.</blockquote>
+          <cite>Head of Growth, Series B Startup</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two-column CTA -->
+  <section class="cta-section" id="book-demo">
+    <div class="cta-grid fade-up">
+      <div class="cta-col">
+        <div class="cta-label">For Sarah</div>
+        <h3>Book your personalized demo.</h3>
+        <p>In 30 minutes, we'll show you exactly how Clay plugs into Retool's existing stack, boosts enrichment coverage, and frees your team to close more deals.</p>
+        <a href="https://placeholder-demo-link.com/sarah-mitchell" class="btn-primary btn-large">Book a demo &rarr;</a>
+      </div>
+      <div class="cta-col">
+        <div class="cta-label">Try it yourself</div>
+        <h3>Start building with Clay today.</h3>
+        <p>No credit card required. Import your first list, run a waterfall enrichment, and see the results in minutes — not weeks.</p>
+        <a href="https://placeholder-demo-link.com/sarah-mitchell" class="btn-outline btn-large">Start for free &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer-line"></div>
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">Clay</div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#how-clay-helps">Enrichment</a>
+          <a href="#how-clay-helps">AI Research</a>
+          <a href="#how-clay-helps">Workflows</a>
+          <a href="#how-clay-helps">Integrations</a>
+        </div>
+        <div class="footer-col">
+          <h4>Use Cases</h4>
+          <a href="#use-cases">Revenue Ops</a>
+          <a href="#use-cases">Sales Dev</a>
+          <a href="#use-cases">Growth</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#book-demo">Book a demo</a>
+          <a href="#book-demo">Start for free</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Prepared for Sarah Mitchell at Retool</p>
+      <p>&copy; 2026 Clay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Geometric circle illustrations (Retool-style)
+    function fillGeo(id, palette) {
+      const el = document.getElementById(id);
+      const inner = document.createElement('div');
+      inner.className = 'geo-circle-inner';
+      for (let i = 0; i < 16; i++) {
+        const block = document.createElement('div');
+        block.className = 'geo-block';
+        if (Math.random() > 0.35) {
+          const color = palette[Math.floor(Math.random() * palette.length)];
+          const opacity = (Math.random() * 0.5 + 0.2).toFixed(2);
+          block.style.background = color;
+          block.style.opacity = opacity;
+        }
+        inner.appendChild(block);
+      }
+      el.appendChild(inner);
+    }
+
+    fillGeo('geo1', ['#5eada4', '#3d8a82', '#2a6e67', '#e8b4a2']);
+    fillGeo('geo2', ['#d4907e', '#a06b5c', '#e8b4a2', '#c9a84c']);
+    fillGeo('geo3', ['#7b9ebb', '#5eada4', '#3d8a82', '#d4907e']);
+  </script>
+
+</body>
+</html>

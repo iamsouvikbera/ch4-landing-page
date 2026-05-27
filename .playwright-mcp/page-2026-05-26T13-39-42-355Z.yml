@@ -1,0 +1,595 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner:
+      - navigation [ref=e4]:
+        - generic [ref=e6]:
+          - link "Skip to main content" [ref=e7] [cursor=pointer]:
+            - /url: "#main-content"
+          - link "Skip to footer" [ref=e8] [cursor=pointer]:
+            - /url: "#link-columns"
+          - generic [ref=e10]:
+            - paragraph [ref=e11]: Bring your Airtable data into Claude.
+            - link "Try it now" [ref=e13] [cursor=pointer]:
+              - /url: https://www.airtable.com/lp/claude-airtable
+              - generic [ref=e14]: Try it now
+              - img [ref=e15]
+            - button "Close promo banner" [ref=e17] [cursor=pointer]:
+              - img [ref=e18]
+        - generic [ref=e20]:
+          - link "Airtable home or view your bases" [ref=e21] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e22]: Airtable home or view your bases
+            - img [ref=e24]
+            - img [ref=e28]
+          - generic "Open side menu" [ref=e30]:
+            - generic [ref=e31]:
+              - button "Platform" [ref=e33] [cursor=pointer]:
+                - text: Platform
+                - img [ref=e34]
+              - button "Solutions" [ref=e37] [cursor=pointer]:
+                - text: Solutions
+                - img [ref=e38]
+              - button "Resources" [ref=e41] [cursor=pointer]:
+                - text: Resources
+                - img [ref=e42]
+              - link "Enterprise" [ref=e44] [cursor=pointer]:
+                - /url: /solutions/enterprise
+              - link "Pricing" [ref=e45] [cursor=pointer]:
+                - /url: https://airtable.com/pricing
+        - generic [ref=e46]:
+          - link "Book Demo" [ref=e47] [cursor=pointer]:
+            - /url: /contact-sales
+          - link "Sign up for free" [ref=e48] [cursor=pointer]:
+            - /url: https://airtable.com/signup
+          - link "Log in" [ref=e49] [cursor=pointer]:
+            - /url: https://airtable.com/login
+    - main [ref=e50]:
+      - generic [ref=e52]:
+        - generic [ref=e56]:
+          - heading "All your teams, all their workflows—connected in one workspace" [level=1] [ref=e57]:
+            - paragraph [ref=e58]: All your teams, all their workflows—connected in one workspace
+          - paragraph [ref=e59]: Build AI-powered workflows that unify data, maximize collaboration, and set your teams up for long-term success. No code required.
+          - generic [ref=e60]:
+            - link "Get started for free" [ref=e61] [cursor=pointer]:
+              - /url: https://airtable.com/signup
+            - link "Book demo" [ref=e62] [cursor=pointer]:
+              - /url: https://www.airtable.com/contact-sales
+        - generic [ref=e69]: Sorry, your browser doesn’t support embedded videos.
+      - heading "Trusted by 500,000 leading teams" [level=2] [ref=e73]
+      - generic "Group of logos" [ref=e79]:
+        - list [ref=e80]:
+          - listitem [ref=e81]:
+            - listitem [ref=e82]:
+              - img "logo-openai-2026" [ref=e85]
+          - listitem [ref=e86]:
+            - listitem [ref=e87]:
+              - img "logo-anthropic-2026" [ref=e90]
+          - listitem [ref=e91]:
+            - listitem [ref=e92]:
+              - img "logo-harvey-2026" [ref=e95]
+          - listitem [ref=e96]:
+            - listitem [ref=e97]:
+              - img "logo-mercor-2026" [ref=e100]
+          - listitem [ref=e101]:
+            - listitem [ref=e102]:
+              - img "logo-scale-2026" [ref=e105]
+          - listitem [ref=e106]:
+            - listitem [ref=e107]:
+              - img "logo-amazon-2026" [ref=e110]
+          - listitem [ref=e111]:
+            - listitem [ref=e112]:
+              - img "logo-walmart-2026" [ref=e115]
+          - listitem [ref=e116]:
+            - listitem [ref=e117]:
+              - img "logo-netflix-2026" [ref=e120]
+          - listitem [ref=e121]:
+            - listitem [ref=e122]:
+              - img "logo-johnsonjohnson-2026" [ref=e125]
+          - listitem [ref=e126]:
+            - listitem [ref=e127]:
+              - img "logo-airbnb-2026" [ref=e130]
+          - listitem [ref=e131]:
+            - listitem [ref=e132]:
+              - img "logo-americanexpress-2026" [ref=e135]
+          - listitem [ref=e136]:
+            - listitem [ref=e137]:
+              - img "logo-hbo-2026" [ref=e140]
+          - listitem [ref=e141]:
+            - listitem [ref=e142]:
+              - img "logo-google-2026" [ref=e145]
+          - listitem [ref=e146]:
+            - listitem [ref=e147]:
+              - img "logo-hilton-2026" [ref=e150]
+          - listitem [ref=e151]:
+            - listitem [ref=e152]:
+              - img "logo-newyorktimes-2026" [ref=e155]
+          - listitem [ref=e156]:
+            - listitem [ref=e157]:
+              - img "logo-williams-sonoma-2026" [ref=e160]
+          - listitem [ref=e161]:
+            - listitem [ref=e162]:
+              - img "logo-ford-2026" [ref=e165]
+          - listitem [ref=e166]:
+            - listitem [ref=e167]:
+              - img "logo-cococola-2026" [ref=e170]
+          - listitem [ref=e171]:
+            - listitem [ref=e172]:
+              - img "logo-openai-2026" [ref=e175]
+          - listitem [ref=e176]:
+            - listitem [ref=e177]:
+              - img "logo-anthropic-2026" [ref=e180]
+          - listitem [ref=e181]:
+            - listitem [ref=e182]:
+              - img "logo-harvey-2026" [ref=e185]
+          - listitem [ref=e186]:
+            - listitem [ref=e187]:
+              - img "logo-mercor-2026" [ref=e190]
+          - listitem [ref=e191]:
+            - listitem [ref=e192]:
+              - img "logo-scale-2026" [ref=e195]
+          - listitem [ref=e196]:
+            - listitem [ref=e197]:
+              - img "logo-amazon-2026" [ref=e200]
+          - listitem [ref=e201]:
+            - listitem [ref=e202]:
+              - img "logo-walmart-2026" [ref=e205]
+          - listitem [ref=e206]:
+            - listitem [ref=e207]:
+              - img "logo-netflix-2026" [ref=e210]
+          - listitem [ref=e211]:
+            - listitem [ref=e212]:
+              - img "logo-johnsonjohnson-2026" [ref=e215]
+          - listitem [ref=e216]:
+            - listitem [ref=e217]:
+              - img "logo-airbnb-2026" [ref=e220]
+          - listitem [ref=e221]:
+            - listitem [ref=e222]:
+              - img "logo-americanexpress-2026" [ref=e225]
+          - listitem [ref=e226]:
+            - listitem [ref=e227]:
+              - img "logo-hbo-2026" [ref=e230]
+          - listitem [ref=e231]:
+            - listitem [ref=e232]:
+              - img "logo-google-2026" [ref=e235]
+          - listitem [ref=e236]:
+            - listitem [ref=e237]:
+              - img "logo-hilton-2026" [ref=e240]
+          - listitem [ref=e241]:
+            - listitem [ref=e242]:
+              - img "logo-newyorktimes-2026" [ref=e245]
+          - listitem [ref=e246]:
+            - listitem [ref=e247]:
+              - img "logo-williams-sonoma-2026" [ref=e250]
+          - listitem [ref=e251]:
+            - listitem [ref=e252]:
+              - img "logo-ford-2026" [ref=e255]
+          - listitem [ref=e256]:
+            - listitem [ref=e257]:
+              - img "logo-cococola-2026" [ref=e260]
+      - generic [ref=e263]:
+        - heading "Sophisticated workflows in minutes, not months" [level=2] [ref=e270]
+        - generic [ref=e271]:
+          - navigation [ref=e273]:
+            - generic [ref=e277] [cursor=pointer]: 01 AI app building
+            - generic [ref=e281] [cursor=pointer]: 02 Agents at Scale
+            - generic [ref=e285] [cursor=pointer]: 03 Meet Omni
+            - generic [ref=e289] [cursor=pointer]: 04 Enterprise capabilities
+          - generic [ref=e290]:
+            - generic [ref=e292]:
+              - generic [ref=e293]:
+                - generic [ref=e294]:
+                  - heading "Production apps at prototype speed" [level=3] [ref=e295]:
+                    - paragraph [ref=e296]: Production apps at prototype speed
+                  - paragraph [ref=e298]: Streamline your team’s critical data through conversational building. Generate apps with Airtable’s best-in-class no-code components—no technical expertise required.
+                - link "Learn more" [ref=e301] [cursor=pointer]:
+                  - /url: https://www.airtable.com/platform/app-building
+              - generic [ref=e302]:
+                - generic:
+                  - img "new animated image"
+                - generic:
+                  - img "2"
+                - generic:
+                  - img "3"
+                - generic:
+                  - img "4"
+            - generic [ref=e304]:
+              - generic [ref=e307]: Sorry, your browser doesn’t support embedded videos.
+              - generic [ref=e308]:
+                - generic [ref=e309]:
+                  - heading "Don’t just ask AI. Deploy it." [level=2] [ref=e310]:
+                    - paragraph [ref=e311]: Don’t just ask AI. Deploy it.
+                  - paragraph [ref=e313]: Embed intelligence into every workflow—Airtable agents think dynamically across thousands of records and orchestrate actions across your entire operation.
+                - link "Learn more" [ref=e316] [cursor=pointer]:
+                  - /url: https://www.airtable.com/platform/ai-agents
+            - generic [ref=e319]:
+              - img "media" [ref=e322]
+              - generic [ref=e323]:
+                - heading "Say hello to Omni" [level=2] [ref=e324]
+                - paragraph [ref=e326]: Use it to build any enterprise-grade applications with your data. The possibilities are endless.
+                - link "Learn more" [ref=e328] [cursor=pointer]:
+                  - /url: https://www.airtable.com/platform/app-building
+            - generic [ref=e330]:
+              - generic [ref=e331]:
+                - img "media" [ref=e334]
+                - heading "The power of AI with the industrial-grade platform your business demands" [level=2] [ref=e335]:
+                  - paragraph [ref=e336]: The power of AI with the industrial-grade platform your business demands
+              - generic [ref=e338]:
+                - paragraph [ref=e339]:
+                  - strong [ref=e340]: Scalable infrastructure
+                - list [ref=e341]:
+                  - listitem [ref=e342]:
+                    - paragraph [ref=e343]: HyperDB with record limits in the hundreds of millions
+                  - listitem [ref=e344]:
+                    - paragraph [ref=e345]: Scale workflows to tens of thousands of users
+                  - listitem [ref=e346]:
+                    - paragraph [ref=e347]: Use AI models from leading providers (OpenAI, Gemini, Llama, Anthropic, and more)
+                - paragraph [ref=e348]:
+                  - strong [ref=e349]: Flexible administration
+                - list [ref=e350]:
+                  - listitem [ref=e351]:
+                    - paragraph [ref=e352]: Admin roles, robust permissions, fine-grained RBAC
+                  - listitem [ref=e353]:
+                    - paragraph [ref=e354]: Fine-grained controls to enable AI
+                  - listitem [ref=e355]:
+                    - paragraph [ref=e356]: Programmatic provisioning and de-provisioning
+                  - listitem [ref=e357]:
+                    - paragraph [ref=e358]: IDP synced groups
+                - paragraph [ref=e359]:
+                  - strong [ref=e360]: Security and compliance
+                - list [ref=e361]:
+                  - listitem [ref=e362]:
+                    - paragraph [ref=e363]: ISO, HIPAA, SOC 2
+                  - listitem [ref=e364]:
+                    - paragraph [ref=e365]: No customer data retained or used to train AI models
+                  - listitem [ref=e366]:
+                    - paragraph [ref=e367]: Models run fully in Airtable’s AWS environment
+                  - listitem [ref=e368]:
+                    - paragraph [ref=e369]: EKM, data loss prevention, audit logs, e-discovery
+                  - listitem [ref=e370]:
+                    - paragraph [ref=e371]: European and Australian data residency support
+      - generic [ref=e372]:
+        - generic [ref=e375]:
+          - generic [ref=e376]:
+            - heading "The path to 10x every person in your organization" [level=2] [ref=e377]
+            - paragraph [ref=e378]: Use cases and templates to activate AI in your workflows
+          - link "See AI plays" [ref=e381] [cursor=pointer]:
+            - /url: https://www.airtable.com/ai-plays
+        - generic [ref=e386]:
+          - link "bento-1 Read this brief and generate 10 campaign ideas for our summer launch. Explore AI Plays" [ref=e387] [cursor=pointer]:
+            - /url: /ai-plays
+            - img "bento-1" [ref=e391]
+            - generic [ref=e392]:
+              - paragraph [ref=e393]: Read this brief and generate 10 campaign ideas for our summer launch.
+              - generic [ref=e394]: Explore AI Plays
+          - link "bento-2 Gather intel on all event invitees to help me personalize outreach. Explore AI Plays" [ref=e395] [cursor=pointer]:
+            - /url: /ai-plays
+            - img "bento-2" [ref=e399]
+            - generic [ref=e400]:
+              - paragraph [ref=e401]: Gather intel on all event invitees to help me personalize outreach.
+              - generic [ref=e402]: Explore AI Plays
+          - link "bento-3 What are customers saying about our competitors and where are our biggest opportunities? Explore AI Plays" [ref=e403] [cursor=pointer]:
+            - /url: /ai-plays
+            - img "bento-3" [ref=e407]
+            - generic [ref=e408]:
+              - paragraph [ref=e409]: What are customers saying about our competitors and where are our biggest opportunities?
+              - generic [ref=e410]: Explore AI Plays
+          - link "bento-4 Run language translation on 500 assets and check for local regulation requirements. Explore AI Plays" [ref=e411] [cursor=pointer]:
+            - /url: /ai-plays
+            - img "bento-4" [ref=e415]
+            - generic [ref=e416]:
+              - paragraph [ref=e417]: Run language translation on 500 assets and check for local regulation requirements.
+              - generic [ref=e418]: Explore AI Plays
+      - generic [ref=e421]:
+        - paragraph [ref=e424]: Resources to inspire
+        - generic [ref=e426]:
+          - link "Builders & Breakthroughs Hear from top product leaders as they share the pivotal insights and decisions behind building great products—hosted by Airtable CEO Howie Liu. Builders & Breakthroughs" [ref=e427] [cursor=pointer]:
+            - /url: /breakthroughs
+            - generic [ref=e428]:
+              - generic [ref=e429]:
+                - paragraph [ref=e430]: Builders & Breakthroughs
+                - paragraph [ref=e431]: Hear from top product leaders as they share the pivotal insights and decisions behind building great products—hosted by Airtable CEO Howie Liu.
+              - img "Builders & Breakthroughs" [ref=e433]
+          - link "The 2026 AI guide for marketers Learn how to prep your marketing organization for AI integration and layer Airtable across your most critical marketing workflows. The 2026 AI guide for marketers" [ref=e434] [cursor=pointer]:
+            - /url: /lp/resources/ebooks/ultimate-ai-guide-for-marketers
+            - generic [ref=e435]:
+              - generic [ref=e436]:
+                - paragraph [ref=e437]: The 2026 AI guide for marketers
+                - paragraph [ref=e438]: Learn how to prep your marketing organization for AI integration and layer Airtable across your most critical marketing workflows.
+              - img "The 2026 AI guide for marketers" [ref=e440]
+          - 'link "In action: Airtable ProductCentral See how Airtable ProductCentral delivers a complete view of product investments at every altitude, infusing AI at each step of the product development process. In action: Airtable ProductCentral" [ref=e441] [cursor=pointer]':
+            - /url: /lp/resources/demos/airtable-productcentral-demo
+            - generic [ref=e442]:
+              - generic [ref=e443]:
+                - paragraph [ref=e444]: "In action: Airtable ProductCentral"
+                - paragraph [ref=e445]: See how Airtable ProductCentral delivers a complete view of product investments at every altitude, infusing AI at each step of the product development process.
+              - 'img "In action: Airtable ProductCentral" [ref=e447]'
+      - generic [ref=e458]:
+        - generic [ref=e459]: Sorry, your browser doesn't support embedded videos.
+        - generic [ref=e461]:
+          - generic [ref=e462]:
+            - paragraph [ref=e464]: “Airtable makes it easy to deliver AI insights to every team quickly and without complex builds.”
+            - generic [ref=e465]:
+              - img [ref=e467]
+              - generic [ref=e468]:
+                - paragraph [ref=e469]: Angela Yanes
+                - paragraph [ref=e470]: Director of Product Operations, eBay
+          - link "Explore all customer stories" [ref=e472] [cursor=pointer]:
+            - /url: https://www.airtable.com/customer-stories
+            - button "Explore all customer stories" [ref=e473]
+      - generic [ref=e476]:
+        - heading "Start building with Airtable Teams at over 500,000 forward-thinking organizations use Airtable every day. Join them." [level=2] [ref=e478]:
+          - text: Start building with Airtable
+          - paragraph [ref=e479]: Teams at over 500,000 forward-thinking organizations use Airtable every day. Join them.
+        - link "Get started for free" [ref=e482] [cursor=pointer]:
+          - /url: https://airtable.com/signup
+    - contentinfo [ref=e483]:
+      - navigation "Footer navigation" [ref=e485]:
+        - link "Airtable home" [ref=e487] [cursor=pointer]:
+          - /url: /
+          - img [ref=e488]
+          - generic [ref=e491]: Airtable home
+        - list "Footer navigation locations" [ref=e493]:
+          - listitem [ref=e494]:
+            - link "Platform" [ref=e495] [cursor=pointer]:
+              - /url: /platform
+              - paragraph [ref=e496]: Platform
+          - listitem [ref=e497]:
+            - link "Solutions" [ref=e498] [cursor=pointer]:
+              - /url: /solutions
+              - paragraph [ref=e499]: Solutions
+          - listitem [ref=e500]:
+            - link "Resources" [ref=e501] [cursor=pointer]:
+              - /url: /lp/resources
+              - paragraph [ref=e502]: Resources
+          - listitem [ref=e503]:
+            - link "Enterprise" [ref=e504] [cursor=pointer]:
+              - /url: /services
+              - paragraph [ref=e505]: Enterprise
+          - listitem [ref=e506]:
+            - link "Pricing" [ref=e507] [cursor=pointer]:
+              - /url: /pricing
+              - paragraph [ref=e508]: Pricing
+          - listitem [ref=e509]:
+            - link "Book Demo" [ref=e510] [cursor=pointer]:
+              - /url: /contact-sales
+              - paragraph [ref=e511]: Book Demo
+        - list "Footer social media icons" [ref=e513]:
+          - listitem [ref=e514]:
+            - link "Facebook" [ref=e515] [cursor=pointer]:
+              - /url: https://facebook.com/airtableapp
+              - img [ref=e516]
+              - generic [ref=e520]: Facebook
+          - listitem [ref=e521]:
+            - link "Linkedin" [ref=e522] [cursor=pointer]:
+              - /url: https://linkedin.com/company/airtable
+              - img [ref=e523]
+              - generic [ref=e526]: Linkedin
+          - listitem [ref=e527]:
+            - link "Twitter" [ref=e528] [cursor=pointer]:
+              - /url: https://twitter.com/airtable
+              - img [ref=e529]
+              - generic [ref=e531]: Twitter
+          - listitem [ref=e532]:
+            - link "Instagram" [ref=e533] [cursor=pointer]:
+              - /url: https://instagram.com/airtable
+              - img [ref=e534]
+              - generic [ref=e538]: Instagram
+          - listitem [ref=e539]:
+            - link "Youtube" [ref=e540] [cursor=pointer]:
+              - /url: https://www.youtube.com/c/AirtableApp
+              - img [ref=e541]
+              - generic [ref=e544]: Youtube
+        - list "Categories of links in the footer" [ref=e548]:
+          - listitem [ref=e549]:
+            - paragraph [ref=e550]: Platform
+            - list "platform" [ref=e552]:
+              - listitem [ref=e553]:
+                - link "AI App Building" [ref=e554] [cursor=pointer]:
+                  - /url: /platform/app-building
+                  - paragraph [ref=e555]: AI App Building
+              - listitem [ref=e556]:
+                - link "AI Agents" [ref=e557] [cursor=pointer]:
+                  - /url: /platform/ai-agents
+                  - paragraph [ref=e558]: AI Agents
+              - listitem [ref=e559]:
+                - link "Airtable Platform" [ref=e560] [cursor=pointer]:
+                  - /url: /platform
+                  - paragraph [ref=e561]: Airtable Platform
+              - listitem [ref=e562]:
+                - link "Portals" [ref=e563] [cursor=pointer]:
+                  - /url: https://airtable.com/platform/portals
+                  - paragraph [ref=e564]: Portals
+              - listitem [ref=e565]:
+                - link "Scale" [ref=e566] [cursor=pointer]:
+                  - /url: /platform/hyperdb
+                  - paragraph [ref=e567]: Scale
+              - listitem [ref=e568]:
+                - link "Automations" [ref=e569] [cursor=pointer]:
+                  - /url: /platform/automations
+                  - paragraph [ref=e570]: Automations
+              - listitem [ref=e571]:
+                - link "See more" [ref=e572] [cursor=pointer]:
+                  - /url: "#"
+                  - paragraph [ref=e573]: See more
+          - listitem [ref=e574]:
+            - paragraph [ref=e575]: Solutions
+            - list "solutions" [ref=e577]:
+              - listitem [ref=e578]:
+                - link "Product" [ref=e579] [cursor=pointer]:
+                  - /url: /solutions/product
+                  - paragraph [ref=e580]: Product
+              - listitem [ref=e581]:
+                - link "Marketing" [ref=e582] [cursor=pointer]:
+                  - /url: /solutions/marketing
+                  - paragraph [ref=e583]: Marketing
+              - listitem [ref=e584]:
+                - link "Project Management" [ref=e585] [cursor=pointer]:
+                  - /url: /solutions/project-management
+                  - paragraph [ref=e586]: Project Management
+              - listitem [ref=e587]:
+                - link "Operations" [ref=e588] [cursor=pointer]:
+                  - /url: /solutions/operations
+                  - paragraph [ref=e589]: Operations
+              - listitem [ref=e590]:
+                - link "Sales" [ref=e591] [cursor=pointer]:
+                  - /url: /solutions/sales
+                  - paragraph [ref=e592]: Sales
+              - listitem [ref=e593]:
+                - link "Design & Creative" [ref=e594] [cursor=pointer]:
+                  - /url: /solutions/design-creative-project-management
+                  - paragraph [ref=e595]: Design & Creative
+              - listitem [ref=e596]:
+                - link "See more" [ref=e597] [cursor=pointer]:
+                  - /url: "#"
+                  - paragraph [ref=e598]: See more
+          - listitem [ref=e599]:
+            - paragraph [ref=e600]: Resources
+            - list "resources" [ref=e602]:
+              - listitem [ref=e603]:
+                - link "Resources Hub" [ref=e604] [cursor=pointer]:
+                  - /url: /lp/resources
+                  - paragraph [ref=e605]: Resources Hub
+              - listitem [ref=e606]:
+                - link "Templates" [ref=e607] [cursor=pointer]:
+                  - /url: https://airtable.com/templates
+                  - paragraph [ref=e608]: Templates
+              - listitem [ref=e609]:
+                - link "AI Plays" [ref=e610] [cursor=pointer]:
+                  - /url: /ai-plays
+                  - paragraph [ref=e611]: AI Plays
+              - listitem [ref=e612]:
+                - link "Blog" [ref=e613] [cursor=pointer]:
+                  - /url: /articles
+                  - paragraph [ref=e614]: Blog
+              - listitem [ref=e615]:
+                - link "Customer Stories" [ref=e616] [cursor=pointer]:
+                  - /url: /customer-stories
+                  - paragraph [ref=e617]: Customer Stories
+              - listitem [ref=e618]:
+                - link "Videos" [ref=e619] [cursor=pointer]:
+                  - /url: /videos
+                  - paragraph [ref=e620]: Videos
+              - listitem [ref=e621]:
+                - link "See more" [ref=e622] [cursor=pointer]:
+                  - /url: "#"
+                  - paragraph [ref=e623]: See more
+          - listitem [ref=e624]:
+            - paragraph [ref=e625]: Learn
+            - list "learn" [ref=e627]:
+              - listitem [ref=e628]:
+                - link "How-to guides" [ref=e629] [cursor=pointer]:
+                  - /url: /guides
+                  - paragraph [ref=e630]: How-to guides
+              - listitem [ref=e631]:
+                - link "Developer docs" [ref=e632] [cursor=pointer]:
+                  - /url: https://airtable.com/developers
+                  - paragraph [ref=e633]: Developer docs
+              - listitem [ref=e634]:
+                - link "Airtable Academy" [ref=e635] [cursor=pointer]:
+                  - /url: https://academy.airtable.com/
+                  - paragraph [ref=e636]: Airtable Academy
+              - listitem [ref=e637]:
+                - link "Airtable Community" [ref=e638] [cursor=pointer]:
+                  - /url: https://community.airtable.com
+                  - paragraph [ref=e639]: Airtable Community
+              - listitem [ref=e640]:
+                - link "Help center" [ref=e641] [cursor=pointer]:
+                  - /url: https://support.airtable.com
+                  - paragraph [ref=e642]: Help center
+          - listitem [ref=e643]:
+            - paragraph [ref=e644]: Company
+            - list "company" [ref=e646]:
+              - listitem [ref=e647]:
+                - link "Try Airtable for free" [ref=e648] [cursor=pointer]:
+                  - /url: https://airtable.com/signup
+                  - paragraph [ref=e649]: Try Airtable for free
+              - listitem [ref=e650]:
+                - link "Pricing" [ref=e651] [cursor=pointer]:
+                  - /url: https://airtable.com/pricing
+                  - paragraph [ref=e652]: Pricing
+              - listitem [ref=e653]:
+                - link "Contact sales" [ref=e654] [cursor=pointer]:
+                  - /url: /contact-sales
+                  - paragraph [ref=e655]: Contact sales
+              - listitem [ref=e656]:
+                - link "Contact support" [ref=e657] [cursor=pointer]:
+                  - /url: https://support.airtable.com/docs/contacting-airtable-support
+                  - paragraph [ref=e658]: Contact support
+              - listitem [ref=e659]:
+                - link "About" [ref=e660] [cursor=pointer]:
+                  - /url: /about
+                  - paragraph [ref=e661]: About
+              - listitem [ref=e662]:
+                - link "Careers" [ref=e663] [cursor=pointer]:
+                  - /url: https://airtable.com/careers
+                  - paragraph [ref=e664]: Careers
+              - listitem [ref=e665]:
+                - link "See more" [ref=e666] [cursor=pointer]:
+                  - /url: "#"
+                  - paragraph [ref=e667]: See more
+      - generic [ref=e670]:
+        - list "utility links" [ref=e671]:
+          - listitem [ref=e672]:
+            - link "Security" [ref=e673] [cursor=pointer]:
+              - /url: /company/trust-and-security
+              - paragraph [ref=e674]: Security
+          - listitem [ref=e675]:
+            - link "API" [ref=e676] [cursor=pointer]:
+              - /url: https://airtable.com/developers/web/api/introduction
+              - paragraph [ref=e677]: API
+          - listitem [ref=e678]:
+            - link "Sitemap" [ref=e679] [cursor=pointer]:
+              - /url: /sitemap
+              - paragraph [ref=e680]: Sitemap
+          - listitem [ref=e681]:
+            - link "Privacy" [ref=e682] [cursor=pointer]:
+              - /url: /company/privacy
+              - paragraph [ref=e683]: Privacy
+          - listitem [ref=e684]:
+            - link "Terms" [ref=e685] [cursor=pointer]:
+              - /url: /company/terms-and-policies
+              - paragraph [ref=e686]: Terms
+          - listitem [ref=e687]:
+            - link "Do Not Sell/Share My Info" [ref=e688] [cursor=pointer]:
+              - /url: /company/privacy-choices
+              - paragraph [ref=e689]: Do Not Sell/Share My Info
+          - listitem [ref=e690]:
+            - link "Cookie Preferences" [ref=e691] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e692]: Cookie Preferences
+          - listitem [ref=e693]:
+            - link "Accessibility" [ref=e694] [cursor=pointer]:
+              - /url: /company/accessibility
+              - paragraph [ref=e695]: Accessibility
+        - generic [ref=e696]:
+          - link "Download on the App Store" [ref=e697] [cursor=pointer]:
+            - /url: https://itunes.apple.com/US/app/id914172636
+            - img [ref=e698]
+            - generic [ref=e703]: Download on the App Store
+          - link "Get it on Google Play" [ref=e704] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.formagrid.airtable
+            - img [ref=e705]
+            - generic [ref=e717]: Get it on Google Play
+  - alert [ref=e718]
+  - generic [ref=e719]:
+    - note "AI assistant" [ref=e720]
+    - note "After AI assistant" [ref=e721]
+  - region "Cookie banner" [active] [ref=e722]:
+    - dialog "Privacy" [ref=e723]:
+      - generic [ref=e724]:
+        - generic [ref=e726]:
+          - text: This website uses cookies and other tracking technologies to collect, store, and monitor your information, which we may share with our third-party partners, as further described in our
+          - link "Cookie Policy" [ref=e727] [cursor=pointer]:
+            - /url: https://www.airtable.com/company/cookie-policy
+          - text: . By continuing to use this site, you agree to our use of these tracking technologies in accordance with our
+          - link "Privacy Policy" [ref=e728] [cursor=pointer]:
+            - /url: https://airtable.com/privacy
+          - text: and
+          - link "Cookie Policy" [ref=e729] [cursor=pointer]:
+            - /url: https://www.airtable.com/company/cookie-policy
+          - text: ", and accept our"
+          - link "Terms of Service" [ref=e730] [cursor=pointer]:
+            - /url: https://www.airtable.com/company/tos
+          - text: .
+        - button "Cookies Preferences, Opens the preference center dialog" [ref=e733] [cursor=pointer]: Cookies Preferences
+        - button "Close" [ref=e735] [cursor=pointer]

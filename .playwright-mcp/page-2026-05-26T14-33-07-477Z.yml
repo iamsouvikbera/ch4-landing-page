@@ -1,0 +1,451 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - navigation [ref=e6]:
+        - link "logo" [ref=e8] [cursor=pointer]:
+          - /url: /workspaces/948689/home
+          - img "Clay Logo" [ref=e10]
+        - generic [ref=e11]:
+          - button "Billing menu" [ref=e13] [cursor=pointer]:
+            - img [ref=e14]
+          - button [ref=e36] [cursor=pointer]:
+            - img [ref=e37]
+        - button "SB Souvik Bera Souvik's Workspace" [ref=e41] [cursor=pointer]:
+          - generic [ref=e43]: SB
+          - generic [ref=e44]:
+            - paragraph [ref=e45]: Souvik Bera
+            - paragraph [ref=e46]: Souvik's Workspace
+    - main [ref=e47]:
+      - navigation [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - link "Home" [ref=e53] [cursor=pointer]:
+              - /url: /workspaces/948689/home
+              - img [ref=e54]
+              - text: Home
+            - link "Find leads" [ref=e57] [cursor=pointer]:
+              - /url: /workspaces/948689/find-leads
+              - img [ref=e58]
+              - text: Find leads
+          - separator [ref=e60]
+          - generic [ref=e61]:
+            - link "Signals" [ref=e63] [cursor=pointer]:
+              - /url: /workspaces/948689/signals
+              - img [ref=e64]
+              - text: Signals
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - img [ref=e68]
+                - generic [ref=e70]: Ads
+              - button "Upgrade" [ref=e71] [cursor=pointer]:
+                - img [ref=e72]
+                - text: Upgrade
+            - link "Campaigns" [ref=e76] [cursor=pointer]:
+              - /url: /workspaces/948689/campaigns
+              - img [ref=e77]
+              - text: Campaigns
+            - link "Claygents" [ref=e80] [cursor=pointer]:
+              - /url: /workspaces/948689/claygents
+              - img [ref=e81]
+              - text: Claygents
+            - link "MCP Beta" [ref=e84] [cursor=pointer]:
+              - /url: /workspaces/948689/mcp
+              - img [ref=e85]
+              - text: MCP
+              - generic [ref=e88]:
+                - img [ref=e89]
+                - text: Beta
+          - separator [ref=e92]
+        - generic [ref=e93]:
+          - link "Exports" [ref=e95] [cursor=pointer]:
+            - /url: /workspaces/948689/exports
+            - img [ref=e96]
+            - text: Exports
+          - link "Trash" [ref=e99] [cursor=pointer]:
+            - /url: /workspaces/948689/trash
+            - img [ref=e100]
+            - text: Trash
+          - link "Settings" [ref=e103] [cursor=pointer]:
+            - /url: /workspaces/948689/settings
+            - img [ref=e104]
+            - text: Settings
+          - link "AI context" [ref=e107] [cursor=pointer]:
+            - /url: /workspaces/948689/settings/ai-context
+            - img [ref=e108]
+            - text: AI context
+          - button "Resources" [ref=e110] [cursor=pointer]:
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - text: Resources
+      - generic [ref=e118]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - heading "Hey Souvik, ready to get started?" [level=1] [ref=e123]
+              - generic [ref=e125]:
+                - img "Sculptor" [ref=e126]
+                - textbox "Ask me anything about Clay or describe what you'd like to do..." [ref=e132]
+                - button "Submit" [disabled] [ref=e133]:
+                  - img [ref=e134]
+            - button "Show less" [ref=e136] [cursor=pointer]:
+              - text: Show less
+              - img [ref=e137]
+          - generic [ref=e140]:
+            - button "Action card claymation image Find leads Find people and companies." [ref=e141] [cursor=pointer]:
+              - img "Action card claymation image" [ref=e142]
+              - generic [ref=e143]:
+                - heading "Find leads" [level=5] [ref=e144]
+                - paragraph [ref=e145]: Find people and companies.
+            - button "Action card claymation image Import data Import your existing list from CRM or CSV." [expanded] [ref=e146] [cursor=pointer]:
+              - generic [ref=e147]:
+                - img "Action card claymation image" [ref=e148]
+                - generic [ref=e149]:
+                  - heading "Import data" [level=5] [ref=e150]
+                  - paragraph [ref=e151]: Import your existing list from CRM or CSV.
+            - menu "Action card claymation image Import data Import your existing list from CRM or CSV." [active] [ref=e536]:
+              - menuitem "Import CSV" [ref=e537] [cursor=pointer]:
+                - img [ref=e538]
+                - paragraph [ref=e540]: Import CSV
+              - menuitem "Import from CRM" [ref=e541] [cursor=pointer]:
+                - img [ref=e542]
+                - paragraph [ref=e544]: Import from CRM
+            - button "Action card claymation image Create a campaign Build and automate your outreach campaigns." [ref=e152] [cursor=pointer]:
+              - img "Action card claymation image" [ref=e153]
+              - generic [ref=e154]:
+                - heading "Create a campaign" [level=5] [ref=e155]
+                - paragraph [ref=e156]: Build and automate your outreach campaigns.
+            - button "Action card claymation image Start from template Choose from pre-built workflows to get started." [ref=e157] [cursor=pointer]:
+              - img "Action card claymation image" [ref=e158]
+              - generic [ref=e159]:
+                - heading "Start from template" [level=5] [ref=e160]
+                - paragraph [ref=e161]: Choose from pre-built workflows to get started.
+        - generic [ref=e162]:
+          - radiogroup [ref=e164]:
+            - generic [ref=e165]:
+              - radio "All files" [checked] [ref=e166]:
+                - generic [ref=e167] [cursor=pointer]: All files
+              - radio [checked] [ref=e168]
+              - radio "Recents" [ref=e170]:
+                - generic [ref=e171] [cursor=pointer]: Recents
+              - radio [ref=e172]
+              - radio "Favorites" [ref=e174]:
+                - generic [ref=e175] [cursor=pointer]: Favorites
+              - radio [ref=e176]
+          - generic [ref=e177]:
+            - heading "workspace-name" [level=4] [ref=e180]: All Files
+            - generic [ref=e181]:
+              - generic [ref=e186]:
+                - img [ref=e187]
+                - textbox "Search" [ref=e189]
+              - button "New" [ref=e190] [cursor=pointer]:
+                - img [ref=e191]
+                - text: New
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - paragraph [ref=e197]: Owner
+              - button "All" [ref=e199] [cursor=pointer]:
+                - paragraph [ref=e200]: All
+                - img [ref=e201]
+            - button "Filters" [ref=e203] [cursor=pointer]:
+              - img [ref=e204]
+              - text: Filters
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - table [ref=e212]:
+              - rowgroup [ref=e213]:
+                - row "Name Favorite Last opened by me Owner Access" [ref=e214]:
+                  - columnheader [ref=e215]:
+                    - checkbox [ref=e218]
+                  - columnheader "Name" [ref=e219] [cursor=pointer]:
+                    - button "Name" [ref=e220]:
+                      - generic [ref=e221]: Name
+                      - img [ref=e223]
+                  - columnheader "Favorite" [ref=e225] [cursor=pointer]:
+                    - button "Favorite" [ref=e226]:
+                      - generic [ref=e227]: Favorite
+                      - img [ref=e229]
+                  - columnheader "Last opened by me" [ref=e231] [cursor=pointer]:
+                    - button "Last opened by me" [ref=e232]:
+                      - generic [ref=e233]: Last opened by me
+                      - img [ref=e235]
+                  - columnheader "Owner" [ref=e237] [cursor=pointer]:
+                    - button "Owner" [ref=e238]:
+                      - generic [ref=e239]: Owner
+                      - img [ref=e241]
+                  - columnheader "Access" [ref=e243] [cursor=pointer]:
+                    - button "Access" [ref=e244]:
+                      - generic [ref=e245]: Access
+                      - img [ref=e247]
+                  - columnheader [ref=e249]
+                  - columnheader [ref=e250]
+            - table [ref=e255]:
+              - rowgroup [ref=e256]:
+                - button "Allbound Course Feb 17, 2026 S Souvik Bera Edit" [ref=e257]:
+                  - cell [ref=e258]:
+                    - link [ref=e259] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - checkbox [ref=e261]
+                  - cell "Allbound Course" [ref=e262]:
+                    - link [ref=e263] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - generic [ref=e264]:
+                      - img [ref=e266]
+                      - paragraph [ref=e270]: Allbound Course
+                  - cell [ref=e271]:
+                    - link [ref=e272] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - button [ref=e273] [cursor=pointer]:
+                      - img [ref=e274]
+                  - cell "Feb 17, 2026" [ref=e276]:
+                    - link [ref=e277] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - paragraph [ref=e278]: Feb 17, 2026
+                  - cell "S Souvik Bera" [ref=e279]:
+                    - link [ref=e280] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - generic [ref=e281]:
+                      - generic [ref=e283]: S
+                      - paragraph [ref=e284]: Souvik Bera
+                  - cell "Edit" [ref=e285]:
+                    - link [ref=e286] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - paragraph [ref=e287]: Edit
+                  - cell [ref=e288]:
+                    - link [ref=e289] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                    - menuitem [ref=e291] [cursor=pointer]:
+                      - img [ref=e292]
+                  - cell [ref=e294]:
+                    - link [ref=e295] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0ta2io1fYBUJcR4iDTX?sidebarAction=openCommandCenter
+                - button "Clay Starter Table Feb 16, 2026 S Souvik Bera Edit" [ref=e296]:
+                  - cell [ref=e297]:
+                    - link [ref=e298] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - checkbox [ref=e300]
+                  - cell "Clay Starter Table" [ref=e301]:
+                    - link [ref=e302] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - generic [ref=e303]:
+                      - img [ref=e305]
+                      - paragraph [ref=e309]: Clay Starter Table
+                  - cell [ref=e310]:
+                    - link [ref=e311] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - button [ref=e312] [cursor=pointer]:
+                      - img [ref=e313]
+                  - cell "Feb 16, 2026" [ref=e315]:
+                    - link [ref=e316] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - paragraph [ref=e317]: Feb 16, 2026
+                  - cell "S Souvik Bera" [ref=e318]:
+                    - link [ref=e319] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - generic [ref=e320]:
+                      - generic [ref=e322]: S
+                      - paragraph [ref=e323]: Souvik Bera
+                  - cell "Edit" [ref=e324]:
+                    - link [ref=e325] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - paragraph [ref=e326]: Edit
+                  - cell [ref=e327]:
+                    - link [ref=e328] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                    - menuitem [ref=e330] [cursor=pointer]:
+                      - img [ref=e331]
+                  - cell [ref=e333]:
+                    - link [ref=e334] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0t95y0v7ENouQ7tQecR?sidebarAction=openCommandCenter
+                - button "Mannual Work Mar 1, 2026 S Souvik Bera Edit" [ref=e335]:
+                  - cell [ref=e336]:
+                    - link [ref=e337] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - checkbox [ref=e339]
+                  - cell "Mannual Work" [ref=e340]:
+                    - link [ref=e341] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - generic [ref=e342]:
+                      - img [ref=e344]
+                      - paragraph [ref=e348]: Mannual Work
+                  - cell [ref=e349]:
+                    - link [ref=e350] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - button [ref=e351] [cursor=pointer]:
+                      - img [ref=e352]
+                  - cell "Mar 1, 2026" [ref=e354]:
+                    - link [ref=e355] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - paragraph [ref=e356]: Mar 1, 2026
+                  - cell "S Souvik Bera" [ref=e357]:
+                    - link [ref=e358] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - generic [ref=e359]:
+                      - generic [ref=e361]: S
+                      - paragraph [ref=e362]: Souvik Bera
+                  - cell "Edit" [ref=e363]:
+                    - link [ref=e364] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - paragraph [ref=e365]: Edit
+                  - cell [ref=e366]:
+                    - link [ref=e367] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                    - menuitem [ref=e369] [cursor=pointer]:
+                      - img [ref=e370]
+                  - cell [ref=e372]:
+                    - link [ref=e373] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tb1mtqPVyBNSw2qT2h?sidebarAction=openCommandCenter
+                - button "Phone_Number Mar 27, 2026 S Souvik Bera Edit" [ref=e374]:
+                  - cell [ref=e375]:
+                    - link [ref=e376] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - checkbox [ref=e378]
+                  - cell "Phone_Number" [ref=e379]:
+                    - link [ref=e380] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - generic [ref=e381]:
+                      - img [ref=e383]
+                      - paragraph [ref=e387]: Phone_Number
+                  - cell [ref=e388]:
+                    - link [ref=e389] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - button [ref=e390] [cursor=pointer]:
+                      - img [ref=e391]
+                  - cell "Mar 27, 2026" [ref=e393]:
+                    - link [ref=e394] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - paragraph [ref=e395]: Mar 27, 2026
+                  - cell "S Souvik Bera" [ref=e396]:
+                    - link [ref=e397] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - generic [ref=e398]:
+                      - generic [ref=e400]: S
+                      - paragraph [ref=e401]: Souvik Bera
+                  - cell "Edit" [ref=e402]:
+                    - link [ref=e403] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - paragraph [ref=e404]: Edit
+                  - cell [ref=e405]:
+                    - link [ref=e406] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                    - menuitem [ref=e408] [cursor=pointer]:
+                      - img [ref=e409]
+                  - cell [ref=e411]:
+                    - link [ref=e412] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tcjjw1MWjwU2FKDFNy?sidebarAction=openCommandCenter
+                - button "R_Final May 24, 2026 S Souvik Bera Edit" [ref=e413]:
+                  - cell [ref=e414]:
+                    - link [ref=e415] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - checkbox [ref=e417]
+                  - cell "R_Final" [ref=e418]:
+                    - link [ref=e419] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - generic [ref=e420]:
+                      - img [ref=e422]
+                      - paragraph [ref=e426]: R_Final
+                  - cell [ref=e427]:
+                    - link [ref=e428] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - button [ref=e429] [cursor=pointer]:
+                      - img [ref=e430]
+                  - cell "May 24, 2026" [ref=e432]:
+                    - link [ref=e433] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - paragraph [ref=e434]: May 24, 2026
+                  - cell "S Souvik Bera" [ref=e435]:
+                    - link [ref=e436] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - generic [ref=e437]:
+                      - generic [ref=e439]: S
+                      - paragraph [ref=e440]: Souvik Bera
+                  - cell "Edit" [ref=e441]:
+                    - link [ref=e442] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - paragraph [ref=e443]: Edit
+                  - cell [ref=e444]:
+                    - link [ref=e445] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                    - menuitem [ref=e447] [cursor=pointer]:
+                      - img [ref=e448]
+                  - cell [ref=e450]:
+                    - link [ref=e451] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tajdxk39UYsVtgRnDq?sidebarAction=openCommandCenter
+                - button "Untitled workbook 24 minutes ago S Souvik Bera Edit" [ref=e452]:
+                  - cell [ref=e453]:
+                    - link [ref=e454] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - checkbox [ref=e456]
+                  - cell "Untitled workbook" [ref=e457]:
+                    - link [ref=e458] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - generic [ref=e459]:
+                      - img [ref=e461]
+                      - paragraph [ref=e465]: Untitled workbook
+                  - cell [ref=e466]:
+                    - link [ref=e467] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - button [ref=e468] [cursor=pointer]:
+                      - img [ref=e469]
+                  - cell "24 minutes ago" [ref=e471]:
+                    - link [ref=e472] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - paragraph [ref=e473]: 24 minutes ago
+                  - cell "S Souvik Bera" [ref=e474]:
+                    - link [ref=e475] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - generic [ref=e476]:
+                      - generic [ref=e478]: S
+                      - paragraph [ref=e479]: Souvik Bera
+                  - cell "Edit" [ref=e480]:
+                    - link [ref=e481] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - paragraph [ref=e482]: Edit
+                  - cell [ref=e483]:
+                    - link [ref=e484] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                    - menuitem [ref=e486] [cursor=pointer]:
+                      - img [ref=e487]
+                  - cell [ref=e489]:
+                    - link [ref=e490] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tfndd6ratJwDZaoRPB?sidebarAction=openCommandCenter
+                - button "X-founder-Accounts Mar 31, 2026 S Souvik Bera Edit" [ref=e491]:
+                  - cell [ref=e492]:
+                    - link [ref=e493] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - checkbox [ref=e495]
+                  - cell "X-founder-Accounts" [ref=e496]:
+                    - link [ref=e497] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - generic [ref=e498]:
+                      - img [ref=e500]
+                      - paragraph [ref=e504]: X-founder-Accounts
+                  - cell [ref=e505]:
+                    - link [ref=e506] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - button [ref=e507] [cursor=pointer]:
+                      - img [ref=e508]
+                  - cell "Mar 31, 2026" [ref=e510]:
+                    - link [ref=e511] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - paragraph [ref=e512]: Mar 31, 2026
+                  - cell "S Souvik Bera" [ref=e513]:
+                    - link [ref=e514] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - generic [ref=e515]:
+                      - generic [ref=e517]: S
+                      - paragraph [ref=e518]: Souvik Bera
+                  - cell "Edit" [ref=e519]:
+                    - link [ref=e520] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - paragraph [ref=e521]: Edit
+                  - cell [ref=e522]:
+                    - link [ref=e523] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+                    - menuitem [ref=e525] [cursor=pointer]:
+                      - img [ref=e526]
+                  - cell [ref=e528]:
+                    - link [ref=e529] [cursor=pointer]:
+                      - /url: /workspaces/948689/workbooks/wb_0tan4184yVm98Vz6Cuh?sidebarAction=openCommandCenter
+          - status [ref=e530]
+  - iframe [ref=e531]:
+    

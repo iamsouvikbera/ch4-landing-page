@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clay for Webflow — James, the GTM stack a GTM Engineer would build</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #F7F7F7;
+      --bg-dark: #0A0A0A;
+      --surface: #FFFFFF;
+      --border: #E8E8E8;
+      --border-strong: #1A1A1A;
+      --text: #0A0A0A;
+      --text-2: #292929;
+      --text-muted: #5C5C5C;
+      --text-faint: #999999;
+      --blue: #146EF5;
+      --blue-soft: #E7F0FE;
+      --mint: #00D2A8;
+      --mint-soft: #DDF7F0;
+      --yellow: #FFB627;
+      --yellow-soft: #FFF3D7;
+      --pink: #FF6B6B;
+      --purple: #4E5CFF;
+      --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .display-font { font-family: 'Space Grotesk', sans-serif; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-left { display: flex; align-items: center; gap: 32px; }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.04em; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .nav-logo::before {
+      content: ''; width: 22px; height: 22px;
+      background: var(--text); border-radius: 4px;
+      transform: rotate(45deg);
+    }
+    .nav-links { display: flex; gap: 6px; }
+    .nav-link {
+      padding: 8px 14px; color: var(--text-2); font-size: 14px;
+      font-weight: 500; text-decoration: none; border-radius: 6px;
+      transition: background 0.15s;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .nav-link::after {
+      content: '▾'; font-size: 9px; opacity: 0.5;
+    }
+    .nav-link.no-arrow::after { display: none; }
+    .nav-link:hover { background: var(--bg-alt); }
+    .nav-right { display: flex; align-items: center; gap: 6px; }
+    .btn-text {
+      padding: 8px 14px; color: var(--text); font-size: 14px;
+      font-weight: 500; text-decoration: none;
+    }
+    .btn-fill {
+      padding: 10px 18px; background: var(--text); color: #FFF;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      border-radius: 6px; transition: opacity 0.15s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-fill:hover { opacity: 0.86; }
+    .btn-outline-dark {
+      padding: 10px 18px; background: transparent; color: var(--text);
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      border: 1.5px solid var(--text); border-radius: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: background 0.15s;
+    }
+    .btn-outline-dark:hover { background: var(--text); color: #FFF; }
+    .btn-lg { padding: 14px 24px; font-size: 15px; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 80px 28px 60px;
+      max-width: 1280px; margin: 0 auto;
+      text-align: center;
+    }
+    .eyebrow-mono {
+      font-family: var(--mono); font-size: 12px; font-weight: 500;
+      color: var(--blue); letter-spacing: 0.04em;
+      margin-bottom: 28px; display: inline-block;
+      padding: 6px 14px; background: var(--blue-soft);
+      border-radius: 4px;
+    }
+    .eyebrow-mono::before { content: '// '; }
+    h1.display {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7.5vw, 6.5rem);
+      font-weight: 500; line-height: 0.95;
+      letter-spacing: -0.055em;
+      color: var(--text);
+      max-width: 1050px; margin: 0 auto 28px;
+    }
+    h1.display .gradient {
+      background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--mint) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 19px; color: var(--text-muted);
+      max-width: 640px; margin: 0 auto 40px;
+      line-height: 1.55;
+    }
+    .hero-ctas { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+    /* Persona tabs */
+    .persona-tabs {
+      margin: 56px auto 0;
+      display: inline-flex; padding: 4px;
+      background: var(--bg-alt);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .persona-tab {
+      padding: 8px 16px; font-size: 13px; font-weight: 600;
+      color: var(--text-muted); text-decoration: none;
+      border-radius: 6px;
+      font-family: var(--mono);
+      transition: background 0.15s, color 0.15s;
+      cursor: pointer; border: none; background: none;
+    }
+    .persona-tab.active {
+      background: var(--text); color: #FFF;
+    }
+    .persona-tab:not(.active):hover { background: rgba(0,0,0,0.04); color: var(--text); }
+
+    /* Hero product visual */
+    .hero-product {
+      max-width: 1180px; margin: 48px auto 0;
+      border-radius: 16px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-strong);
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 8px 16px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+    .hero-product-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px; border-bottom: 1px solid #1A1A1A;
+      background: #0F0F0F;
+    }
+    .hp-tabs { display: flex; gap: 0; }
+    .hp-tab {
+      padding: 6px 14px; font-family: var(--mono); font-size: 11px;
+      color: #888; border-right: 1px solid #1A1A1A;
+    }
+    .hp-tab.active { color: var(--mint); background: rgba(0,210,168,0.06); }
+    .hp-status {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 10px; background: rgba(0,210,168,0.12);
+      border-radius: 4px; font-family: var(--mono);
+      font-size: 11px; color: var(--mint);
+    }
+    .hp-status::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--mint); box-shadow: 0 0 8px var(--mint);
+    }
+    .hp-body {
+      display: grid; grid-template-columns: 240px 1fr;
+      min-height: 380px;
+    }
+    .hp-sidebar {
+      background: #0C0C0C;
+      border-right: 1px solid #1A1A1A;
+      padding: 16px 12px;
+    }
+    .hp-sb-label {
+      font-family: var(--mono); font-size: 10px; color: #5C5C5C;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 0 8px 8px;
+    }
+    .hp-sb-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 8px; border-radius: 4px;
+      font-family: var(--mono); font-size: 12px;
+      color: #BFBFBF;
+    }
+    .hp-sb-item.active { background: rgba(20,110,245,0.14); color: var(--blue); }
+    .hp-sb-item::before {
+      content: '▸'; font-size: 9px; opacity: 0.5;
+    }
+    .hp-sb-item.active::before { content: '▾'; opacity: 1; }
+    .hp-canvas { padding: 0; }
+    .hp-canvas-head {
+      padding: 12px 18px; border-bottom: 1px solid #1A1A1A;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .hp-canvas-title { font-family: var(--mono); font-size: 12px; color: #E8E8E8; }
+    .hp-meta { font-family: var(--mono); font-size: 11px; color: #5C5C5C; }
+    .hp-row {
+      display: grid; grid-template-columns: 32px 1fr auto auto auto;
+      gap: 12px; align-items: center;
+      padding: 10px 18px; border-bottom: 1px solid #131313;
+      font-size: 12.5px;
+    }
+    .hp-row-num {
+      font-family: var(--mono); font-size: 10px; color: #5C5C5C;
+    }
+    .hp-row-name { color: #E8E8E8; font-weight: 500; }
+    .hp-row-sub { font-family: var(--mono); font-size: 10.5px; color: #888; }
+    .hp-tag {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      padding: 2px 7px; border-radius: 3px;
+    }
+    .hp-tag-200 { background: rgba(0,210,168,0.14); color: var(--mint); }
+    .hp-tag-202 { background: rgba(255,182,39,0.16); color: var(--yellow); }
+    .hp-tag-queued { background: rgba(78,92,255,0.16); color: #8B96FF; }
+    .hp-progress {
+      width: 80px; height: 4px; background: #1A1A1A;
+      border-radius: 2px; overflow: hidden;
+    }
+    .hp-progress-fill { height: 100%; border-radius: 2px; }
+
+    /* ── Logos strip ── */
+    .logos {
+      padding: 64px 28px;
+      max-width: 1280px; margin: 0 auto;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .logos-label {
+      text-align: center; font-family: var(--mono); font-size: 11px;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 28px;
+    }
+    .logos-label::before { content: '// '; }
+    .logos-row {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 44px; align-items: center;
+    }
+    .logo-name {
+      font-size: 20px; font-weight: 700; color: var(--text-faint);
+      letter-spacing: -0.025em;
+      filter: grayscale(1);
+      transition: color 0.2s, filter 0.2s;
+    }
+    .logo-name:hover { color: var(--text); filter: grayscale(0); }
+
+    /* ── Big section header pattern (Webflow style) ── */
+    .section-tag {
+      display: inline-block;
+      font-family: var(--mono); font-size: 12px; font-weight: 500;
+      color: var(--blue); margin-bottom: 16px;
+    }
+    .section-tag::before { content: '// '; }
+    .section-h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 500; line-height: 1; letter-spacing: -0.045em;
+      color: var(--text); margin-bottom: 24px;
+      max-width: 980px;
+    }
+    .section-h2 .accent { color: var(--blue); }
+    .section-lede {
+      font-size: 19px; color: var(--text-muted);
+      line-height: 1.5; max-width: 620px;
+    }
+
+    /* ── Builders section: split big card with code-style visual ── */
+    .builders {
+      padding: 120px 28px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .builders-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      margin-top: 56px;
+    }
+    .builders-code {
+      background: var(--bg-dark); color: #E8E8E8;
+      border-radius: 14px; padding: 28px;
+      font-family: var(--mono); font-size: 13px; line-height: 1.7;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+    .code-line { display: block; }
+    .code-comment { color: #5C5C5C; }
+    .code-keyword { color: var(--pink); }
+    .code-string { color: var(--mint); }
+    .code-fn { color: var(--blue); }
+    .code-prop { color: var(--yellow); }
+    .code-indent { padding-left: 1.6em; }
+    .builders-text h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 600; line-height: 1.1; letter-spacing: -0.035em;
+      margin-bottom: 16px;
+    }
+    .builders-text p { font-size: 17px; color: var(--text-muted); line-height: 1.55; margin-bottom: 24px; }
+    .check-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; color: var(--text); line-height: 1.5;
+    }
+    .check-list li::before {
+      content: ''; flex-shrink: 0; margin-top: 4px;
+      width: 18px; height: 18px;
+      background: var(--text); border-radius: 4px;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5l2 2 4-4' stroke='%23FFFFFF' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-position: center; background-repeat: no-repeat;
+    }
+
+    /* ── 6-up feature grid (Webflow multi-feature pattern) ── */
+    .multi-features {
+      padding: 60px 28px 120px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .multi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden;
+      margin-top: 48px;
+    }
+    .multi-card {
+      background: var(--surface); padding: 32px 28px;
+      transition: background 0.2s;
+    }
+    .multi-card:hover { background: var(--bg-alt); }
+    .multi-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-family: var(--mono); font-size: 14px; font-weight: 700;
+    }
+    .mi-1 { background: var(--blue-soft); color: var(--blue); }
+    .mi-2 { background: var(--mint-soft); color: #008871; }
+    .mi-3 { background: var(--yellow-soft); color: #8B6A0A; }
+    .mi-4 { background: #FFE5E5; color: #B33A3A; }
+    .mi-5 { background: #ECE9FF; color: var(--purple); }
+    .mi-6 { background: #DDF7F0; color: #00867C; }
+    .multi-card h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px; font-weight: 600; letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+    .multi-card p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+    /* ── Pain (Webflow does these as a horizontal scroll-snap or stacked dark cards) ── */
+    .pain-row {
+      background: var(--bg-dark);
+      padding: 100px 28px;
+    }
+    .pain-inner { max-width: 1280px; margin: 0 auto; color: #E8E8E8; }
+    .pain-inner .section-tag { color: var(--mint); }
+    .pain-inner .section-h2 { color: #FFFFFF; }
+    .pain-inner .section-h2 .accent { color: var(--mint); }
+    .pain-inner .section-lede { color: #B5B5B5; }
+    .pain-grid-x {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+      margin-top: 56px;
+    }
+    .pain-block {
+      background: #161616; border: 1px solid #232323;
+      border-radius: 12px; padding: 32px;
+      position: relative;
+    }
+    .pain-block::before {
+      content: ''; position: absolute; left: 0; top: 32px;
+      width: 3px; height: calc(100% - 64px);
+      background: var(--blue);
+      border-radius: 2px;
+    }
+    .pain-block:nth-child(2)::before { background: var(--mint); }
+    .pain-block:nth-child(3)::before { background: var(--yellow); }
+    .pain-block:nth-child(4)::before { background: var(--pink); }
+    .pain-block h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; font-weight: 600;
+      color: #FFFFFF; margin-bottom: 8px; padding-left: 16px;
+      letter-spacing: -0.02em;
+    }
+    .pain-block p {
+      font-size: 14px; color: #999; line-height: 1.6;
+      padding-left: 16px;
+    }
+
+    /* ── Stats (big and bold like Webflow) ── */
+    .stats-section {
+      padding: 100px 28px;
+      max-width: 1280px; margin: 0 auto;
+      text-align: center;
+    }
+    .stats-section .section-h2 { margin: 0 auto 60px; text-align: center; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .stat-block {
+      text-align: left;
+      padding-top: 24px; border-top: 2px solid var(--text);
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 500; line-height: 1; letter-spacing: -0.05em;
+      margin-bottom: 12px;
+    }
+    .stat-block:nth-child(1) .stat-num { color: var(--blue); }
+    .stat-block:nth-child(2) .stat-num { color: var(--mint); }
+    .stat-block:nth-child(3) .stat-num { color: #8B6A0A; }
+    .stat-block:nth-child(4) .stat-num { color: var(--purple); }
+    .stat-desc { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── Customer cards (Webflow pattern: rich cards w/ accent backgrounds) ── */
+    .customers {
+      padding: 80px 28px 120px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .customer-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-top: 48px;
+    }
+    .customer-card {
+      border-radius: 14px;
+      padding: 36px 28px;
+      display: flex; flex-direction: column;
+      min-height: 320px;
+    }
+    .customer-card.c1 { background: var(--blue-soft); }
+    .customer-card.c2 { background: var(--mint-soft); }
+    .customer-card.c3 { background: var(--yellow-soft); }
+    .customer-stat {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 56px; font-weight: 600; line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+    .customer-card.c1 .customer-stat { color: var(--blue); }
+    .customer-card.c2 .customer-stat { color: #008871; }
+    .customer-card.c3 .customer-stat { color: #8B6A0A; }
+    .customer-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; font-family: var(--mono); }
+    .customer-quote {
+      font-size: 17px; color: var(--text); line-height: 1.5;
+      flex-grow: 1; margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .customer-attr {
+      font-family: var(--mono); font-size: 12px; color: var(--text-muted);
+      padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.08);
+    }
+
+    /* ── Final CTA (Webflow big gradient block) ── */
+    .final {
+      padding: 60px 28px 120px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .final-block {
+      background: var(--bg-dark);
+      border-radius: 24px;
+      padding: 96px 64px;
+      color: #FFF;
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .final-block::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(20,110,245,0.30) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0,210,168,0.25) 0%, transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(78,92,255,0.20) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .final-content { position: relative; z-index: 1; }
+    .final-block .eyebrow-mono { background: rgba(20,110,245,0.16); color: #8FBEFF; }
+    .final-block h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+      font-weight: 500; line-height: 0.98; letter-spacing: -0.045em;
+      margin: 12px auto 24px; max-width: 900px;
+    }
+    .final-block h2 .gradient {
+      background: linear-gradient(90deg, var(--mint) 0%, #8FBEFF 50%, var(--mint) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .final-block p {
+      font-size: 19px; color: #B5B5B5;
+      max-width: 580px; margin: 0 auto 36px;
+    }
+    .final-block .btn-fill { background: #FFF; color: var(--text); }
+    .final-block .btn-fill:hover { background: var(--mint); color: var(--text); }
+    .final-block .btn-outline-dark { color: #FFF; border-color: rgba(255,255,255,0.4); }
+    .final-block .btn-outline-dark:hover { background: rgba(255,255,255,0.1); color: #FFF; }
+    .final-ctas { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+
+    /* ── Mega footer (Webflow pattern) ── */
+    footer {
+      padding: 80px 28px 32px;
+      max-width: 1280px; margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr repeat(4, 1fr);
+      gap: 48px; margin-bottom: 64px;
+    }
+    .footer-brand-col .nav-logo { margin-bottom: 16px; }
+    .footer-tagline {
+      font-size: 14px; color: var(--text-muted); max-width: 320px;
+      line-height: 1.5;
+    }
+    .footer-col h5 {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      color: var(--text); text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+    .footer-col h5::before { content: '// '; color: var(--text-faint); }
+    .footer-col a {
+      display: block; font-size: 13px; color: var(--text-muted);
+      text-decoration: none; padding: 5px 0; transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      padding-top: 24px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--mono); font-size: 12px; color: var(--text-faint);
+    }
+
+    /* ── Fade ── */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .builders-grid { grid-template-columns: 1fr; gap: 40px; }
+      .multi-grid { grid-template-columns: 1fr; }
+      .pain-grid-x { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .customer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .hp-body { grid-template-columns: 1fr; }
+      .hp-sidebar { display: none; }
+    }
+    @media (max-width: 560px) {
+      .hero, .builders, .multi-features, .pain-row, .stats-section, .customers, .final { padding-left: 18px; padding-right: 18px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .final-block { padding: 56px 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="#" class="nav-logo">Clay</a>
+      <div class="nav-links">
+        <a href="#builders" class="nav-link">Platform</a>
+        <a href="#multi" class="nav-link">Solutions</a>
+        <a href="#customers" class="nav-link">Customers</a>
+        <a href="#" class="nav-link no-arrow">Pricing</a>
+        <a href="#" class="nav-link no-arrow">Docs</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="#book-demo" class="btn-text">Sign in</a>
+      <a href="#book-demo" class="btn-fill">Get started for free</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="fade-up">
+      <div class="eyebrow-mono">prepared for james.okonkwo @ webflow</div>
+      <h1 class="display">The agentic <span class="gradient">GTM stack</span> a GTM Engineer would build.</h1>
+      <p class="hero-sub">
+        Webflow gave designers production power without engineering tickets. Clay gives GTM Engineers the same — a spreadsheet UI with database internals, an API on every node, and integrations into every tool your team already runs.
+      </p>
+      <div class="hero-ctas">
+        <a href="#book-demo" class="btn-fill btn-lg">Book a demo &rarr;</a>
+        <a href="#builders" class="btn-outline-dark btn-lg">See the platform</a>
+      </div>
+
+      <div class="persona-tabs">
+        <button class="persona-tab active">GTM Engineer</button>
+        <button class="persona-tab">RevOps</button>
+        <button class="persona-tab">Growth</button>
+        <button class="persona-tab">Sales Dev</button>
+      </div>
+    </div>
+
+    <!-- Hero product visual -->
+    <div class="hero-product fade-up">
+      <div class="hero-product-bar">
+        <div class="hp-tabs">
+          <div class="hp-tab active">webflow_outbound.clay</div>
+          <div class="hp-tab">webhooks.log</div>
+          <div class="hp-tab">crm_sync</div>
+        </div>
+        <div class="hp-status">running</div>
+      </div>
+      <div class="hp-body">
+        <aside class="hp-sidebar">
+          <div class="hp-sb-label">workspaces</div>
+          <div class="hp-sb-item active">webflow_gtm</div>
+          <div class="hp-sb-item">ramp_outbound</div>
+          <div class="hp-sb-item">intent_signals</div>
+          <div class="hp-sb-label" style="margin-top: 16px;">workflows</div>
+          <div class="hp-sb-item active">enrich → score → push</div>
+          <div class="hp-sb-item">crm_sync_nightly</div>
+          <div class="hp-sb-item">claygent_research</div>
+        </aside>
+        <div class="hp-canvas">
+          <div class="hp-canvas-head">
+            <div class="hp-canvas-title">workflow: enrich → score → push (4,820 rows)</div>
+            <div class="hp-meta">312 req/min · all endpoints 200</div>
+          </div>
+          <div class="hp-row">
+            <span class="hp-row-num">01</span>
+            <div><div class="hp-row-name">Vercel</div><div class="hp-row-sub">trigger: funding.series_d</div></div>
+            <div class="hp-progress"><div class="hp-progress-fill" style="width:92%;background:var(--mint)"></div></div>
+            <span class="hp-tag hp-tag-200">200</span>
+            <span class="hp-tag hp-tag-200">POST /crm</span>
+          </div>
+          <div class="hp-row">
+            <span class="hp-row-num">02</span>
+            <div><div class="hp-row-name">Linear</div><div class="hp-row-sub">trigger: job.gtm_engineer</div></div>
+            <div class="hp-progress"><div class="hp-progress-fill" style="width:88%;background:var(--mint)"></div></div>
+            <span class="hp-tag hp-tag-200">200</span>
+            <span class="hp-tag hp-tag-200">POST /crm</span>
+          </div>
+          <div class="hp-row">
+            <span class="hp-row-num">03</span>
+            <div><div class="hp-row-name">PostHog</div><div class="hp-row-sub">trigger: tech.outreach_added</div></div>
+            <div class="hp-progress"><div class="hp-progress-fill" style="width:74%;background:var(--yellow)"></div></div>
+            <span class="hp-tag hp-tag-202">202</span>
+            <span class="hp-tag hp-tag-queued">retry</span>
+          </div>
+          <div class="hp-row">
+            <span class="hp-row-num">04</span>
+            <div><div class="hp-row-name">Cal.com</div><div class="hp-row-sub">trigger: funding.series_a</div></div>
+            <div class="hp-progress"><div class="hp-progress-fill" style="width:65%;background:var(--yellow)"></div></div>
+            <span class="hp-tag hp-tag-202">202</span>
+            <span class="hp-tag hp-tag-queued">retry</span>
+          </div>
+          <div class="hp-row">
+            <span class="hp-row-num">05</span>
+            <div><div class="hp-row-name">Resend</div><div class="hp-row-sub">trigger: exec.cro_joined</div></div>
+            <div class="hp-progress"><div class="hp-progress-fill" style="width:42%;background:var(--purple)"></div></div>
+            <span class="hp-tag hp-tag-queued">queued</span>
+            <span class="hp-tag hp-tag-queued">waiting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logos -->
+  <section class="logos">
+    <div class="logos-label fade-up">5,000+ teams ship with Clay</div>
+    <div class="logos-row fade-up">
+      <span class="logo-name">OpenAI</span>
+      <span class="logo-name">Anthropic</span>
+      <span class="logo-name">Canva</span>
+      <span class="logo-name">Ramp</span>
+      <span class="logo-name">Rippling</span>
+      <span class="logo-name">Vanta</span>
+      <span class="logo-name">Notion</span>
+      <span class="logo-name">Intercom</span>
+    </div>
+  </section>
+
+  <!-- Builders section -->
+  <section class="builders" id="builders">
+    <div class="fade-up" style="max-width: 900px;">
+      <div class="section-tag">platform</div>
+      <h2 class="section-h2">Engineering <span class="accent">primitives</span>,<br>ops-team velocity.</h2>
+      <p class="section-lede">
+        Every column is a programmable node. Waterfall enrichment, Claygent research, custom HTTP, formulas, branches, fan-outs. Build it once, hand it to your team, iterate at the speed of spreadsheet edits.
+      </p>
+    </div>
+
+    <div class="builders-grid">
+      <div class="builders-code fade-up">
+<span class="code-line"><span class="code-comment">// webflow_outbound.clay</span></span>
+<span class="code-line"><span class="code-keyword">workflow</span> <span class="code-fn">enrich_and_push</span>({</span>
+<span class="code-line code-indent"><span class="code-prop">trigger</span>: <span class="code-string">'funding.series_*'</span>,</span>
+<span class="code-line code-indent"><span class="code-prop">source</span>: <span class="code-fn">waterfall</span>([</span>
+<span class="code-line code-indent code-indent"><span class="code-string">'apollo'</span>, <span class="code-string">'clearbit'</span>, <span class="code-string">'zoominfo'</span>,</span>
+<span class="code-line code-indent code-indent"><span class="code-string">'claygent.deep_research'</span></span>
+<span class="code-line code-indent">]),</span>
+<span class="code-line code-indent"><span class="code-prop">score</span>: <span class="code-fn">formula</span>(<span class="code-string">'icp_fit_v3'</span>),</span>
+<span class="code-line code-indent"><span class="code-prop">on_match</span>: <span class="code-fn">POST</span>(<span class="code-string">'/sf/upsert'</span>),</span>
+<span class="code-line code-indent"><span class="code-prop">webhook</span>: <span class="code-string">'gtm.webflow.io/leads'</span></span>
+<span class="code-line">});</span>
+<span class="code-line"></span>
+<span class="code-line"><span class="code-comment">// → 4,820 rows · 312 req/min · all 200</span></span>
+      </div>
+      <div class="builders-text fade-up">
+        <h3>Workflows your ops team can actually own.</h3>
+        <p>Define enrichment, scoring, and routing in a spreadsheet. Your SDR Manager can read it; your CRO can edit it. You stop being the bottleneck for every "small change" the GTM team asks for.</p>
+        <ul class="check-list">
+          <li>HTTP node, webhook node, anything-you-need node</li>
+          <li>Native integrations into Salesforce, HubSpot, Outreach, Salesloft + 100 more</li>
+          <li>Claygent gives you AI research as a column, with structured outputs</li>
+          <li>Branching, fan-out, retries, idempotency — production primitives</li>
+        </ul>
+        <a href="#book-demo" style="display:inline-block;margin-top:24px;" class="btn-outline-dark">View docs &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6-up feature grid -->
+  <section class="multi-features" id="multi">
+    <div class="fade-up" style="max-width:760px;">
+      <div class="section-tag">capabilities</div>
+      <h2 class="section-h2">A platform you'd <span class="accent">actually want</span> to maintain.</h2>
+      <p class="section-lede">Six things that should be standard, finally are.</p>
+    </div>
+    <div class="multi-grid fade-up">
+      <div class="multi-card">
+        <div class="multi-icon mi-1">/01</div>
+        <h4>Waterfall enrichment</h4>
+        <p>150+ providers cascaded until every column is filled. No more single-vendor coverage gaps.</p>
+      </div>
+      <div class="multi-card">
+        <div class="multi-icon mi-2">/02</div>
+        <h4>Claygent research</h4>
+        <p>AI agent reads sites, parses news, summarizes LinkedIn. Outputs structured fields.</p>
+      </div>
+      <div class="multi-card">
+        <div class="multi-icon mi-3">/03</div>
+        <h4>HTTP & webhook nodes</h4>
+        <p>Drop in any API call, parse JSON inline. Generic primitives, no glue scripts.</p>
+      </div>
+      <div class="multi-card">
+        <div class="multi-icon mi-4">/04</div>
+        <h4>Native CRM sync</h4>
+        <p>Salesforce, HubSpot, Pipedrive. Schema-aware upserts, full audit trail.</p>
+      </div>
+      <div class="multi-card">
+        <div class="multi-icon mi-5">/05</div>
+        <h4>Intent triggers</h4>
+        <p>Funding, hiring, tech installs, exec moves. Auto-fire workflows on signal.</p>
+      </div>
+      <div class="multi-card">
+        <div class="multi-icon mi-6">/06</div>
+        <h4>Spreadsheet UI</h4>
+        <p>Your ops team reads and edits the same logic you write. No more "small change" tickets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain section (dark) -->
+  <section class="pain-row">
+    <div class="pain-inner">
+      <div class="fade-up" style="max-width:900px;">
+        <div class="section-tag">the challenge</div>
+        <h2 class="section-h2">The GTM stack <span class="accent">you'd never ship</span> to production.</h2>
+        <p class="section-lede">As a GTM Engineer, you've stitched it together yourself — and you know exactly where the seams are.</p>
+      </div>
+      <div class="pain-grid-x">
+        <div class="pain-block fade-up">
+          <h4>Five vendors and a duct-taped script</h4>
+          <p>ZoomInfo for one field. Clearbit for another. Apollo as backup. A Python notebook that runs at 2am to glue them together. You built it; now you maintain it.</p>
+        </div>
+        <div class="pain-block fade-up">
+          <h4>Every new play is a new BigQuery export</h4>
+          <p>Marketing wants a new segment. Sales wants new triggers. Each one means another pipeline, another schema, another thing that breaks when someone changes a column.</p>
+        </div>
+        <div class="pain-block fade-up">
+          <h4>The APIs you'd want don't exist</h4>
+          <p>Or they do, with 100-call rate limits, no webhooks, and docs from 2019. Half your sprint is reading source to figure out what's actually available.</p>
+        </div>
+        <div class="pain-block fade-up">
+          <h4>Reps want self-serve. You own the tooling.</h4>
+          <p>Every "small change" routes through you. You're the bottleneck — and the team that thinks they want a no-code tool actually wants one with a real engineer behind it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="fade-up">
+      <div class="section-tag">by the numbers</div>
+      <h2 class="section-h2">Built for what <span class="accent">production</span> looks like.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-block fade-up">
+        <div class="stat-num">3x</div>
+        <div class="stat-desc">enrichment coverage vs. single-provider tools</div>
+      </div>
+      <div class="stat-block fade-up">
+        <div class="stat-num">80%</div>
+        <div class="stat-desc">reduction in manual data-pipeline work</div>
+      </div>
+      <div class="stat-block fade-up">
+        <div class="stat-num">150+</div>
+        <div class="stat-desc">data providers in one HTTP-callable layer</div>
+      </div>
+      <div class="stat-block fade-up">
+        <div class="stat-num">4.9</div>
+        <div class="stat-desc">rating on G2 from thousands of teams</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer cards -->
+  <section class="customers" id="customers">
+    <div class="fade-up" style="max-width:760px;">
+      <div class="section-tag">customers</div>
+      <h2 class="section-h2">GTM Engineers, <span class="accent">shipping</span>.</h2>
+    </div>
+    <div class="customer-grid">
+      <div class="customer-card c1 fade-up">
+        <div class="customer-stat">3x</div>
+        <div class="customer-desc">enrichment coverage / 30 days</div>
+        <p class="customer-quote">"Clay replaced three vendors and a homegrown enrichment service. Coverage went up, the maintenance burden went away."</p>
+        <div class="customer-attr">// GTM Engineer · Series C SaaS</div>
+      </div>
+      <div class="customer-card c2 fade-up">
+        <div class="customer-stat">0</div>
+        <div class="customer-desc">tickets for new outbound plays</div>
+        <p class="customer-quote">"Our SDR Manager builds new campaigns in Clay herself. I haven't been pinged for a 'small change' in months."</p>
+        <div class="customer-attr">// Head of GTM Eng · Series D SaaS</div>
+      </div>
+      <div class="customer-card c3 fade-up">
+        <div class="customer-stat">$3.1B</div>
+        <div class="customer-desc">Clay valuation</div>
+        <p class="customer-quote">"Clay is what I'd build if I had a team of 20 and a year of runway. Thankfully, I don't have to."</p>
+        <div class="customer-attr">// GTM Engineer · Series B Startup</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final" id="book-demo">
+    <div class="final-block fade-up">
+      <div class="final-content">
+        <div class="eyebrow-mono">// for james</div>
+        <h2>Ship the GTM stack<br>you've been <span class="gradient">waiting</span> to build.</h2>
+        <p>30 minutes. Bring your hardest workflow. We'll wire it live and show you how Clay plugs into Webflow's GTM stack — APIs, webhooks, CRM sync, the works.</p>
+        <div class="final-ctas">
+          <a href="https://placeholder-demo-link.com/james-okonkwo" class="btn-fill btn-lg">Book a demo &rarr;</a>
+          <a href="https://placeholder-demo-link.com/james-okonkwo" class="btn-outline-dark btn-lg">Start for free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mega footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="#" class="nav-logo">Clay</a>
+        <p class="footer-tagline">The GTM development environment for revenue teams that ship.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="#builders">Enrichment</a>
+        <a href="#builders">Claygent</a>
+        <a href="#multi">Workflows</a>
+        <a href="#multi">Integrations</a>
+        <a href="#multi">Webhooks</a>
+      </div>
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <a href="#">GTM Engineering</a>
+        <a href="#">Revenue Ops</a>
+        <a href="#">Sales Dev</a>
+        <a href="#">Growth</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="#">Docs</a>
+        <a href="#">API reference</a>
+        <a href="#customers">Customers</a>
+        <a href="#">Changelog</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get started</h5>
+        <a href="#book-demo">Book a demo</a>
+        <a href="#book-demo">Start free</a>
+        <a href="#">Pricing</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>// prepared for james.okonkwo @ webflow</p>
+      <p>&copy; 2026 Clay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Persona tab toggle (visual only)
+    document.querySelectorAll('.persona-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.persona-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

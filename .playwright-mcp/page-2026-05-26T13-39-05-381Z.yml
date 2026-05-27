@@ -1,0 +1,632 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#skip-to-content"
+      - text: Skip to
+      - generic [ref=e5]: content
+    - banner [ref=e6]:
+      - navigation "primary" [ref=e7]:
+        - generic [ref=e8]:
+          - link "Atlassian Loom Logo" [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img "Atlassian Loom Logo" [ref=e10]
+          - generic [ref=e27]:
+            - link "Sign In" [ref=e28] [cursor=pointer]:
+              - /url: /login
+            - link "Get Loom for free" [ref=e29] [cursor=pointer]:
+              - /url: /signup
+            - link "Contact Sales" [ref=e30] [cursor=pointer]:
+              - /url: /connect/enterprise?campaign=7013i000000QYMqAAO
+            - button "Toggle navigation menu" [ref=e32] [cursor=pointer]:
+              - generic [ref=e33]: Toggle menu close
+    - main [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - generic [ref=e40]:
+            - heading "One video is worth a thousand words" [level=1] [ref=e42]
+            - paragraph [ref=e44]: Easily record and share AI-powered video messages with your teammates and customers to supercharge productivity
+          - generic [ref=e45]:
+            - link "Get Loom for free" [ref=e47] [cursor=pointer]:
+              - /url: /signup
+            - link "Install Chrome Extension Open in new window" [ref=e49] [cursor=pointer]:
+              - /url: https://chrome.google.com/webstore/detail/loom-%E2%80%93-screen-recorder-sc/liecbddmkiiihnedobmlmillhodjkdmb
+              - text: Install Chrome Extension
+              - generic [ref=e52]: Open in new window
+        - iframe [ref=e54]:
+          
+      - generic [ref=e56]:
+        - heading "Millions of people across 400,000 companies choose Loom" [level=2] [ref=e57]
+        - link "Get Loom for free" [ref=e59] [cursor=pointer]:
+          - /url: https://www.loom.com/signup
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - list [ref=e66]:
+              - listitem [ref=e67]:
+                - img "HubSpot" [ref=e68]
+              - listitem [ref=e69]:
+                - img "Lacoste" [ref=e70]
+              - listitem [ref=e71]:
+                - img "Postclick" [ref=e72]
+              - listitem [ref=e73]:
+                - img "LaunchDarkly" [ref=e74]
+              - listitem [ref=e75]:
+                - img "Remote" [ref=e76]
+              - listitem [ref=e77]:
+                - img "MetaLab" [ref=e78]
+              - listitem [ref=e79]:
+                - img "Atlassian" [ref=e80]
+              - listitem [ref=e81]:
+                - img "Juniper" [ref=e82]
+              - listitem [ref=e83]:
+                - img "Braze" [ref=e84]
+              - listitem [ref=e85]:
+                - img "Gtmhub" [ref=e86]
+              - listitem [ref=e87]:
+                - img "Greenhouse" [ref=e88]
+              - listitem [ref=e89]:
+                - img "Brex" [ref=e90]
+              - listitem [ref=e91]:
+                - img "Fit Fab Fun" [ref=e92]
+            - list [ref=e95]:
+              - listitem [ref=e96]:
+                - img "HubSpot" [ref=e97]
+              - listitem [ref=e98]:
+                - img "Lacoste" [ref=e99]
+              - listitem [ref=e100]:
+                - img "Postclick" [ref=e101]
+              - listitem [ref=e102]:
+                - img "LaunchDarkly" [ref=e103]
+              - listitem [ref=e104]:
+                - img "Remote" [ref=e105]
+              - listitem [ref=e106]:
+                - img "MetaLab" [ref=e107]
+              - listitem [ref=e108]:
+                - img "Atlassian" [ref=e109]
+              - listitem [ref=e110]:
+                - img "Juniper" [ref=e111]
+              - listitem [ref=e112]:
+                - img "Braze" [ref=e113]
+              - listitem [ref=e114]:
+                - img "Gtmhub" [ref=e115]
+              - listitem [ref=e116]:
+                - img "Greenhouse" [ref=e117]
+              - listitem [ref=e118]:
+                - img "Brex" [ref=e119]
+              - listitem [ref=e120]:
+                - img "Fit Fab Fun" [ref=e121]
+          - generic [ref=e122]:
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - img "Ford" [ref=e129]
+              - listitem [ref=e130]:
+                - img "Mercedez-Benz" [ref=e131]
+              - listitem [ref=e132]:
+                - img "Tesla" [ref=e133]
+              - listitem [ref=e134]:
+                - img "Volvo" [ref=e135]
+              - listitem [ref=e136]:
+                - img "Goldman Sachs" [ref=e137]
+              - listitem [ref=e138]:
+                - img "Asana" [ref=e139]
+            - list [ref=e142]:
+              - listitem [ref=e143]:
+                - img "Ford" [ref=e144]
+              - listitem [ref=e145]:
+                - img "Mercedez-Benz" [ref=e146]
+              - listitem [ref=e147]:
+                - img "Tesla" [ref=e148]
+              - listitem [ref=e149]:
+                - img "Volvo" [ref=e150]
+              - listitem [ref=e151]:
+                - img "Goldman Sachs" [ref=e152]
+              - listitem [ref=e153]:
+                - img "Asana" [ref=e154]
+          - generic [ref=e155]:
+            - list [ref=e160]:
+              - listitem [ref=e161]:
+                - img "Wayfair" [ref=e162]
+              - listitem [ref=e163]:
+                - img "Walmart" [ref=e164]
+              - listitem [ref=e165]:
+                - img "Gap" [ref=e166]
+              - listitem [ref=e167]:
+                - img "Nordstrom" [ref=e168]
+              - listitem [ref=e169]:
+                - img "Disney" [ref=e170]
+              - listitem [ref=e171]:
+                - img "Ticketmaster" [ref=e172]
+              - listitem [ref=e173]:
+                - img "A+E Networks" [ref=e174]
+            - list [ref=e177]:
+              - listitem [ref=e178]:
+                - img "Wayfair" [ref=e179]
+              - listitem [ref=e180]:
+                - img "Walmart" [ref=e181]
+              - listitem [ref=e182]:
+                - img "Gap" [ref=e183]
+              - listitem [ref=e184]:
+                - img "Nordstrom" [ref=e185]
+              - listitem [ref=e186]:
+                - img "Disney" [ref=e187]
+              - listitem [ref=e188]:
+                - img "Ticketmaster" [ref=e189]
+              - listitem [ref=e190]:
+                - img "A+E Networks" [ref=e191]
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - paragraph [ref=e197]: New!
+          - heading "Ship faster with AI bug reports" [level=2] [ref=e199]
+          - paragraph [ref=e201]: Record a quick walkthrough and let Loom’s AI turn it into a fully populated Jira work item in a few clicks. Loom automatically captures the technical details devs need (device/browser/OS, console errors, and network activity) to pinpoint the problem fast and move work forward.
+        - link "Learn more Open in new window" [ref=e202] [cursor=pointer]:
+          - /url: https://www.atlassian.com/software/loom/loom-jira
+          - text: Learn more
+          - generic [ref=e203]: Open in new window
+      - generic [ref=e204]:
+        - generic [ref=e205]:
+          - heading "The easiest screen recorder you’ll ever use" [level=2] [ref=e207]
+          - paragraph [ref=e209]: Record in a few clicks. Share anywhere. Collaborate better.
+        - generic [ref=e211]:
+          - generic [ref=e218]:
+            - heading "Lightning fast screen recording" [level=2] [ref=e220]
+            - paragraph [ref=e222]:
+              - text: Easily
+              - link "record your screen" [ref=e223] [cursor=pointer]:
+                - /url: https://www.loom.com/screen-recorder
+              - text: and camera. Record on any device using Loom’s
+              - link "Chrome extension" [ref=e224] [cursor=pointer]:
+                - /url: https://www.loom.com/products/chrome-screen-recorder
+              - text: ","
+              - link "desktop app" [ref=e225] [cursor=pointer]:
+                - /url: https://www.loom.com/desktop
+              - text: or
+              - link "mobile app" [ref=e226] [cursor=pointer]:
+                - /url: https://www.loom.com/products/ios-screen-recorder
+              - text: .
+            - link "Download now" [ref=e228] [cursor=pointer]:
+              - /url: /screen-recorder
+          - generic [ref=e229]:
+            - img [ref=e230]:
+              - generic [ref=e241]: 1:1 with Dereje
+              - generic [ref=e244]: 1:1 with Sonya
+              - generic [ref=e247]: Focus Work
+              - generic [ref=e251]: Quarterly Budget Meeting
+              - generic [ref=e255]: Project Review
+              - generic [ref=e259]: Q4 Campaign Results
+              - generic [ref=e263]: Results Report
+            - generic [ref=e266]:
+              - img [ref=e268]:
+                - generic [ref=e269]: 0:05
+              - button "Pause recording in animation" [ref=e272] [cursor=pointer]
+              - button "Cancel recording in animation" [ref=e276] [cursor=pointer]
+      - generic [ref=e278]:
+        - heading "So much more than a screen recorder" [level=2] [ref=e281]
+        - generic [ref=e283]:
+          - generic [ref=e286]:
+            - img "Edit your videos like a pro" [ref=e288]
+            - generic [ref=e290]:
+              - generic [ref=e291]:
+                - heading "Edit your videos like a pro" [level=3] [ref=e293]
+                - paragraph [ref=e295]: Loom’s intuitive editor lets you trim, stitch clips, add eye-catching backgrounds, and even enhance your message with text, arrows, and box overlays. The result? Engaging videos you can deliver fast.
+              - link "Record now" [ref=e296] [cursor=pointer]:
+                - /url: https://www.loom.com/looms/videos?reminderToRecord=true
+                - text: Record now
+          - generic [ref=e302]:
+            - generic [ref=e305]:
+              - generic [ref=e306]:
+                - img [ref=e307]:
+                  - generic [ref=e308]: Can you show me how to require two-factorauthentication for my team?
+                - img [ref=e309]
+              - generic [ref=e311]:
+                - generic [ref=e312]:
+                  - img [ref=e313]:
+                    - generic [ref=e314]: Of course! Here’s a short walkthrough ofthe steps you’ll need to take:loom.com/share/28u2o923
+                  - img [ref=e317]
+                  - img [ref=e321]
+                  - generic [ref=e328]: Your browser does not support the video tag.
+                - img [ref=e329]
+              - img "Integrations with Google, Slack, Salesforce, Figma and Jira" [ref=e332]
+            - generic [ref=e334]:
+              - generic [ref=e335]:
+                - heading "Share or embed video anywhere you work" [level=3] [ref=e337]
+                - paragraph [ref=e339]: From Google Workspace to Slack, Loom videos seamlessly integrate with hundreds of tools you use every day.
+              - link "Start sharing" [ref=e340] [cursor=pointer]:
+                - /url: https://www.loom.com/looms/videos?reminderToRecord=true
+                - text: Start sharing
+          - generic [ref=e346]:
+            - generic [ref=e348]:
+              - img "Background code in Visual Studio code editor" [ref=e350]
+              - generic [ref=e353]: Your browser does not support the video tag.
+              - generic [ref=e354]:
+                - img [ref=e358]:
+                  - generic [ref=e359]: 👍
+                - generic [ref=e360]:
+                  - img "Jai" [ref=e362]
+                  - img [ref=e364]:
+                    - generic [ref=e365]: Great point!
+                - generic [ref=e366]:
+                  - img "Jai" [ref=e368]
+                  - img [ref=e370]:
+                    - generic [ref=e371]: Yes! Really love this.
+            - generic [ref=e373]:
+              - generic [ref=e374]:
+                - heading "Engage and connect with video" [level=3] [ref=e376]
+                - generic [ref=e377]:
+                  - paragraph [ref=e378]: Easily collaborate by adding emojis, comments, tasks and CTAs to your video message. Empower remote teams to communicate better across timezones using transcripts and captions in 50+ languages.
+                  - paragraph [ref=e379]
+              - link "Connect over video" [ref=e380] [cursor=pointer]:
+                - /url: https://www.loom.com/looms/videos?reminderToRecord=true
+                - text: Connect over video
+      - generic [ref=e388]:
+        - generic [ref=e389]:
+          - heading "Keep your content safe" [level=2] [ref=e391]
+          - paragraph [ref=e392]: Enterprise-grade security to keep your data and your customer’s data private and secure. We offer SSO, SCIM as well as custom data retention policies and privacy settings.
+        - link "Learn more" [ref=e393] [cursor=pointer]:
+          - /url: https://www.loom.com/security
+      - generic [ref=e394]:
+        - heading "Video messaging for all use cases" [level=2] [ref=e397]
+        - list [ref=e399]:
+          - link "Sales Personalize your pitch with video outreach to close more deals." [ref=e400] [cursor=pointer]:
+            - /url: /use-case/sales
+            - generic [ref=e403]:
+              - heading "Sales" [level=3] [ref=e405]
+              - paragraph [ref=e406]: Personalize your pitch with video outreach to close more deals.
+          - link "Engineering Add visual context to your code to accelerate your sprints." [ref=e407] [cursor=pointer]:
+            - /url: /use-case/engineering
+            - generic [ref=e410]:
+              - heading "Engineering" [level=3] [ref=e412]
+              - paragraph [ref=e413]: Add visual context to your code to accelerate your sprints.
+          - link "Customer support Troubleshoot over video to reach resolutions faster." [ref=e414] [cursor=pointer]:
+            - /url: /use-case/support
+            - generic [ref=e417]:
+              - heading "Customer support" [level=3] [ref=e419]
+              - paragraph [ref=e420]: Troubleshoot over video to reach resolutions faster.
+          - link "Design Share ideas and provide feedback over video to enhance designs." [ref=e421] [cursor=pointer]:
+            - /url: /use-case/design
+            - generic [ref=e424]:
+              - heading "Design" [level=3] [ref=e426]
+              - paragraph [ref=e427]: Share ideas and provide feedback over video to enhance designs.
+        - link "See all use cases" [ref=e429] [cursor=pointer]:
+          - /url: /use-case
+      - generic [ref=e430]:
+        - heading "Powerful features for easy, custom recordings" [level=2] [ref=e433]
+        - list [ref=e435]:
+          - listitem [ref=e436]:
+            - paragraph [ref=e441]: Screen and camera recording
+          - listitem [ref=e442]:
+            - paragraph [ref=e447]: Easy sharing and embedding
+          - listitem [ref=e448]:
+            - paragraph [ref=e453]: Trim and stitch video clips
+          - listitem [ref=e454]:
+            - paragraph [ref=e459]: Download and upload
+          - listitem [ref=e460]:
+            - paragraph [ref=e465]: Transcriptions and closed captions
+          - listitem [ref=e466]:
+            - paragraph [ref=e471]: Video privacy controls
+          - listitem [ref=e472]:
+            - paragraph [ref=e477]: Custom background
+          - listitem [ref=e478]:
+            - paragraph [ref=e483]: Video and viewer insights
+        - link "See all features" [ref=e485] [cursor=pointer]:
+          - /url: /pricing
+      - generic [ref=e489]:
+        - generic [ref=e490]:
+          - paragraph [ref=e491]: From our blog
+          - heading "How to use async video messaging to improve communication" [level=2] [ref=e493]
+        - generic [ref=e494]:
+          - list [ref=e495]:
+            - listitem [ref=e496]:
+              - link "When to Choose Synchronous Vs. Asynchronous Communication This guide explores the intricacies of sync vs. async communication, helps you decide which is the best for your workflow, and introduces how screen recording like Loom bridges the gap between these communication styles. Read the article" [ref=e497] [cursor=pointer]:
+                - /url: https://www.atlassian.com/blog/loom/synchronous-vs-asynchronous
+                - generic [ref=e499]:
+                  - generic [ref=e500]:
+                    - heading "When to Choose Synchronous Vs. Asynchronous Communication" [level=3] [ref=e502]
+                    - paragraph [ref=e503]: This guide explores the intricacies of sync vs. async communication, helps you decide which is the best for your workflow, and introduces how screen recording like Loom bridges the gap between these communication styles.
+                  - paragraph [ref=e504]: Read the article
+            - listitem [ref=e508]:
+              - 'link "Let Loom AI Do the Work: Say Goodbye to Manual Documentation With new Loom AI workflows, you turn any Loom into a written doc to draft SOPs, file Jira tickets, and more. Read the article" [ref=e509] [cursor=pointer]':
+                - /url: https://www.atlassian.com/blog/loom/loom-ai-workflows
+                - generic [ref=e511]:
+                  - generic [ref=e512]:
+                    - 'heading "Let Loom AI Do the Work: Say Goodbye to Manual Documentation" [level=3] [ref=e514]'
+                    - paragraph [ref=e515]: With new Loom AI workflows, you turn any Loom into a written doc to draft SOPs, file Jira tickets, and more.
+                  - paragraph [ref=e516]: Read the article
+          - link "Explore our blog Open in new window" [ref=e520] [cursor=pointer]:
+            - /url: https://www.atlassian.com/blog/loom
+            - text: Explore our blog
+            - generic [ref=e521]: Open in new window
+      - generic [ref=e525]:
+        - generic [ref=e526]:
+          - generic [ref=e527]:
+            - heading "Loom for Enterprise" [level=2] [ref=e529]
+            - paragraph [ref=e531]: Loom for Enterprise helps teams securely manage and organize async video communication at scale
+          - link "Learn more" [ref=e532] [cursor=pointer]:
+            - /url: /enterprise
+            - text: Learn more
+        - generic [ref=e535]:
+          - generic:
+            - img "glow background"
+          - img "Results Overview" [ref=e536]
+          - generic [ref=e537]: Your browser does not support the video tag.
+      - generic [ref=e539]:
+        - button "Previous testimonial" [ref=e540] [cursor=pointer]:
+          - img [ref=e542]
+        - generic [ref=e546]:
+          - figure [ref=e547]:
+            - generic [ref=e548]:
+              - img "MetaLab" [ref=e549]
+              - blockquote [ref=e550]: Loom enables us to maximize our impact as a distributed company by helping us collaborate and share ideas more easily.
+              - generic [ref=e551]:
+                - img "Andrew Reynolds" [ref=e553]
+                - paragraph [ref=e554]:
+                  - text: Andrew Reynolds
+                  - generic [ref=e555]: Design Lead, MetaLab
+          - figure [ref=e556]:
+            - generic [ref=e557]:
+              - img "SevenSevenSix" [ref=e558]
+              - blockquote [ref=e559]: ‘Loom has been the light of my life since you showed me it.’ – I never tire of hearing this from folks. Not even an investor... yet.
+              - generic [ref=e560]:
+                - img "Alexis Ohanian as a isometric illustration" [ref=e562]
+                - paragraph [ref=e563]:
+                  - text: Alexis Ohanian
+                  - generic [ref=e564]: Founder, SevenSevenSix
+          - figure [ref=e565]:
+            - generic [ref=e566]:
+              - img "HubSpot" [ref=e567]
+              - blockquote [ref=e568]: Loom allows me to connect more personally with people without having to do 75 different one-on-one calls, which is just impossible at scale.
+              - generic [ref=e569]:
+                - img "Katie Burke" [ref=e571]
+                - paragraph [ref=e572]:
+                  - text: Katie Burke
+                  - generic [ref=e573]: Chief People Officer, HubSpot
+          - figure [ref=e574]:
+            - generic [ref=e575]:
+              - img "Pearson" [ref=e576]
+              - blockquote [ref=e577]: My teammates and I love using Loom! It has saved us hundreds of hours by creating informative video tutorials instead of long emails or 1-on-1 trainings with customers.
+              - generic [ref=e578]:
+                - img "Erica Goodell" [ref=e580]
+                - paragraph [ref=e581]:
+                  - text: Erica Goodell
+                  - generic [ref=e582]: Customer Success, Pearson
+          - figure [ref=e583]:
+            - generic [ref=e584]:
+              - img "Typeform" [ref=e585]
+              - blockquote [ref=e586]: Loom amplifies my communication with the team like nothing else has. It's a communication tool that should be in every executive's toolbox.
+              - generic [ref=e587]:
+                - img "David Okuinev" [ref=e589]
+                - paragraph [ref=e590]:
+                  - text: David Okuinev
+                  - generic [ref=e591]: Co-CEO, Typeform
+          - figure [ref=e592]:
+            - generic [ref=e593]:
+              - img "HubSpot" [ref=e594]
+              - blockquote [ref=e595]: My new daily email habit. Begin writing an email. Get to the second paragraph and think 'what a time suck.' Record a Loom instead. Feel like 😎.
+              - generic [ref=e596]:
+                - img "Kieran Flanagan" [ref=e598]
+                - paragraph [ref=e599]:
+                  - text: Kieran Flanagan
+                  - generic [ref=e600]: VP of Marketing, HubSpot
+          - figure [ref=e601]:
+            - generic [ref=e602]:
+              - img "MetaLab" [ref=e603]
+              - blockquote [ref=e604]: Loom enables us to maximize our impact as a distributed company by helping us collaborate and share ideas more easily.
+              - generic [ref=e605]:
+                - img "Andrew Reynolds" [ref=e607]
+                - paragraph [ref=e608]:
+                  - text: Andrew Reynolds
+                  - generic [ref=e609]: Design Lead, MetaLab
+          - figure [ref=e610]:
+            - generic [ref=e611]:
+              - img "SevenSevenSix" [ref=e612]
+              - blockquote [ref=e613]: ‘Loom has been the light of my life since you showed me it.’ – I never tire of hearing this from folks. Not even an investor... yet.
+              - generic [ref=e614]:
+                - img "Alexis Ohanian as a isometric illustration" [ref=e616]
+                - paragraph [ref=e617]:
+                  - text: Alexis Ohanian
+                  - generic [ref=e618]: Founder, SevenSevenSix
+        - button "Next testimonial" [ref=e619] [cursor=pointer]:
+          - img [ref=e621]
+      - complementary [ref=e624]:
+        - generic [ref=e625]:
+          - paragraph [ref=e626]: Loom powers great campaigns.
+          - generic [ref=e627]:
+            - link "Get Loom for free" [ref=e628] [cursor=pointer]:
+              - /url: /signup
+              - text: Get Loom for free
+            - paragraph [ref=e631]: For Mac, Windows, iOS, and Android
+      - generic [ref=e632]:
+        - heading "Loom Footer Menu" [level=3] [ref=e633]
+        - generic [ref=e635]:
+          - generic [ref=e636]:
+            - heading "App" [level=4] [ref=e637]
+            - list [ref=e638]:
+              - listitem [ref=e639]:
+                - link "Pricing" [ref=e640] [cursor=pointer]:
+                  - /url: /pricing
+              - listitem [ref=e641]:
+                - link "loomSDK" [ref=e642] [cursor=pointer]:
+                  - /url: /sdk
+              - listitem [ref=e643]:
+                - link "Screen Recorder" [ref=e644] [cursor=pointer]:
+                  - /url: /screen-recorder
+              - listitem [ref=e645]:
+                - link "Screenshot" [ref=e646] [cursor=pointer]:
+                  - /url: /screenshot
+              - listitem [ref=e647]:
+                - link "Chrome Screen Recorder" [ref=e648] [cursor=pointer]:
+                  - /url: /products/chrome-screen-recorder
+              - listitem [ref=e649]:
+                - link "Mac Screen Recorder" [ref=e650] [cursor=pointer]:
+                  - /url: /products/mac-screen-recorder
+              - listitem [ref=e651]:
+                - link "Windows Screen Recorder" [ref=e652] [cursor=pointer]:
+                  - /url: /products/windows-screen-recorder
+              - listitem [ref=e653]:
+                - link "iPhone Screen Recorder" [ref=e654] [cursor=pointer]:
+                  - /url: /products/iphone-screen-recorder
+              - listitem [ref=e655]:
+                - link "Android Screen Recorder" [ref=e656] [cursor=pointer]:
+                  - /url: /products/android-screen-recorder
+          - generic [ref=e657]:
+            - heading "Solutions" [level=4] [ref=e658]
+            - list [ref=e659]:
+              - listitem [ref=e660]:
+                - link "Sales" [ref=e661] [cursor=pointer]:
+                  - /url: /use-case/sales
+              - listitem [ref=e662]:
+                - link "Engineering" [ref=e663] [cursor=pointer]:
+                  - /url: /use-case/engineering
+              - listitem [ref=e664]:
+                - link "Design" [ref=e665] [cursor=pointer]:
+                  - /url: /use-case/design
+              - listitem [ref=e666]:
+                - link "Marketing" [ref=e667] [cursor=pointer]:
+                  - /url: /use-case/marketing
+              - listitem [ref=e668]:
+                - link "Product Management" [ref=e669] [cursor=pointer]:
+                  - /url: /use-case/product-management
+              - listitem [ref=e670]:
+                - link "Support" [ref=e671] [cursor=pointer]:
+                  - /url: /use-case/support
+              - listitem [ref=e672]:
+                - link "Presentation" [ref=e673] [cursor=pointer]:
+                  - /url: /powerpoint-presentation
+              - listitem [ref=e674]:
+                - link "Team Alignment" [ref=e675] [cursor=pointer]:
+                  - /url: /use-case/team-alignment
+              - listitem [ref=e676]:
+                - link "Education" [ref=e677] [cursor=pointer]:
+                  - /url: /use-case/education
+              - listitem [ref=e678]:
+                - link "Webcam Recorder" [ref=e679] [cursor=pointer]:
+                  - /url: /webcam-recorder
+          - generic [ref=e680]:
+            - heading "For Business" [level=4] [ref=e681]
+            - list [ref=e682]:
+              - listitem [ref=e683]:
+                - link "Loom AI" [ref=e684] [cursor=pointer]:
+                  - /url: /ai
+              - listitem [ref=e685]:
+                - link "Enterprise" [ref=e686] [cursor=pointer]:
+                  - /url: /enterprise
+              - listitem [ref=e687]:
+                - link "Loom HQ" [ref=e688] [cursor=pointer]:
+                  - /url: /hq
+              - listitem [ref=e689]:
+                - link "Customer Stories" [ref=e690] [cursor=pointer]:
+                  - /url: /customers
+              - listitem [ref=e691]:
+                - link "Security" [ref=e692] [cursor=pointer]:
+                  - /url: /security
+              - listitem [ref=e693]:
+                - link "Video Hosting" [ref=e694] [cursor=pointer]:
+                  - /url: https://www.loom.com/solutions/video-hosting
+              - listitem [ref=e695]:
+                - link "Video Library" [ref=e696] [cursor=pointer]:
+                  - /url: https://www.loom.com/solutions/video-library
+          - generic [ref=e697]:
+            - heading "Downloads" [level=4] [ref=e698]
+            - list [ref=e699]:
+              - listitem [ref=e700]:
+                - link "Desktop App" [ref=e701] [cursor=pointer]:
+                  - /url: /download
+              - listitem [ref=e702]:
+                - link "Chrome Extension" [ref=e703] [cursor=pointer]:
+                  - /url: https://chrome.google.com/webstore/detail/loom-for-chrome/liecbddmkiiihnedobmlmillhodjkdmb
+              - listitem [ref=e704]:
+                - link "Mobile Apps" [ref=e705] [cursor=pointer]:
+                  - /url: /mobile
+          - generic [ref=e706]:
+            - heading "Resources" [level=4] [ref=e707]
+            - list [ref=e708]:
+              - listitem [ref=e709]:
+                - link "The Replay | Loom’s Blog" [ref=e710] [cursor=pointer]:
+                  - /url: https://www.atlassian.com/blog/loom
+              - listitem [ref=e711]:
+                - link "Help Center" [ref=e712] [cursor=pointer]:
+                  - /url: https://support.atlassian.com/loom
+              - listitem [ref=e713]:
+                - link "Community" [ref=e714] [cursor=pointer]:
+                  - /url: /community
+              - listitem [ref=e715]:
+                - link "eBooks" [ref=e716] [cursor=pointer]:
+                  - /url: https://www.atlassian.com/software/loom/resources
+              - listitem [ref=e717]:
+                - link "Status" [ref=e718] [cursor=pointer]:
+                  - /url: https://www.loomstatus.com/
+              - listitem [ref=e719]:
+                - link "What's New" [ref=e720] [cursor=pointer]:
+                  - /url: https://new.loom.com/
+              - listitem [ref=e721]:
+                - link "Webcam Mic Test" [ref=e722] [cursor=pointer]:
+                  - /url: /webcam-mic-test
+              - listitem [ref=e723]:
+                - link "Webcam Recorder" [ref=e724] [cursor=pointer]:
+                  - /url: /webcam-recorder
+          - generic [ref=e725]:
+            - heading "Company" [level=4] [ref=e726]
+            - list [ref=e727]:
+              - listitem [ref=e728]:
+                - link "About Us" [ref=e729] [cursor=pointer]:
+                  - /url: https://www.atlassian.com/company
+              - listitem [ref=e730]:
+                - link "Diversity, Equity & Inclusion" [ref=e731] [cursor=pointer]:
+                  - /url: https://www.atlassian.com/company/careers/team-everyone
+              - listitem [ref=e732]:
+                - link "Careers" [ref=e733] [cursor=pointer]:
+                  - /url: https://www.atlassian.com/company/careers/all-jobs?team=&location=&search=Loom
+              - listitem [ref=e734]:
+                - link "Newsroom" [ref=e735] [cursor=pointer]:
+                  - /url: https://investors.atlassian.com/news/default.aspx
+              - listitem [ref=e736]:
+                - link "Media Kit" [ref=e737] [cursor=pointer]:
+                  - /url: /media-kit
+              - listitem [ref=e738]:
+                - link "vs Vidyard" [ref=e739] [cursor=pointer]:
+                  - /url: /comparison/loom-vs-vidyard
+              - listitem [ref=e740]:
+                - link "vs Zoom Clips" [ref=e741] [cursor=pointer]:
+                  - /url: https://www.loom.com/comparison/loom-vs-zoom-clips
+              - listitem [ref=e742]:
+                - link "vs Microsoft Clipchamp" [ref=e743] [cursor=pointer]:
+                  - /url: https://www.loom.com/comparison/loom-vs-microsoft-clipchamp
+              - listitem [ref=e744]:
+                - link "Sitemap" [ref=e745] [cursor=pointer]:
+                  - /url: /sitemap
+              - listitem [ref=e746]:
+                - link "Privacy Policy" [ref=e747] [cursor=pointer]:
+                  - /url: https://www.atlassian.com/legal/privacy-policy#what-this-policy-covers
+        - generic [ref=e749]:
+          - generic [ref=e750]:
+            - list [ref=e751]:
+              - listitem [ref=e752]:
+                - link "Loom on Twitter" [ref=e753] [cursor=pointer]:
+                  - /url: https://twitter.com/loom
+                  - img "Loom on Twitter" [ref=e755]
+              - listitem [ref=e757]:
+                - link "Loom on LinkedIn" [ref=e758] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/useloom
+                  - img "Loom on LinkedIn" [ref=e760]
+              - listitem [ref=e762]:
+                - link "Loom on YouTube" [ref=e763] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCnqj2rfVX8V0t377WcOjYoA
+                  - img "Loom on YouTube" [ref=e765]
+              - listitem [ref=e767]:
+                - link "Loom on Instagram" [ref=e768] [cursor=pointer]:
+                  - /url: https://www.instagram.com/use_loom/
+                  - img "Loom on Instagram" [ref=e770]
+              - listitem [ref=e774]:
+                - link "Loom on TikTok" [ref=e775] [cursor=pointer]:
+                  - /url: https://www.tiktok.com/@useloom
+                  - img "Loom on TikTok" [ref=e777]
+            - list [ref=e779]:
+              - listitem [ref=e780]:
+                - link "Loom Terms & Policies" [ref=e781] [cursor=pointer]:
+                  - /url: /legal
+              - listitem [ref=e782]: Notice at Collection
+          - generic [ref=e783]:
+            - link "Atlassian Logo" [ref=e785] [cursor=pointer]:
+              - /url: https://www.atlassian.com/
+              - img [ref=e786]
+              - generic [ref=e799]: Open in new window
+            - generic [ref=e800]: © 2026, Loom, Inc. All Rights Reserved.
+  - alert [ref=e801]

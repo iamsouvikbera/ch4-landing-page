@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clay for Airtable — Rachel, the single source of truth your sales org needs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --bg-dark: #161518;
+      --surface: #FFFFFF;
+      --border: #E0E2E5;
+      --border-soft: #EDEFF2;
+      --text: #1D1F25;
+      --text-2: #44464C;
+      --text-muted: #5E6470;
+      --text-faint: #9CA0A8;
+      --blue: #2D7FF9;
+      --blue-soft: #E6F0FE;
+      --blue-deep: #1D5BB8;
+      --yellow: #FCB400;
+      --yellow-soft: #FFF4D1;
+      --coral: #FF6F62;
+      --coral-soft: #FFE7E4;
+      --green: #20C933;
+      --green-soft: #DCF5E0;
+      --teal: #18BFFF;
+      --teal-soft: #DBF4FF;
+      --purple: #8B46FF;
+      --purple-soft: #ECE2FF;
+      --pink: #F82B60;
+      --pink-soft: #FFE0EC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .nav-left { display: flex; align-items: center; gap: 32px; }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 22px; font-weight: 700; color: var(--text);
+      letter-spacing: -0.025em; text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 26px; height: 26px; border-radius: 6px;
+      background: conic-gradient(from 0deg at 50% 50%, var(--yellow), var(--coral), var(--pink), var(--blue), var(--green), var(--yellow));
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link {
+      padding: 8px 14px; color: var(--text-2); font-size: 14px;
+      font-weight: 500; text-decoration: none; border-radius: 6px;
+      transition: background 0.15s;
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .nav-link:hover { background: var(--bg-alt); }
+    .nav-link-arrow::after { content: '▾'; font-size: 9px; opacity: 0.5; margin-left: 2px; }
+    .nav-right { display: flex; align-items: center; gap: 6px; }
+    .btn-ghost {
+      padding: 8px 14px; color: var(--text); font-size: 14px;
+      font-weight: 500; text-decoration: none; border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: var(--bg-alt); }
+    .btn-fill {
+      padding: 10px 18px; background: var(--text); color: #FFF;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      border-radius: 999px; transition: opacity 0.15s, transform 0.15s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-fill:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-outline {
+      padding: 10px 18px; background: #FFF; color: var(--text);
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      border: 1.5px solid var(--text); border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: background 0.15s;
+    }
+    .btn-outline:hover { background: var(--bg-alt); }
+    .btn-lg { padding: 14px 26px; font-size: 15px; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 72px 32px 80px;
+      max-width: 1320px; margin: 0 auto;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.05fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 5px 14px;
+      font-size: 13px; font-weight: 600; color: var(--blue-deep);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .badge-pill::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--blue);
+    }
+    h1.display {
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 600; line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    h1.display .underline { position: relative; display: inline-block; }
+    h1.display .underline::after {
+      content: ''; position: absolute;
+      left: 0; right: 0; bottom: 6%;
+      height: 22%; z-index: -1;
+      background: var(--yellow); opacity: 0.55;
+      border-radius: 6px;
+    }
+    .hero-sub {
+      font-size: 19px; color: var(--text-muted);
+      max-width: 540px; line-height: 1.55;
+      margin-bottom: 36px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-micro {
+      display: flex; align-items: center; gap: 16px;
+      margin-top: 18px;
+      font-size: 13px; color: var(--text-muted);
+    }
+    .hero-micro-item { display: flex; align-items: center; gap: 6px; }
+    .hero-micro-item::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+    }
+
+    /* Hero visual: colorful pipeline table */
+    .pipe-table {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(29,31,37,0.10), 0 6px 16px rgba(29,31,37,0.04);
+      overflow: hidden;
+      position: relative;
+    }
+    .pipe-table::before {
+      content: ''; position: absolute; inset: -30px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(45,127,249,0.10) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(252,180,0,0.10) 0%, transparent 40%);
+      filter: blur(20px); z-index: -1;
+    }
+    .pipe-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+    }
+    .pipe-title {
+      font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .pipe-title::before {
+      content: ''; width: 18px; height: 18px; border-radius: 4px;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+    }
+    .pipe-meta {
+      display: flex; gap: 8px; align-items: center;
+    }
+    .pipe-tab {
+      padding: 4px 10px; font-size: 12px; font-weight: 500; color: var(--text-muted);
+      border-radius: 4px;
+    }
+    .pipe-tab.active { background: var(--text); color: #FFF; }
+    .pipe-headers {
+      display: grid; grid-template-columns: 1.4fr 0.9fr 0.9fr 1fr 0.7fr;
+      background: var(--bg-alt);
+      border-bottom: 2px solid var(--border);
+    }
+    .pipe-h {
+      padding: 10px 14px; font-size: 11px; font-weight: 600;
+      color: var(--text); text-transform: uppercase; letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 6px;
+      border-right: 1px solid var(--border);
+    }
+    .pipe-h:last-child { border-right: none; }
+    .pipe-h-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .ph-1 .pipe-h-dot { background: var(--blue); }
+    .ph-2 .pipe-h-dot { background: var(--yellow); }
+    .ph-3 .pipe-h-dot { background: var(--coral); }
+    .ph-4 .pipe-h-dot { background: var(--green); }
+    .ph-5 .pipe-h-dot { background: var(--purple); }
+    .pipe-row {
+      display: grid; grid-template-columns: 1.4fr 0.9fr 0.9fr 1fr 0.7fr;
+      border-bottom: 1px solid var(--border-soft);
+      transition: background 0.12s;
+    }
+    .pipe-row:hover { background: var(--bg-alt); }
+    .pipe-row:last-child { border-bottom: none; }
+    .pipe-c {
+      padding: 12px 14px; font-size: 13px;
+      border-right: 1px solid var(--border-soft);
+      display: flex; align-items: center;
+    }
+    .pipe-c:last-child { border-right: none; }
+    .pipe-c.name { font-weight: 600; color: var(--text); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 600;
+    }
+    .chip-blue { background: var(--blue-soft); color: var(--blue-deep); }
+    .chip-yellow { background: var(--yellow-soft); color: #8B6A0A; }
+    .chip-coral { background: var(--coral-soft); color: #C44A3A; }
+    .chip-green { background: var(--green-soft); color: #178825; }
+    .chip-purple { background: var(--purple-soft); color: #5C2DBF; }
+    .chip-teal { background: var(--teal-soft); color: #0A8FCC; }
+    .bar {
+      flex: 1; height: 6px; background: var(--bg-alt);
+      border-radius: 3px; overflow: hidden;
+    }
+    .bar > i { display: block; height: 100%; border-radius: 3px; }
+    .cell-num { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    /* ── Persona tabs strip ── */
+    .persona-strip {
+      max-width: 1320px; margin: 0 auto;
+      padding: 0 32px 56px;
+      text-align: center;
+    }
+    .persona-label {
+      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .persona-tabs {
+      display: inline-flex; padding: 5px;
+      background: var(--bg-alt);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      flex-wrap: wrap; gap: 2px;
+    }
+    .persona-tab {
+      padding: 10px 22px; font-size: 14px; font-weight: 600;
+      color: var(--text-muted); border-radius: 999px;
+      cursor: pointer; border: none; background: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .persona-tab.active { background: var(--text); color: #FFF; }
+    .persona-tab:not(.active):hover { color: var(--text); }
+
+    /* ── Logos ── */
+    .logos {
+      padding: 48px 32px 80px;
+      max-width: 1320px; margin: 0 auto;
+    }
+    .logos-label {
+      text-align: center; font-size: 13px; color: var(--text-muted);
+      margin-bottom: 28px; font-weight: 500;
+    }
+    .logos-row {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 42px; align-items: center;
+    }
+    .logo-name {
+      font-size: 18px; font-weight: 700; color: var(--text-faint);
+      letter-spacing: -0.02em; transition: color 0.2s;
+    }
+    .logo-name:hover { color: var(--text); }
+
+    /* ── Section: AI agents banner (Airtable signature pattern) ── */
+    .ai-banner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 0 32px;
+    }
+    .ai-banner-card {
+      background: linear-gradient(135deg, #1D1F25 0%, #2A2D38 100%);
+      color: #FFF;
+      border-radius: 24px;
+      padding: 72px 64px;
+      position: relative; overflow: hidden;
+    }
+    .ai-banner-card::before {
+      content: ''; position: absolute;
+      top: -50px; right: -50px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(252,180,0,0.30) 0%, transparent 60%);
+    }
+    .ai-banner-card::after {
+      content: ''; position: absolute;
+      bottom: -100px; left: 20%;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,127,249,0.30) 0%, transparent 60%);
+    }
+    .ai-banner-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .ai-eyebrow {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; background: rgba(252,180,0,0.18); color: var(--yellow);
+      border-radius: 999px; font-size: 12px; font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .ai-eyebrow::before { content: '✦'; font-size: 14px; }
+    .ai-banner-card h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600; line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .ai-banner-card h2 .accent {
+      color: var(--yellow);
+    }
+    .ai-banner-card p {
+      font-size: 17px; color: rgba(255,255,255,0.78);
+      line-height: 1.55; margin-bottom: 28px;
+      max-width: 480px;
+    }
+    .ai-banner-card .btn-fill { background: var(--yellow); color: var(--text); }
+    .ai-banner-card .btn-fill:hover { background: #FFC83D; }
+    .ai-banner-card .btn-outline { background: transparent; color: #FFF; border-color: rgba(255,255,255,0.5); }
+    .ai-banner-card .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* Agent stream visual */
+    .agent-stream {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 10px;
+    }
+    .agent-line {
+      display: grid; grid-template-columns: 32px 1fr auto;
+      gap: 12px; align-items: center;
+      padding: 12px; border-radius: 10px;
+    }
+    .agent-line + .agent-line { margin-top: 4px; }
+    .agent-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+    }
+    .ai-1 { background: rgba(45,127,249,0.18); color: #8FBCFF; }
+    .ai-2 { background: rgba(252,180,0,0.18); color: var(--yellow); }
+    .ai-3 { background: rgba(255,111,98,0.18); color: #FFA194; }
+    .ai-4 { background: rgba(32,201,51,0.18); color: #87F197; }
+    .agent-title { font-size: 13px; color: #FFF; font-weight: 500; margin-bottom: 2px; }
+    .agent-sub { font-size: 11.5px; color: rgba(255,255,255,0.55); }
+    .agent-time { font-size: 11px; color: rgba(255,255,255,0.4); font-variant-numeric: tabular-nums; }
+
+    /* ── Multi-color feature cards (Airtable signature) ── */
+    .multi-color {
+      max-width: 1320px; margin: 100px auto;
+      padding: 0 32px;
+    }
+    .mc-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .mc-eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 600; color: var(--blue);
+      text-transform: uppercase; letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    .mc-head h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 600; line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .mc-head p { font-size: 18px; color: var(--text-muted); }
+    .mc-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .mc-card {
+      border-radius: 20px;
+      padding: 40px 32px;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      min-height: 360px;
+    }
+    .mc-card.blue { background: var(--blue-soft); }
+    .mc-card.yellow { background: var(--yellow-soft); }
+    .mc-card.coral { background: var(--coral-soft); }
+    .mc-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+    }
+    .mc-card.blue .mc-icon { background: var(--blue); color: #FFF; }
+    .mc-card.yellow .mc-icon { background: var(--yellow); color: var(--text); }
+    .mc-card.coral .mc-icon { background: var(--coral); color: #FFF; }
+    .mc-card h3 {
+      font-size: 23px; font-weight: 600; letter-spacing: -0.025em;
+      margin-bottom: 12px; line-height: 1.15;
+    }
+    .mc-card p { font-size: 15px; color: var(--text-2); line-height: 1.55; flex-grow: 1; margin-bottom: 24px; }
+    .mc-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600; color: var(--text);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .mc-link:hover { gap: 10px; }
+    .mc-card.blue .mc-link { color: var(--blue-deep); }
+    .mc-card.coral .mc-link { color: #C44A3A; }
+    .mc-card.yellow .mc-link { color: #8B6A0A; }
+
+    /* ── Pain blocks (4-up colored sidebar style) ── */
+    .pain-section {
+      background: var(--bg-alt);
+      padding: 100px 32px;
+    }
+    .pain-inner {
+      max-width: 1320px; margin: 0 auto;
+    }
+    .pain-head { max-width: 760px; margin-bottom: 56px; }
+    .pain-head .mc-eyebrow { color: var(--coral); }
+    .pain-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600; line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .pain-head p { font-size: 18px; color: var(--text-muted); max-width: 600px; }
+    .pain-list {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .pain-item {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 28px;
+      position: relative;
+      display: grid; grid-template-columns: 44px 1fr;
+      gap: 20px; align-items: flex-start;
+    }
+    .pain-num {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700;
+    }
+    .pn-1 { background: var(--coral-soft); color: var(--coral); }
+    .pn-2 { background: var(--blue-soft); color: var(--blue); }
+    .pn-3 { background: var(--yellow-soft); color: #8B6A0A; }
+    .pn-4 { background: var(--purple-soft); color: var(--purple); }
+    .pain-item h4 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: -0.015em; }
+    .pain-item p { font-size: 14.5px; color: var(--text-muted); line-height: 1.55; }
+
+    /* ── Stats (big and color-blocked, Airtable style) ── */
+    .stats {
+      max-width: 1320px; margin: 100px auto;
+      padding: 0 32px;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    .stat-block {
+      border-radius: 16px; padding: 36px 28px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .stat-block.b1 { background: var(--blue-soft); }
+    .stat-block.b2 { background: var(--yellow-soft); }
+    .stat-block.b3 { background: var(--coral-soft); }
+    .stat-block.b4 { background: var(--green-soft); }
+    .stat-num {
+      font-size: 52px; font-weight: 700; letter-spacing: -0.04em; line-height: 1;
+    }
+    .stat-block.b1 .stat-num { color: var(--blue-deep); }
+    .stat-block.b2 .stat-num { color: #8B6A0A; }
+    .stat-block.b3 .stat-num { color: #C44A3A; }
+    .stat-block.b4 .stat-num { color: #178825; }
+    .stat-block .stat-desc { font-size: 14px; color: var(--text-2); line-height: 1.5; }
+
+    /* ── Customer cards ── */
+    .customers {
+      max-width: 1320px; margin: 0 auto 100px;
+      padding: 0 32px;
+    }
+    .customers-head { max-width: 760px; margin-bottom: 48px; }
+    .customers-head h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600; line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .customer-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .cust-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .cust-card:hover { border-color: var(--text); transform: translateY(-2px); }
+    .cust-head {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 18px; margin-bottom: 18px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .cust-logo {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #FFF; font-size: 14px; font-weight: 700;
+    }
+    .cust-card:nth-child(1) .cust-logo { background: var(--blue); }
+    .cust-card:nth-child(2) .cust-logo { background: var(--coral); }
+    .cust-card:nth-child(3) .cust-logo { background: var(--purple); }
+    .cust-co { font-size: 14px; font-weight: 600; color: var(--text); }
+    .cust-co-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .cust-stat-row {
+      display: flex; gap: 24px; margin-bottom: 18px;
+    }
+    .cust-stat {
+      flex: 1;
+    }
+    .cust-stat-n {
+      font-size: 36px; font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+    }
+    .cust-card:nth-child(1) .cust-stat-n { color: var(--blue); }
+    .cust-card:nth-child(2) .cust-stat-n { color: var(--coral); }
+    .cust-card:nth-child(3) .cust-stat-n { color: var(--purple); }
+    .cust-stat-l { font-size: 11.5px; color: var(--text-muted); margin-top: 6px; line-height: 1.4; }
+    .cust-quote {
+      font-size: 15px; color: var(--text); line-height: 1.55;
+      flex-grow: 1; margin-bottom: 16px;
+    }
+    .cust-attr {
+      font-size: 12.5px; color: var(--text-muted);
+      padding-top: 14px; border-top: 1px solid var(--border-soft);
+    }
+
+    /* ── Final CTA (Airtable color-blocked) ── */
+    .final {
+      padding: 0 32px 100px;
+      max-width: 1320px; margin: 0 auto;
+    }
+    .final-card {
+      border-radius: 28px;
+      padding: 96px 64px;
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--coral) 100%);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-card::before {
+      content: ''; position: absolute;
+      top: -120px; left: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    }
+    .final-card::after {
+      content: ''; position: absolute;
+      bottom: -100px; right: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(45,127,249,0.3) 0%, transparent 70%);
+    }
+    .final-content { position: relative; z-index: 1; }
+    .final-card h2 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700; line-height: 1; letter-spacing: -0.035em;
+      color: var(--text); margin-bottom: 20px;
+      max-width: 760px; margin-left: auto; margin-right: auto;
+    }
+    .final-card p {
+      font-size: 19px; color: rgba(29,31,37,0.78);
+      max-width: 580px; margin: 0 auto 36px;
+    }
+    .final-ctas { display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .final-card .btn-fill { background: var(--text); color: #FFF; }
+    .final-card .btn-outline { background: #FFF; border-color: var(--text); color: var(--text); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 80px 32px 32px;
+      max-width: 1320px; margin: 0 auto;
+      border-top: 1px solid var(--border-soft);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr repeat(4, 1fr);
+      gap: 48px; margin-bottom: 64px;
+    }
+    .footer-brand-block .nav-logo { margin-bottom: 14px; }
+    .footer-tagline { font-size: 14px; color: var(--text-muted); max-width: 300px; line-height: 1.55; }
+    .footer-col h5 {
+      font-size: 13px; font-weight: 700; color: var(--text);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block; font-size: 13px; color: var(--text-muted);
+      text-decoration: none; padding: 5px 0; transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      padding-top: 24px; border-top: 1px solid var(--border-soft);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12.5px; color: var(--text-faint);
+    }
+
+    /* ── Fade ── */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1000px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .ai-banner-inner { grid-template-columns: 1fr; gap: 40px; }
+      .ai-banner-card { padding: 56px 32px; }
+      .mc-grid { grid-template-columns: 1fr; }
+      .pain-list { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .customer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .final-card { padding: 56px 28px; }
+    }
+    @media (max-width: 560px) {
+      .hero, .persona-strip, .logos, .ai-banner, .multi-color, .pain-section, .stats, .customers, .final { padding-left: 18px; padding-right: 18px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      .pipe-headers, .pipe-row { grid-template-columns: 1.4fr 0.9fr 1fr 0.7fr; }
+      .pipe-headers .pipe-h:nth-child(3), .pipe-row .pipe-c:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="#" class="nav-logo"><span class="nav-logo-mark"></span> Clay</a>
+      <div class="nav-links">
+        <a href="#multi-color" class="nav-link nav-link-arrow">Platform</a>
+        <a href="#" class="nav-link nav-link-arrow">Solutions</a>
+        <a href="#customers" class="nav-link nav-link-arrow">Customers</a>
+        <a href="#" class="nav-link">Pricing</a>
+        <a href="#" class="nav-link">Enterprise</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="#book-demo" class="btn-ghost">Sign in</a>
+      <a href="#book-demo" class="btn-fill">Get started for free</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="fade-up">
+        <div class="badge-pill">Prepared for Rachel Goldstein &middot; Airtable</div>
+        <h1 class="display">One source of truth, <span class="underline">for every record</span> in your pipeline.</h1>
+        <p class="hero-sub">
+          Airtable gave organizations a single source of truth for their workflows. Clay does the same for your sales org — one platform for enrichment, research, and CRM hygiene, with the coverage your reps will actually trust.
+        </p>
+        <div class="hero-ctas">
+          <a href="#book-demo" class="btn-fill btn-lg">Book a demo &rarr;</a>
+          <a href="#multi-color" class="btn-outline btn-lg">See the platform</a>
+        </div>
+        <div class="hero-micro">
+          <span class="hero-micro-item">Free to try</span>
+          <span class="hero-micro-item">No credit card</span>
+          <span class="hero-micro-item">Live in minutes</span>
+        </div>
+      </div>
+
+      <!-- Colorful pipeline-table visual -->
+      <div class="pipe-table fade-up">
+        <div class="pipe-toolbar">
+          <div class="pipe-title">Airtable · Enterprise Pipeline</div>
+          <div class="pipe-meta">
+            <div class="pipe-tab active">Grid view</div>
+            <div class="pipe-tab">Kanban</div>
+            <div class="pipe-tab">Forecast</div>
+          </div>
+        </div>
+        <div class="pipe-headers">
+          <div class="pipe-h ph-1"><span class="pipe-h-dot"></span>Account</div>
+          <div class="pipe-h ph-2"><span class="pipe-h-dot"></span>Owner</div>
+          <div class="pipe-h ph-3"><span class="pipe-h-dot"></span>Tier</div>
+          <div class="pipe-h ph-4"><span class="pipe-h-dot"></span>Coverage</div>
+          <div class="pipe-h ph-5"><span class="pipe-h-dot"></span>Status</div>
+        </div>
+        <div class="pipe-row">
+          <div class="pipe-c name">Snowflake</div>
+          <div class="pipe-c"><span class="chip chip-yellow">VP Data Ops</span></div>
+          <div class="pipe-c"><span class="chip chip-coral">T1</span></div>
+          <div class="pipe-c"><div class="bar"><i style="width:94%;background:var(--blue)"></i></div></div>
+          <div class="pipe-c"><span class="chip chip-green">Verified</span></div>
+        </div>
+        <div class="pipe-row">
+          <div class="pipe-c name">Databricks</div>
+          <div class="pipe-c"><span class="chip chip-yellow">Director RevOps</span></div>
+          <div class="pipe-c"><span class="chip chip-coral">T1</span></div>
+          <div class="pipe-c"><div class="bar"><i style="width:91%;background:var(--blue)"></i></div></div>
+          <div class="pipe-c"><span class="chip chip-green">Verified</span></div>
+        </div>
+        <div class="pipe-row">
+          <div class="pipe-c name">HubSpot</div>
+          <div class="pipe-c"><span class="chip chip-yellow">CRO</span></div>
+          <div class="pipe-c"><span class="chip chip-teal">T2</span></div>
+          <div class="pipe-c"><div class="bar"><i style="width:78%;background:var(--yellow)"></i></div></div>
+          <div class="pipe-c"><span class="chip chip-yellow">Refresh</span></div>
+        </div>
+        <div class="pipe-row">
+          <div class="pipe-c name">Segment</div>
+          <div class="pipe-c"><span class="chip chip-yellow">VP Sales</span></div>
+          <div class="pipe-c"><span class="chip chip-teal">T2</span></div>
+          <div class="pipe-c"><div class="bar"><i style="width:72%;background:var(--yellow)"></i></div></div>
+          <div class="pipe-c"><span class="chip chip-yellow">Refresh</span></div>
+        </div>
+        <div class="pipe-row">
+          <div class="pipe-c name">MongoDB</div>
+          <div class="pipe-c"><span class="chip chip-yellow">Head of Sales</span></div>
+          <div class="pipe-c"><span class="chip chip-purple">T3</span></div>
+          <div class="pipe-c"><div class="bar"><i style="width:48%;background:var(--coral)"></i></div></div>
+          <div class="pipe-c"><span class="chip chip-coral">Queued</span></div>
+        </div>
+        <div class="pipe-row">
+          <div class="pipe-c name">Datadog</div>
+          <div class="pipe-c"><span class="chip chip-yellow">VP RevOps</span></div>
+          <div class="pipe-c"><span class="chip chip-purple">T3</span></div>
+          <div class="pipe-c"><div class="bar"><i style="width:36%;background:var(--coral)"></i></div></div>
+          <div class="pipe-c"><span class="chip chip-coral">Queued</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Persona switcher -->
+  <section class="persona-strip">
+    <div class="fade-up">
+      <div class="persona-label">Built for every revenue role</div>
+      <div class="persona-tabs">
+        <button class="persona-tab active">Sales Leadership</button>
+        <button class="persona-tab">RevOps</button>
+        <button class="persona-tab">Sales Dev</button>
+        <button class="persona-tab">Growth</button>
+        <button class="persona-tab">GTM Engineering</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logos -->
+  <section class="logos">
+    <div class="logos-label fade-up">5,000+ enterprise sales teams trust Clay</div>
+    <div class="logos-row fade-up">
+      <span class="logo-name">OpenAI</span>
+      <span class="logo-name">Anthropic</span>
+      <span class="logo-name">Canva</span>
+      <span class="logo-name">Ramp</span>
+      <span class="logo-name">Rippling</span>
+      <span class="logo-name">Vanta</span>
+      <span class="logo-name">Notion</span>
+      <span class="logo-name">Intercom</span>
+    </div>
+  </section>
+
+  <!-- AI agents banner -->
+  <section class="ai-banner">
+    <div class="ai-banner-card fade-up">
+      <div class="ai-banner-inner">
+        <div>
+          <div class="ai-eyebrow">AI agents for revenue</div>
+          <h2>Don't just <span class="accent">enrich</span> your CRM.<br>Deploy agents to keep it alive.</h2>
+          <p>
+            Claygent agents run continuously across every named account — detecting job changes, exec moves, funding events, tech installs — and write the updates straight back to Salesforce. The data your reps trust is the data they actually have.
+          </p>
+          <div class="hero-ctas">
+            <a href="#book-demo" class="btn-fill btn-lg">Talk to sales &rarr;</a>
+            <a href="#multi-color" class="btn-outline btn-lg">How agents work</a>
+          </div>
+        </div>
+        <div class="agent-stream">
+          <div class="agent-line">
+            <div class="agent-icon ai-1">↑</div>
+            <div>
+              <div class="agent-title">Job change: VP Sales → CRO</div>
+              <div class="agent-sub">Snowflake · updated in Salesforce automatically</div>
+            </div>
+            <div class="agent-time">2m</div>
+          </div>
+          <div class="agent-line">
+            <div class="agent-icon ai-2">$</div>
+            <div>
+              <div class="agent-title">Funding signal: Databricks</div>
+              <div class="agent-sub">$10B round · flagged for "expand"</div>
+            </div>
+            <div class="agent-time">14m</div>
+          </div>
+          <div class="agent-line">
+            <div class="agent-icon ai-3">⚠</div>
+            <div>
+              <div class="agent-title">Contact left: HubSpot champion</div>
+              <div class="agent-sub">Replacement identified · alert sent</div>
+            </div>
+            <div class="agent-time">38m</div>
+          </div>
+          <div class="agent-line">
+            <div class="agent-icon ai-4">✓</div>
+            <div>
+              <div class="agent-title">CRM refresh: 1,240 records</div>
+              <div class="agent-sub">Updated overnight · full audit log</div>
+            </div>
+            <div class="agent-time">6h</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-color features -->
+  <section class="multi-color" id="multi-color">
+    <div class="mc-head fade-up">
+      <div class="mc-eyebrow">The platform</div>
+      <h2>Everything your sales org needs.<br>In one place. Finally.</h2>
+      <p>Three pillars that collapse five vendors into one bill — and three workflows into one workspace.</p>
+    </div>
+    <div class="mc-grid">
+      <div class="mc-card blue fade-up">
+        <div class="mc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="6" rx="1.5" stroke="#FFF" stroke-width="1.8"/><rect x="3" y="14" width="18" height="6" rx="1.5" stroke="#FFF" stroke-width="1.8"/><circle cx="7" cy="7" r="1.2" fill="#FFF"/><circle cx="7" cy="17" r="1.2" fill="#FFF"/></svg>
+        </div>
+        <h3>Enrich</h3>
+        <p>Waterfall through 150+ providers — emails, phones, firmographics, intent, tech stack — until every column is filled. Retire ZoomInfo, Apollo, Clearbit, and the intent vendors. One bill, 3x the coverage.</p>
+        <a href="#book-demo" class="mc-link">Explore enrichment &rarr;</a>
+      </div>
+      <div class="mc-card yellow fade-up">
+        <div class="mc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.39 8.26L21 9.27L16 14.14L17.18 21L12 17.77L6.82 21L8 14.14L3 9.27L9.61 8.26L12 2Z" stroke="#1D1F25" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Research</h3>
+        <p>Claygent AI agents read company news, parse LinkedIn, summarize 10-Ks, and surface buying signals for every account in your TAM. Reps walk into every meeting already briefed — no two-hour prep blocks before each call.</p>
+        <a href="#book-demo" class="mc-link">Explore Claygent &rarr;</a>
+      </div>
+      <div class="mc-card coral fade-up">
+        <div class="mc-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 12l5 5L21 4" stroke="#FFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Govern</h3>
+        <p>Job changes, company moves, role updates — Clay detects them across your TAM and writes them back to Salesforce or HubSpot automatically. Continuous CRM hygiene, audit-ready, no SDR ticking off fields.</p>
+        <a href="#book-demo" class="mc-link">Explore CRM sync &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain section -->
+  <section class="pain-section">
+    <div class="pain-inner">
+      <div class="pain-head fade-up">
+        <div class="mc-eyebrow">The challenge</div>
+        <h2>Sound familiar, Rachel?</h2>
+        <p>Running a sales org at a category-defining platform, you live in the gap between pipeline targets and the data quality your reps can actually trust.</p>
+      </div>
+      <div class="pain-list">
+        <div class="pain-item fade-up">
+          <div class="pain-num pn-1">01</div>
+          <div>
+            <h4>Pipeline targets are up. Data quality is not.</h4>
+            <p>Your reps are asked to cover more accounts than ever — but 30% of CRM contacts are stale, and another 20% are missing fields entirely.</p>
+          </div>
+        </div>
+        <div class="pain-item fade-up">
+          <div class="pain-num pn-2">02</div>
+          <div>
+            <h4>Five vendors. One source of truth missing.</h4>
+            <p>ZoomInfo, Apollo, Clearbit, LinkedIn Sales Nav, intent vendors — each with overlapping coverage, separate invoices, and zero agreement on what the "right" record looks like.</p>
+          </div>
+        </div>
+        <div class="pain-item fade-up">
+          <div class="pain-num pn-3">03</div>
+          <div>
+            <h4>The ZoomInfo contract is up.</h4>
+            <p>Switch and risk coverage loss. Renew and accept another year of single-source gaps. Either way, this year's procurement conversation just got harder.</p>
+          </div>
+        </div>
+        <div class="pain-item fade-up">
+          <div class="pain-num pn-4">04</div>
+          <div>
+            <h4>Headcount won't close the gap.</h4>
+            <p>Another SDR cohort is a six-month bet — and they'll inherit the same stale CRM and same patchy enrichment your tenured reps already work through.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="mc-head fade-up" style="text-align:left;max-width:600px;">
+      <div class="mc-eyebrow">By the numbers</div>
+      <h2 style="font-size:clamp(1.8rem,3.2vw,2.4rem)">What enterprise sales teams see in 90 days.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-block b1 fade-up">
+        <div class="stat-num">3x</div>
+        <div class="stat-desc">enrichment rates vs. single-provider tools</div>
+      </div>
+      <div class="stat-block b2 fade-up">
+        <div class="stat-num">5→1</div>
+        <div class="stat-desc">vendors consolidated into one platform</div>
+      </div>
+      <div class="stat-block b3 fade-up">
+        <div class="stat-num">80%</div>
+        <div class="stat-desc">reduction in manual CRM research time</div>
+      </div>
+      <div class="stat-block b4 fade-up">
+        <div class="stat-num">4.9</div>
+        <div class="stat-desc">rating on G2 from thousands of teams</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer cards -->
+  <section class="customers" id="customers">
+    <div class="customers-head fade-up">
+      <div class="mc-eyebrow">Customers</div>
+      <h2>Enterprise sales teams<br>that consolidated and won.</h2>
+    </div>
+    <div class="customer-grid">
+      <div class="cust-card fade-up">
+        <div class="cust-head">
+          <div class="cust-logo">E</div>
+          <div>
+            <div class="cust-co">Enterprise SaaS</div>
+            <div class="cust-co-sub">~600 reps · 18 quarter</div>
+          </div>
+        </div>
+        <div class="cust-stat-row">
+          <div class="cust-stat"><div class="cust-stat-n">$280K</div><div class="cust-stat-l">annual vendor savings</div></div>
+          <div class="cust-stat"><div class="cust-stat-n">3</div><div class="cust-stat-l">vendors retired</div></div>
+        </div>
+        <p class="cust-quote">"We retired ZoomInfo, Apollo, and Clearbit in a single quarter — and our reps say the data is finally good enough to trust."</p>
+        <div class="cust-attr">VP of Sales</div>
+      </div>
+      <div class="cust-card fade-up">
+        <div class="cust-head">
+          <div class="cust-logo">S</div>
+          <div>
+            <div class="cust-co">Series D SaaS</div>
+            <div class="cust-co-sub">~280 reps · F1000 motion</div>
+          </div>
+        </div>
+        <div class="cust-stat-row">
+          <div class="cust-stat"><div class="cust-stat-n">96%</div><div class="cust-stat-l">F1000 account coverage</div></div>
+          <div class="cust-stat"><div class="cust-stat-n">+36pp</div><div class="cust-stat-l">vs. previous stack</div></div>
+        </div>
+        <p class="cust-quote">"Coverage on our Fortune-1000 accounts went from 60% to 96%. Same TAM, same team — completely different game."</p>
+        <div class="cust-attr">CRO</div>
+      </div>
+      <div class="cust-card fade-up">
+        <div class="cust-head">
+          <div class="cust-logo">P</div>
+          <div>
+            <div class="cust-co">Public SaaS</div>
+            <div class="cust-co-sub">~1,200 reps · global</div>
+          </div>
+        </div>
+        <div class="cust-stat-row">
+          <div class="cust-stat"><div class="cust-stat-n">$3.1B</div><div class="cust-stat-l">Clay valuation</div></div>
+          <div class="cust-stat"><div class="cust-stat-n">5K+</div><div class="cust-stat-l">customers</div></div>
+        </div>
+        <p class="cust-quote">"Clay is the most important tool in our GTM stack. The CRO procurement decision I'm proudest of in five years."</p>
+        <div class="cust-attr">VP of Sales</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final" id="book-demo">
+    <div class="final-card fade-up">
+      <div class="final-content">
+        <h2>Replace the patchwork.<br>Keep the headcount.</h2>
+        <p>30 minutes. We'll walk through how Clay plugs into Airtable's sales motion — replace your enrichment stack, lift coverage on named accounts, and consolidate procurement line items going into next year.</p>
+        <div class="final-ctas">
+          <a href="https://placeholder-demo-link.com/rachel-goldstein" class="btn-fill btn-lg">Book a demo for Rachel &rarr;</a>
+          <a href="https://placeholder-demo-link.com/rachel-goldstein" class="btn-outline btn-lg">Start for free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand-block">
+        <a href="#" class="nav-logo"><span class="nav-logo-mark"></span> Clay</a>
+        <p class="footer-tagline">The GTM development environment for enterprise revenue teams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="#multi-color">Enrichment</a>
+        <a href="#multi-color">AI Research</a>
+        <a href="#multi-color">CRM Hygiene</a>
+        <a href="#multi-color">Integrations</a>
+      </div>
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <a href="#">Sales Leadership</a>
+        <a href="#">Revenue Ops</a>
+        <a href="#">Sales Dev</a>
+        <a href="#">Enterprise</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="#customers">Customers</a>
+        <a href="#">G2 reviews</a>
+        <a href="#">Security</a>
+        <a href="#">Documentation</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get started</h5>
+        <a href="#book-demo">Talk to sales</a>
+        <a href="#book-demo">Start free</a>
+        <a href="#">Pricing</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Prepared for Rachel Goldstein at Airtable</p>
+      <p>&copy; 2026 Clay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.persona-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.persona-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

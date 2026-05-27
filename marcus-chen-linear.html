@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clay for Linear — Marcus, ship growth at engineering speed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;510;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #08090A;
+      --surface: #0F1011;
+      --surface-2: #16181C;
+      --border: #1F2024;
+      --border-bright: #2A2C32;
+      --text: #F7F8F8;
+      --text-muted: #8A8F98;
+      --text-faint: #62666D;
+      --indigo: #5E6AD2;
+      --indigo-bright: #7170FF;
+      --blue: #4EA7FC;
+      --pink: #EB5757;
+      --green: #4CB782;
+      --yellow: #F2C94C;
+      --orange: #FC7840;
+      --purple: #BC4FCE;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, 'SF Pro Display', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Dot-grid background ── */
+    .dot-grid {
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, #1A1B1F 1px, transparent 0);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Glow orbs (Linear-signature) ── */
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); opacity: 0.55;
+      pointer-events: none; z-index: 0;
+    }
+    .orb-1 { width: 480px; height: 480px; background: var(--indigo); top: -120px; left: -100px; opacity: 0.35; }
+    .orb-2 { width: 380px; height: 380px; background: var(--pink); top: 80px; right: -80px; opacity: 0.25; }
+    .orb-3 { width: 320px; height: 320px; background: var(--blue); top: 280px; left: 35%; opacity: 0.2; }
+
+    main, nav, footer { position: relative; z-index: 1; }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px;
+      background: rgba(8,9,10,0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-left { display: flex; align-items: center; gap: 32px; }
+    .nav-logo {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600; color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo-mark {
+      width: 22px; height: 22px; border-radius: 6px;
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--purple) 50%, var(--pink) 100%);
+    }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-link {
+      padding: 6px 10px; color: var(--text-muted); font-size: 13px;
+      font-weight: 500; text-decoration: none; border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta {
+      padding: 6px 12px; background: var(--text); color: var(--bg);
+      font-size: 13px; font-weight: 510; text-decoration: none;
+      border-radius: 6px; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.86; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      padding: 160px 24px 80px;
+      max-width: 1100px; margin: 0 auto;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 12px;
+      font-size: 12px; font-weight: 500; color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      margin-bottom: 32px;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 8px var(--green);
+    }
+    h1.display {
+      font-size: clamp(2.5rem, 6.2vw, 5rem);
+      font-weight: 510; line-height: 0.98;
+      letter-spacing: -0.045em;
+      color: var(--text);
+      max-width: 920px; margin: 0 auto 28px;
+    }
+    h1.display .gradient {
+      background: linear-gradient(120deg, #FFF 0%, #C7C9FF 50%, #8B8FE3 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 18px; color: var(--text-muted);
+      max-width: 580px; margin: 0 auto 36px;
+      line-height: 1.55;
+    }
+    .hero-cta-row {
+      display: inline-flex; gap: 8px; align-items: center;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .btn-fill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 16px; background: var(--text); color: var(--bg);
+      font-size: 14px; font-weight: 510; text-decoration: none;
+      border-radius: 7px; transition: opacity 0.15s;
+    }
+    .btn-fill:hover { opacity: 0.88; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 9px 16px; background: rgba(255,255,255,0.04); color: var(--text);
+      font-size: 14px; font-weight: 510; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.08); border-radius: 7px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14); }
+
+    /* ── Linear-style product mockup ── */
+    .product-frame {
+      max-width: 1040px; margin: 64px auto 0;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(94,106,210,0.20) 0%, transparent 30%);
+      padding: 1px;
+      position: relative;
+    }
+    .product-frame::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 14px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+    .product-shell {
+      background: var(--surface);
+      border-radius: 13px; overflow: hidden;
+      display: grid; grid-template-columns: 200px 1fr;
+      min-height: 460px;
+    }
+    /* App sidebar */
+    .app-sidebar {
+      background: #0C0D0F;
+      border-right: 1px solid var(--border);
+      padding: 14px 10px;
+      text-align: left;
+    }
+    .ws-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 4px 8px 14px; border-bottom: 1px solid var(--border);
+    }
+    .ws-mark {
+      width: 18px; height: 18px; border-radius: 5px;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+    }
+    .ws-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .nav-group { padding: 14px 0 4px; }
+    .nav-group-label { font-size: 10px; font-weight: 600; color: var(--text-faint); padding: 0 8px 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .nav-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 5px 8px; border-radius: 5px;
+      font-size: 12.5px; color: var(--text-muted);
+      cursor: pointer;
+    }
+    .nav-item:hover { background: rgba(255,255,255,0.04); color: var(--text); }
+    .nav-item.active { background: rgba(94,106,210,0.14); color: var(--text); }
+    .nav-item-icon {
+      width: 14px; height: 14px; border-radius: 3px;
+      display: inline-block; flex-shrink: 0;
+    }
+    .ni-1 { background: rgba(94,106,210,0.5); border: 1px solid var(--indigo); }
+    .ni-2 { background: rgba(252,120,64,0.4); border: 1px solid var(--orange); }
+    .ni-3 { background: rgba(76,183,130,0.4); border: 1px solid var(--green); }
+    .ni-4 { background: rgba(78,167,252,0.4); border: 1px solid var(--blue); }
+
+    /* App main */
+    .app-main { background: var(--surface); display: flex; flex-direction: column; }
+    .app-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px; border-bottom: 1px solid var(--border);
+    }
+    .toolbar-title { font-size: 14px; font-weight: 600; color: var(--text); }
+    .toolbar-meta { font-size: 12px; color: var(--text-faint); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 4px; font-size: 11px;
+      font-weight: 500; background: rgba(255,255,255,0.05); color: var(--text-muted);
+    }
+    .pill-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    /* Issue rows = accounts */
+    .issue-row {
+      display: grid; grid-template-columns: 24px 1fr auto auto auto;
+      gap: 12px; align-items: center;
+      padding: 9px 16px; font-size: 13px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+    .issue-row:hover { background: rgba(255,255,255,0.02); }
+    .status-icon {
+      width: 14px; height: 14px; border-radius: 50%;
+      box-sizing: border-box; position: relative;
+    }
+    .status-backlog { border: 1.5px dashed var(--text-faint); }
+    .status-todo { border: 1.5px solid var(--text-muted); }
+    .status-progress {
+      border: 1.5px solid var(--yellow);
+      background: conic-gradient(var(--yellow) 0deg 252deg, transparent 252deg 360deg);
+    }
+    .status-progress::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--surface); }
+    .status-done { background: var(--indigo); border: 1.5px solid var(--indigo); position: relative; }
+    .status-done::after {
+      content: ''; position: absolute; left: 3px; top: 5px; width: 6px; height: 3px;
+      border-left: 1.5px solid #fff; border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg);
+    }
+    .issue-title { color: var(--text); font-weight: 500; }
+    .issue-id { font-size: 11px; color: var(--text-faint); font-family: 'SF Mono', Menlo, monospace; }
+    .label-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 2px 7px; border-radius: 999px; font-size: 11px; font-weight: 500;
+      background: rgba(255,255,255,0.04); color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .label-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .ld-funding { background: var(--green); }
+    .ld-hiring { background: var(--indigo-bright); }
+    .ld-tech { background: var(--orange); }
+    .ld-exec { background: var(--purple); }
+    .ld-icp { background: var(--blue); }
+    .assignee {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+      font-size: 10px; color: #fff; font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .assignee.a2 { background: linear-gradient(135deg, var(--blue), var(--indigo)); }
+    .assignee.a3 { background: linear-gradient(135deg, var(--orange), var(--pink)); }
+    .assignee.a4 { background: linear-gradient(135deg, var(--green), var(--blue)); }
+
+    /* ── Trusted by ── */
+    .trusted {
+      padding: 96px 24px 56px;
+      max-width: 1100px; margin: 0 auto;
+      text-align: center;
+    }
+    .trusted-label {
+      font-size: 12px; font-weight: 500; color: var(--text-faint);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 28px;
+    }
+    .trusted-logos {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 36px; align-items: center;
+    }
+    .trusted-logo {
+      font-size: 17px; font-weight: 700; color: var(--text-muted);
+      letter-spacing: -0.02em; opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .trusted-logo:hover { opacity: 1; color: var(--text); }
+
+    /* ── Big feature section (split text/visual) ── */
+    .feature {
+      padding: 120px 24px;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .feature-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .feature-grid.reverse > :first-child { order: 2; }
+    .feature-eyebrow {
+      display: inline-block;
+      font-size: 13px; font-weight: 510; color: var(--indigo-bright);
+      margin-bottom: 18px; letter-spacing: -0.01em;
+    }
+    .feature h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 510; line-height: 1.05;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .feature h2 em { font-style: normal; color: var(--text-muted); }
+    .feature-body {
+      font-size: 17px; color: var(--text-muted);
+      line-height: 1.55; margin-bottom: 24px;
+    }
+    .feature-list {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; color: var(--text); line-height: 1.5;
+    }
+    .feature-list li::before {
+      content: ''; flex-shrink: 0;
+      width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(94,106,210,0.18);
+      border: 1.5px solid var(--indigo);
+      margin-top: 3px;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 5l2 2 4-4' stroke='%235E6AD2' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-position: center; background-repeat: no-repeat;
+    }
+
+    /* ── Feature visual (intent-signal stream) ── */
+    .signal-stream {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      position: relative;
+    }
+    .signal-stream::before {
+      content: ''; position: absolute; inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(94,106,210,0.18) 0%, transparent 60%);
+      filter: blur(40px); z-index: -1;
+    }
+    .signal {
+      display: grid; grid-template-columns: 36px 1fr auto;
+      gap: 12px; align-items: center;
+      padding: 12px; border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .signal + .signal { border-top: 1px solid var(--border); }
+    .signal:hover { background: rgba(255,255,255,0.02); }
+    .signal-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 14px;
+    }
+    .si-funding { background: rgba(76,183,130,0.14); color: var(--green); }
+    .si-hiring { background: rgba(94,106,210,0.18); color: var(--indigo-bright); }
+    .si-tech { background: rgba(252,120,64,0.14); color: var(--orange); }
+    .si-exec { background: rgba(188,79,206,0.14); color: var(--purple); }
+    .signal-title { font-size: 13.5px; color: var(--text); font-weight: 500; line-height: 1.3; }
+    .signal-meta { font-size: 12px; color: var(--text-faint); margin-top: 2px; }
+    .signal-time { font-size: 11px; color: var(--text-faint); font-family: 'SF Mono', Menlo, monospace; }
+
+    /* ── Quote ── */
+    .quote {
+      padding: 120px 24px 100px;
+      max-width: 900px; margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .quote::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(94,106,210,0.12) 0%, transparent 70%);
+      filter: blur(40px); z-index: -1;
+    }
+    .quote-text {
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 510; line-height: 1.25;
+      letter-spacing: -0.025em; color: var(--text);
+      margin-bottom: 28px;
+    }
+    .quote-text span { color: var(--text-muted); }
+    .quote-attr {
+      font-size: 14px; color: var(--text-muted);
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Three column ── */
+    .triad {
+      padding: 100px 24px 120px;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .triad-head {
+      text-align: center; max-width: 720px; margin: 0 auto 64px;
+    }
+    .triad-head h2 {
+      font-size: clamp(1.8rem, 3.3vw, 2.5rem);
+      font-weight: 510; line-height: 1.05;
+      letter-spacing: -0.035em; margin-bottom: 16px;
+    }
+    .triad-head p {
+      font-size: 17px; color: var(--text-muted); line-height: 1.55;
+    }
+    .triad-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    }
+    .triad-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .triad-card:hover { border-color: var(--border-bright); background: var(--surface-2); }
+    .triad-mark {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 18px; font-weight: 700; font-size: 14px;
+    }
+    .tm-1 { background: rgba(94,106,210,0.16); color: var(--indigo-bright); }
+    .tm-2 { background: rgba(78,167,252,0.16); color: var(--blue); }
+    .tm-3 { background: rgba(188,79,206,0.16); color: var(--purple); }
+    .triad-card h3 {
+      font-size: 17px; font-weight: 600; color: var(--text);
+      margin-bottom: 8px; letter-spacing: -0.015em;
+    }
+    .triad-card p {
+      font-size: 14px; color: var(--text-muted); line-height: 1.55;
+    }
+
+    /* ── Stats strip ── */
+    .stats {
+      padding: 80px 24px;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    }
+    .stat {
+      padding: 28px 24px; background: var(--bg);
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 38px; font-weight: 510; letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 6px;
+      background: linear-gradient(135deg, #FFF 0%, #C7C9FF 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 13px; color: var(--text-muted); }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      padding: 140px 24px 120px;
+      max-width: 1000px; margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .final-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(94,106,210,0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 50%, rgba(188,79,206,0.18) 0%, transparent 50%);
+      filter: blur(40px); z-index: -1;
+    }
+    .final-cta h2 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 510; line-height: 0.98;
+      letter-spacing: -0.045em;
+      color: var(--text);
+      max-width: 800px; margin: 0 auto 24px;
+    }
+    .final-cta h2 .gradient {
+      background: linear-gradient(120deg, #FFF 0%, #C7C9FF 50%, #8B8FE3 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .final-cta p {
+      font-size: 18px; color: var(--text-muted);
+      margin: 0 auto 36px; max-width: 540px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px 28px;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-faint);
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--text); font-weight: 600;
+    }
+
+    /* ── Fade ── */
+    .fade-up { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .product-shell { grid-template-columns: 1fr; }
+      .app-sidebar { display: none; }
+      .feature-grid { grid-template-columns: 1fr; gap: 40px; }
+      .feature-grid.reverse > :first-child { order: 0; }
+      .triad-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 560px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .hero { padding: 130px 20px 60px; }
+      .feature { padding: 80px 20px; }
+      .issue-row { grid-template-columns: 24px 1fr auto; }
+      .issue-row .label-chip:nth-of-type(2), .issue-row .assignee { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dot-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="#" class="nav-logo"><span class="nav-logo-mark"></span> Clay</a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Product</a>
+        <a href="#how" class="nav-link">How it works</a>
+        <a href="#proof" class="nav-link">Customers</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="#book-demo" class="nav-link">Sign in</a>
+      <a href="#book-demo" class="nav-cta">Book a demo &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="fade-up">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> Prepared for Marcus Chen &middot; Linear</div>
+        <h1 class="display">Ship growth at <span class="gradient">engineering speed</span>.</h1>
+        <p class="hero-sub">
+          Linear gave engineering teams a system built for speed. Clay does the same for growth — find, enrich, and act on prospect data the moment a signal fires.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#book-demo" class="btn-fill">Book a demo &rarr;</a>
+          <a href="#features" class="btn-ghost">See how it works</a>
+        </div>
+      </div>
+
+      <!-- Linear-style product mockup repurposed as Clay's GTM pipeline -->
+      <div class="product-frame fade-up">
+        <div class="product-shell">
+          <aside class="app-sidebar">
+            <div class="ws-header">
+              <div class="ws-mark"></div>
+              <div class="ws-name">Linear · GTM</div>
+            </div>
+            <div class="nav-group">
+              <div class="nav-group-label">Workspaces</div>
+              <div class="nav-item active"><span class="nav-item-icon ni-1"></span>Outbound Q1</div>
+              <div class="nav-item"><span class="nav-item-icon ni-2"></span>Dev-tools ICP</div>
+              <div class="nav-item"><span class="nav-item-icon ni-3"></span>Intent triggers</div>
+              <div class="nav-item"><span class="nav-item-icon ni-4"></span>Vertical: Fintech</div>
+            </div>
+            <div class="nav-group">
+              <div class="nav-group-label">Views</div>
+              <div class="nav-item"><span class="nav-item-icon ni-1"></span>Active</div>
+              <div class="nav-item"><span class="nav-item-icon ni-2"></span>Backlog</div>
+              <div class="nav-item"><span class="nav-item-icon ni-3"></span>Done</div>
+            </div>
+          </aside>
+          <div class="app-main">
+            <div class="app-toolbar">
+              <div>
+                <div class="toolbar-title">Outbound Q1 · Dev-tools</div>
+                <div class="toolbar-meta">1,432 accounts &middot; 96.1% coverage &middot; 7 active signals</div>
+              </div>
+              <span class="pill"><span class="pill-dot" style="background:var(--green)"></span> Live</span>
+            </div>
+            <div>
+              <div class="issue-row">
+                <div class="status-icon status-done"></div>
+                <div>
+                  <div class="issue-title">Vercel</div>
+                  <div class="issue-id">LIN-2847</div>
+                </div>
+                <span class="label-chip"><span class="label-dot ld-hiring"></span>Hiring 4x SDR</span>
+                <span class="label-chip"><span class="label-dot ld-icp"></span>Fit: 94</span>
+                <span class="assignee">M</span>
+              </div>
+              <div class="issue-row">
+                <div class="status-icon status-done"></div>
+                <div>
+                  <div class="issue-title">Supabase</div>
+                  <div class="issue-id">LIN-2848</div>
+                </div>
+                <span class="label-chip"><span class="label-dot ld-funding"></span>Series C</span>
+                <span class="label-chip"><span class="label-dot ld-icp"></span>Fit: 91</span>
+                <span class="assignee a2">A</span>
+              </div>
+              <div class="issue-row">
+                <div class="status-icon status-progress"></div>
+                <div>
+                  <div class="issue-title">Railway</div>
+                  <div class="issue-id">LIN-2849</div>
+                </div>
+                <span class="label-chip"><span class="label-dot ld-tech"></span>Outreach installed</span>
+                <span class="label-chip"><span class="label-dot ld-icp"></span>Fit: 87</span>
+                <span class="assignee a3">J</span>
+              </div>
+              <div class="issue-row">
+                <div class="status-icon status-progress"></div>
+                <div>
+                  <div class="issue-title">Resend</div>
+                  <div class="issue-id">LIN-2850</div>
+                </div>
+                <span class="label-chip"><span class="label-dot ld-hiring"></span>GTM Eng role</span>
+                <span class="label-chip"><span class="label-dot ld-icp"></span>Fit: 82</span>
+                <span class="assignee a4">L</span>
+              </div>
+              <div class="issue-row">
+                <div class="status-icon status-todo"></div>
+                <div>
+                  <div class="issue-title">Neon</div>
+                  <div class="issue-id">LIN-2851</div>
+                </div>
+                <span class="label-chip"><span class="label-dot ld-icp"></span>ICP match</span>
+                <span class="label-chip"><span class="label-dot ld-tech"></span>Postgres stack</span>
+                <span class="assignee">M</span>
+              </div>
+              <div class="issue-row">
+                <div class="status-icon status-backlog"></div>
+                <div>
+                  <div class="issue-title">PostHog</div>
+                  <div class="issue-id">LIN-2852</div>
+                </div>
+                <span class="label-chip"><span class="label-dot ld-exec"></span>New CRO</span>
+                <span class="label-chip"><span class="label-dot ld-icp"></span>Fit: 78</span>
+                <span class="assignee a2">A</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted by -->
+    <section class="trusted">
+      <div class="trusted-label fade-up">5,000+ GTM teams ship with Clay</div>
+      <div class="trusted-logos fade-up">
+        <span class="trusted-logo">OpenAI</span>
+        <span class="trusted-logo">Anthropic</span>
+        <span class="trusted-logo">Canva</span>
+        <span class="trusted-logo">Ramp</span>
+        <span class="trusted-logo">Rippling</span>
+        <span class="trusted-logo">Vanta</span>
+        <span class="trusted-logo">Notion</span>
+        <span class="trusted-logo">Intercom</span>
+      </div>
+    </section>
+
+    <!-- Feature 1: experiments -->
+    <section class="feature" id="features">
+      <div class="feature-grid">
+        <div class="fade-up">
+          <span class="feature-eyebrow">— Experiments</span>
+          <h2>Run ten plays in the time<br>it used to take to ship <em>one</em>.</h2>
+          <p class="feature-body">
+            Growth lives or dies on velocity. Spin up a new ICP, enrich it across 150+ providers, layer in intent triggers, and push to Outreach — all in an afternoon. Find the winners, kill the duds, double down.
+          </p>
+          <ul class="feature-list">
+            <li>Define a new ICP in minutes, not weeks</li>
+            <li>Waterfall enrichment across 150+ providers</li>
+            <li>Native push to Outreach, Salesloft, HubSpot</li>
+            <li>Per-experiment dashboards for pipeline attribution</li>
+          </ul>
+        </div>
+        <div class="fade-up">
+          <div class="signal-stream">
+            <div class="signal">
+              <div class="signal-icon si-funding">$</div>
+              <div>
+                <div class="signal-title">Experiment: YC dev-tools cohort</div>
+                <div class="signal-meta">Built in 2 days &middot; $420K pipeline &middot; Winner</div>
+              </div>
+              <div class="signal-time">14d</div>
+            </div>
+            <div class="signal">
+              <div class="signal-icon si-hiring">↑</div>
+              <div>
+                <div class="signal-title">Experiment: Series B hiring waves</div>
+                <div class="signal-meta">Built in 1 day &middot; $280K pipeline &middot; Scaling</div>
+              </div>
+              <div class="signal-time">9d</div>
+            </div>
+            <div class="signal">
+              <div class="signal-icon si-tech">⚙</div>
+              <div>
+                <div class="signal-title">Experiment: Competitor churn signal</div>
+                <div class="signal-meta">Built in 1 day &middot; $650K pipeline &middot; Winner</div>
+              </div>
+              <div class="signal-time">4d</div>
+            </div>
+            <div class="signal">
+              <div class="signal-icon si-exec">★</div>
+              <div>
+                <div class="signal-title">Experiment: Vertical — Fintech</div>
+                <div class="signal-meta">Built in 3 days &middot; $90K pipeline &middot; Killed</div>
+              </div>
+              <div class="signal-time">21d</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 2: intent triggers -->
+    <section class="feature">
+      <div class="feature-grid reverse">
+        <div class="fade-up">
+          <span class="feature-eyebrow">— Intent</span>
+          <h2>Reach the right account<br>at the <em>exact</em> right moment.</h2>
+          <p class="feature-body">
+            Claygent watches funding announcements, exec hires, tech installs, and job posts across your TAM. The moment a signal fires, the account is enriched, scored, and routed into outbound. No more cold inboxes when warm ones are an email away.
+          </p>
+          <ul class="feature-list">
+            <li>7+ live trigger types: funding, hiring, tech, exec moves, churn</li>
+            <li>Auto-enrich &amp; auto-score on signal fire</li>
+            <li>Slack alerts to the right rep, in seconds</li>
+            <li>48-hour median time from signal to first touch</li>
+          </ul>
+        </div>
+        <div class="fade-up">
+          <div class="signal-stream">
+            <div class="signal">
+              <div class="signal-icon si-funding">$</div>
+              <div>
+                <div class="signal-title">Supabase &middot; Series C closed</div>
+                <div class="signal-meta">Routed to outbound in 11 min</div>
+              </div>
+              <div class="signal-time">2m ago</div>
+            </div>
+            <div class="signal">
+              <div class="signal-icon si-hiring">↑</div>
+              <div>
+                <div class="signal-title">Vercel &middot; posted 4x SDR roles</div>
+                <div class="signal-meta">ICP fit: 94 &middot; M assigned</div>
+              </div>
+              <div class="signal-time">8m ago</div>
+            </div>
+            <div class="signal">
+              <div class="signal-icon si-tech">⚙</div>
+              <div>
+                <div class="signal-title">Railway &middot; installed Outreach</div>
+                <div class="signal-meta">Strong fit &middot; queued for tomorrow</div>
+              </div>
+              <div class="signal-time">22m ago</div>
+            </div>
+            <div class="signal">
+              <div class="signal-icon si-exec">★</div>
+              <div>
+                <div class="signal-title">PostHog &middot; new CRO joined</div>
+                <div class="signal-meta">Buying-window flag set</div>
+              </div>
+              <div class="signal-time">1h ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Centered quote -->
+    <section class="quote">
+      <div class="fade-up">
+        <p class="quote-text">
+          "We used to ship one new outbound play a month.<br>
+          <span>With Clay we're shipping one a week — and the winners are funding our roadmap.</span>"
+        </p>
+        <p class="quote-attr">Head of Growth &middot; Dev-tools SaaS</p>
+      </div>
+    </section>
+
+    <!-- Three column: how -->
+    <section class="triad" id="how">
+      <div class="triad-head fade-up">
+        <h2>Built for how growth actually works.</h2>
+        <p>One platform from discovery to dispatch — no engineering tickets, no glue scripts, no waiting on RevOps.</p>
+      </div>
+      <div class="triad-grid">
+        <div class="triad-card fade-up">
+          <div class="triad-mark tm-1">01</div>
+          <h3>Discover</h3>
+          <p>Define a new ICP in minutes. Waterfall through 150+ providers until every account has the firmographics, contacts, and tech stack you need — even on hard-to-reach dev-tool buyers.</p>
+        </div>
+        <div class="triad-card fade-up">
+          <div class="triad-mark tm-2">02</div>
+          <h3>Trigger</h3>
+          <p>Funding rounds, key hires, tech installs, exec moves — Claygent watches them all and fires the right account into outbound the moment a signal flips.</p>
+        </div>
+        <div class="triad-card fade-up">
+          <div class="triad-mark tm-3">03</div>
+          <h3>Operate</h3>
+          <p>Spreadsheet-simple, database-powerful. Build new plays in an afternoon, kill the duds, double down on the winners — without filing a single ticket.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="stats-grid fade-up">
+        <div class="stat"><div class="stat-num">10x</div><div class="stat-label">experiment velocity</div></div>
+        <div class="stat"><div class="stat-num">48h</div><div class="stat-label">signal to first touch</div></div>
+        <div class="stat"><div class="stat-num">3x</div><div class="stat-label">enrichment coverage</div></div>
+        <div class="stat"><div class="stat-num">150+</div><div class="stat-label">data providers</div></div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="book-demo">
+      <div class="fade-up">
+        <h2>Plan the present.<br><span class="gradient">Ship the pipeline.</span></h2>
+        <p>In 30 minutes, we'll walk through how Clay plugs into Linear's growth motion — from new ICP discovery to intent-triggered outbound, all running on autopilot.</p>
+        <div class="hero-cta-row">
+          <a href="https://placeholder-demo-link.com/marcus-chen" class="btn-fill">Book a demo &rarr;</a>
+          <a href="https://placeholder-demo-link.com/marcus-chen" class="btn-ghost">Start for free</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-row">
+      <div class="footer-brand"><span class="nav-logo-mark"></span> Clay</div>
+      <div>Prepared for Marcus Chen at Linear &middot; &copy; 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+[    2484ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.loom.com/_next/data/mNDcFzuNDPejiSpWrlUfx/login.json?page=login:0
+[   10777ms] [WARNING] {msg: An error has occurred checking the feature gate. Only the first occurrence of this error is logged., gateName: use_frontend_feature_encoding_sdk_platform, error: Error: Client must be initialized before using this method
+    at e.value (https://cdn.loom.com/ass…} @ https://cdn.loom.com/assets/js/vendor-4-aaed0d40fd59a8c0.js:6
+[   10925ms] [WARNING] Multiple versions of FeatureGateClients found on the current page.
+      The currently bound version is 0.0.0-development when module version 4.26.5 was loading. @ https://cdn.loom.com/assets/js/vendor-4-aaed0d40fd59a8c0.js:5
+[   10977ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[   11082ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[   11868ms] [LOG] WebConfigClient initialized successfully. @ https://atl-global.atlassian.com/js/atl-global.min.js:78
+[   12139ms] [WARNING] Multiple versions of FeatureGateClients found on the current page.
+      The currently bound version is 0.0.0-development when module version 4.26.5 was loading. @ https://atl-global.atlassian.com/js/2.328.0/feature-gate/featureGateClient.min.js:0
+[   12631ms] [ERROR] Framing 'https://xxid.atlassian.com/' violates the following report-only Content Security Policy directive: "frame-ancestors 'none'". The violation has been logged, but no further action has been taken.
+ @ :0
+[   12640ms] [INFO] Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'nonce-e717500af08641aabd1ca570322c1841''. Either the 'unsafe-inline' keyword, a hash ('sha256-uPTfY5ArWcsZbkQZ2f/AN74avCCKQ/KBAv1z11PqAJE='), or a nonce ('nonce-...') is required to enable inline execution. The policy is report-only, so the violation has been logged but no further action has been taken. @ https://xxid.atlassian.com/?t=1779802749847:0
+[   12657ms] [LOG] FeatureGateClient initialized successfully. @ https://atl-global.atlassian.com/js/atl-global.min.js:78
+[   15072ms] [ERROR] Access to XMLHttpRequest at 'https://www.atlassian.com/gateway/api/graphql' from origin 'https://www.loom.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.loom.com/:0
+[   15072ms] [ERROR] Failed request to retrieve marketingContext from GUPS @ https://atl-global.atlassian.com/js/atl-global.min.js:17
+[   15072ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.atlassian.com/gateway/api/graphql:0
+[   15074ms] [ERROR] Access to XMLHttpRequest at 'https://www.atlassian.com/gateway/api/graphql' from origin 'https://www.loom.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.loom.com/:0
+[   15074ms] [ERROR] Failed request to set firstActivationContext in GUPS @ https://atl-global.atlassian.com/js/atl-global.min.js:78
+[   15074ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.atlassian.com/gateway/api/graphql:0
+[   15287ms] [WARNING] {msg: An error has occurred checking the feature gate. Only the first occurrence of this error is logged., gateName: use_frontend_feature_encoding_sdk_platform, error: Error: Client must be initialized before using this method
+    at e.value (https://www.loom.com/_ne…} @ https://www.loom.com/_next/static/chunks/pages/_app-b78e3d56f3663593.js:0

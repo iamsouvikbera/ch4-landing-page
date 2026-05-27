@@ -1,0 +1,61 @@
+# Clay.com Value Proposition
+
+## What Clay Does (One Sentence)
+
+Clay is a GTM development environment that combines 150+ data providers and AI agents to help revenue teams find, enrich, and act on prospect data at scale.
+
+## The Problem We Solve
+
+Every GTM team knows this pain: good growth ideas die without the right data and the ability to act on it quickly.
+
+Traditional GTM stacks are fragmented nightmares:
+
+- Your CRM stores stale data
+- Your enrichment tool has 60% coverage at best
+- Your outreach platform can't personalize at scale
+- Your team wastes hours copying data between spreadsheets
+- By the time you're ready to act, your best opportunities have gone cold
+
+## How Clay Is Different
+
+### 1. Waterfall Enrichment
+
+Instead of relying on one data provider (and hitting dead ends), Clay waterfalls through 150+ providers until it finds what you need. Customers typically 2-3x their enrichment coverage vs. single-provider tools like ZoomInfo or Apollo.
+
+### 2. AI Research Agents (Claygent)
+
+Our AI agents can research companies at scale—scraping websites, analyzing LinkedIn profiles, summarizing news—and output structured data you can actually use.
+
+### 3. Works Like a Spreadsheet, Thinks Like a Database
+
+No-code interface that ops people and marketers can use. Import leads, add enrichment columns, apply AI analysis, push to your CRM or outreach tools. What takes hours manually happens in minutes.
+
+### 4. One Platform, Not 10 Tools
+
+Stop paying for separate subscriptions to data providers, enrichment tools, and automation platforms. Clay consolidates your GTM stack.
+
+## Results We Deliver
+
+- **3x** enrichment rates vs. single-provider solutions
+- **80%** reduction in manual research time
+- Personalization at scale without hiring more SDRs
+- Faster speed-to-lead on inbound and intent signals
+
+## Who Uses Clay
+
+5,000+ customers including OpenAI, Anthropic, Canva, Ramp, Rippling, Vanta, Intercom, and Notion.
+
+## Company Stats
+
+- **$3.1B valuation** (Jan 2025)
+- 10x'd revenue in 2022, 10x'd again in 2023, 6x'd in 2024
+- ~100 person team
+- **4.9 rating** on G2
+
+## Core Use Cases
+
+1. **Outbound prospecting** — Build hyper-targeted lists with multi-source enrichment
+2. **CRM enrichment** — Keep your database fresh with automated syncs
+3. **Inbound lead scoring** — Enrich and route leads in real-time
+4. **Intent-based outreach** — Trigger campaigns based on job changes, funding, tech installs
+5. **Account-based marketing** — Personalize landing pages, ads, and emails at scale

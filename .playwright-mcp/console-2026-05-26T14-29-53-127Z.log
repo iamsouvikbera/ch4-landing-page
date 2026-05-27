@@ -1,0 +1,48 @@
+[    4805ms] [LOG]     %c,;PUPUn=w,,_
+  ,HLLLLLLa@@WW@@h_
+ :LLLLLLa$%c0$$a@$0%cBN
+ $LL$LLa@%cN$%cb$$@0%cp$%c@b
+!@@$@$@$%cE$%cE$E@$E%cb@%cb@
+!@@@@@E$%cE@%cb$$$$L%c@E%cNP     Want to work for Clay?
+   `"TEN%cP"%c`"``           www.clay.com/careers color: #21b4db color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 @ https://app.clay.com/assets/index-CbKLQ-7y.js:345
+[    5809ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://api.clay.com/v3/my-workspaces:0
+[    5815ms] AxiosError: Request failed with status code 401
+    at NXn (https://app.clay.com/assets/vendor-SRcaHQtQ.js:124:1083)
+    at XMLHttpRequest.g (https://app.clay.com/assets/vendor-SRcaHQtQ.js:124:5717)
+    at UO.request (https://app.clay.com/assets/vendor-SRcaHQtQ.js:126:2025)
+    at async FDe (https://app.clay.com/assets/index-CbKLQ-7y.js:56:175049)
+[    5823ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://api.clay.com/v3/me:0
+[    5855ms] AxiosError: Request failed with status code 401
+    at NXn (https://app.clay.com/assets/vendor-SRcaHQtQ.js:124:1083)
+    at XMLHttpRequest.g (https://app.clay.com/assets/vendor-SRcaHQtQ.js:124:5717)
+    at UO.request (https://app.clay.com/assets/vendor-SRcaHQtQ.js:126:2025)
+    at async Ylt (https://app.clay.com/assets/index-CbKLQ-7y.js:59:321151)
+    at async https://app.clay.com/assets/index-CbKLQ-7y.js:59:321468
+[    7377ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[   71560ms] [VERBOSE] [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o @ https://app.clay.com/:0
+[   99924ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://www.facebook.com/privacy_sandbox/pixel/register/trigger/?id=792409723405810&ev=SubscribedButtonClick&dl=https%3A%2F%2Fapp.clay.com%2F&rl=&if=false&ts=1779805892952&cd[buttonFeatures]=%7B%22classList%22%3A%22w-full%20relative%20isolate%20inline-flex%20items-center%20rounded%20border%20font-medium%20justify-center%20focus-visible%3Aoutline-2%20focus-visible%3Aoutline-offset-0%20outline-outline-focus-ring%20data-disabled%3Abg-(--btn-disabled-bg)%20data-disabled%3Atext-(--btn-disabled-text)%20data-disabled%3Acursor-auto%20%5B%26%3Esvg%5D%3A-mx-0.5%20%5B%26%3Esvg%5D%3Amy-0.5%20%5B%26%3Esvg%5D%3Ashrink-0%20text-sm%20h-11%20gap-x-2%20px-%5Bcalc(--spacing(3))%5D%20py-0%20%5B%26%3Esvg%5D%3Asize-4%20bg-(--btn-bg)%20hover%3Abg-(--btn-hover-bg)%20border-transparent%20text-content-inverse%20%5B--btn-hover-bg%3Avar(--color-bg-action-inverse-hover)%5D%20%5B--btn-bg%3Avar(--color-bg-action-inverse)%5D%20%5B--btn-disabled-bg%3Avar(--color-bg-action-inverse)%5D%20%5B--btn-disabled-text%3Avar(--color-content-inverse)%5D%20data-disabled%3Aopacity-50%22%2C%22destination%22%3A%22https%3A%2F%2Fapp.clay.com%2F%22%2C%22id%22%3A%22%22%2C%22imageUrl%22%3A%22%22%2C%22innerText%22%3A%22Continue%22%2C%22numChildButtons%22%3A0%2C%22tag%22%3A%22button%22%2C%22type%22%3A%22submit%22%2C%22name%22%3A%22%22%2C%22value%22%3A%22%22%7D&cd[buttonText]=Continue&cd[formFeatures]=%5B%7B%22id%22%3A%22base-ui-%3Ar4%3A%22%2C%22name%22%3A%22%22%2C%22tag%22%3A%22input%22%2C%22placeholder%22%3A%22Email%20address%22%2C%22inputType%22%3Anull%7D%2C%7B%22id%22%3A%22base-ui-%3Ar6%3A%22%2C%22name%22%3A%22%22%2C%22tag%22%3A%22input%22%2C%22placeholder%22%3A%22Password%22%2C%22inputType%22%3A%22password%22%7D%2C%7B%22id%22%3A%22%22%2C%22name%22%3A%22%22%2C%22tag%22%3A%22button%22%7D%5D&cd[pageFeatures]=%7B%22title%22%3A%22Clay%20%7C%20Login%22%7D&sw=1470&sh=956&cudff[em]=**********%23%23%23%40*****.***&ncudff[em]=**********%23%23%23%40*****.***&udff[em]=f3887683a65955ab5e35e1556602efd300f9f4e6cb1cb3ab64e7a5d3609ff27c&audff[em]=f3887683a65955ab5e35e1556602efd300f9f4e6cb1cb3ab64e7a5d3609ff27c&v=2.9.325&r=stable&a=seg&ec=4&o=6174&fbp=fb.1.1779805802220.736870560521065086&ler=empty&cdl=API_unavailable&pmd[description]=Access%20100%2B%20premium%20data%20sources%20and%20AI%20research%20agents%20in%20one%20platform%2C%20then%20automate%20growth%20workflows%20to%20turn%20insights%20into%20revenue.&plt=4763.600000023842&tz=330&it=1779805801266&coo=false&dpo=LDU&dpoco=0&dpost=0&es=automatic&tm=3&expv2[0]=pl0&expv2[1]=el2&expv2[2]=bc1&expv2[3]=ra2&expv2[4]=rp2&expv2[5]=im0&expv2[6]=hf0&rqm=FGET:0
+[  101272ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[  106220ms] [LOG]     %c,;PUPUn=w,,_
+  ,HLLLLLLa@@WW@@h_
+ :LLLLLLa$%c0$$a@$0%cBN
+ $LL$LLa@%cN$%cb$$@0%cp$%c@b
+!@@$@$@$%cE$%cE$E@$E%cb@%cb@
+!@@@@@E$%cE@%cb$$$$L%c@E%cNP     Want to work for Clay?
+   `"TEN%cP"%c`"``           www.clay.com/careers color: #21b4db color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 color: #cb3137 color: #21b4db color: #cb3137 color: #ffcd00 @ https://app.clay.com/assets/index-CbKLQ-7y.js:345
+[  112284ms] [ERROR] Amplitude Logger [Error]: Failed to generate joined config:  Error: No remote config received @ https://app.clay.com/assets/vendor-SRcaHQtQ.js:131
+[  122454ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[  275465ms] [ERROR] WebSocket connection to 'wss://vs.clay.com/logs-ws' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED @ https://vs.clay.com/bundle.js:9
+[  292314ms] [ERROR] WebSocket connection to 'wss://vs.clay.com/logs-ws' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED @ https://vs.clay.com/bundle.js:9
+[  306263ms] [ERROR] WebSocket connection to 'wss://vs.clay.com/logs-ws' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED @ https://vs.clay.com/bundle.js:9
+[  327802ms] [ERROR] WebSocket connection to 'wss://vs.clay.com/logs-ws' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED @ https://vs.clay.com/bundle.js:9
+[  344406ms] [WARNING] WebSocket connection to 'wss://nexus-websocket-a.intercom.io/pubsub/5-lYNVSA1DQ5yeIXHAM0LI1qZybEJVuO9ECDCcMulNFjp_Bw-GWP4nStr8hF44_GPwpWkfn4DzqD8pqfKS2DRdscHjeJRegIjl-Jcb?X-Nexus-New-Client=true&X-Nexus-Version=0.18.8&user_role=user' failed: WebSocket is closed before the connection is established. @ https://js.intercomcdn.com/vendor-modern.60bbf292.js:1
+[  365905ms] [ERROR] WebSocket connection to 'wss://vs.clay.com/logs-ws' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED @ https://vs.clay.com/bundle.js:9
+[  379735ms] [WARNING] WebSocket connection to 'wss://nexus-websocket-a.intercom.io/pubsub/5-lYNVSA1DQ5yeIXHAM0LI1qZybEJVuO9ECDCcMulNFjp_Bw-GWP4nStr8hF44_GPwpWkfn4DzqD8pqfKS2DRdscHjeJRegIjl-Jcb?X-Nexus-New-Client=true&X-Nexus-Version=0.18.8&user_role=user' failed: WebSocket is closed before the connection is established. @ https://js.intercomcdn.com/vendor-modern.60bbf292.js:1
+[  393471ms] [ERROR] WebSocket connection to 'wss://api.clay.com/ws' failed: WebSocket opening handshake timed out @ https://app.clay.com/assets/vendor-SRcaHQtQ.js:921
+[  424301ms] [WARNING] WebSocket connection to 'wss://nexus-websocket-a.intercom.io/pubsub/5-lYNVSA1DQ5yeIXHAM0LI1qZybEJVuO9ECDCcMulNFjp_Bw-GWP4nStr8hF44_GPwpWkfn4DzqD8pqfKS2DRdscHjeJRegIjl-Jcb?X-Nexus-New-Client=true&X-Nexus-Version=0.18.8&user_role=user' failed: WebSocket is closed before the connection is established. @ https://js.intercomcdn.com/vendor-modern.60bbf292.js:1
+[  437922ms] [ERROR] WebSocket connection to 'wss://vs.clay.com/logs-ws' failed: Error in connection establishment: net::ERR_CONNECTION_CLOSED @ https://vs.clay.com/bundle.js:9
+[  470446ms] [WARNING] WebSocket connection to 'wss://nexus-websocket-a.intercom.io/pubsub/5-lYNVSA1DQ5yeIXHAM0LI1qZybEJVuO9ECDCcMulNFjp_Bw-GWP4nStr8hF44_GPwpWkfn4DzqD8pqfKS2DRdscHjeJRegIjl-Jcb?X-Nexus-New-Client=true&X-Nexus-Version=0.18.8&user_role=user' failed: WebSocket is closed before the connection is established. @ https://js.intercomcdn.com/vendor-modern.60bbf292.js:1
+[  500448ms] [WARNING] WebSocket connection to 'wss://nexus-websocket-a.intercom.io/pubsub/5-lYNVSA1DQ5yeIXHAM0LI1qZybEJVuO9ECDCcMulNFjp_Bw-GWP4nStr8hF44_GPwpWkfn4DzqD8pqfKS2DRdscHjeJRegIjl-Jcb?X-Nexus-New-Client=true&X-Nexus-Version=0.18.8&user_role=user' failed: WebSocket is closed before the connection is established. @ https://js.intercomcdn.com/vendor-modern.60bbf292.js:1
+[  510970ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://browser-intake-datadoghq.com/api/v2/rum?ddsource=browser&dd-api-key=pubf38f51a827d2373e05ce0461e4405de3&dd-evp-origin-version=6.32.0&dd-evp-origin=browser&dd-request-id=3f8ba45b-1c38-4c95-a074-73989c95eca6&batch_time=1779806232691&_dd.api=fetch:0
+[  523624ms] [ERROR] WebSocket connection to 'wss://api.clay.com/ws' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED @ https://app.clay.com/assets/vendor-SRcaHQtQ.js:921
+[  531543ms] [WARNING] WebSocket connection to 'wss://nexus-websocket-a.intercom.io/pubsub/5-lYNVSA1DQ5yeIXHAM0LI1qZybEJVuO9ECDCcMulNFjp_Bw-GWP4nStr8hF44_GPwpWkfn4DzqD8pqfKS2DRdscHjeJRegIjl-Jcb?X-Nexus-New-Client=true&X-Nexus-Version=0.18.8&user_role=user' failed: WebSocket is closed before the connection is established. @ https://js.intercomcdn.com/vendor-modern.60bbf292.js:1
